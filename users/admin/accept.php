@@ -53,7 +53,7 @@ if (!$result) {
 
 
         if ($row['user_type'] == "REVIEWER") {
-            $insert_query = "INSERT INTO author_profile(fullname, birthdate, contact_number, unit, street, barangay, city, province, country, discipline, qualification, designation, affiliation, email_address, username, password, cv, intent, status)
+            $insert_query = "INSERT INTO reviewer_profile(fullname, birthdate, contact_number, unit, street, barangay, city, province, country, discipline, qualification, designation, affiliation, email_address, username, password, cv, intent, status)
                   SELECT  fullname, birthdate, contact_number, unit, street, barangay, city, province, country, discipline, qualification, designation, affiliation, email_address, username, password, cv, intent, 'IDLE' as status
                   FROM for_approval_of_account
                   WHERE id = ?";
