@@ -107,7 +107,7 @@ if(isset($_POST["submit_reviewer"]))
             // Store the file path in the database
             $sql = "INSERT INTO for_approval_of_account (`user_type`,`fullname`, `birthdate`, `contact_number`, `unit`,`street`,`barangay`, `city`, `province`, `country`, `discipline`, `qualification`, `designation`, `affiliation`,`email_address`, `username`, `password`, `cv`, `intent`) VALUES (?,?,?,?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sssssssssssssssssss", $usertype_author, $fullname, $birthdate, $number, $unit, $street , $barangay, $city, $province, $country, $disciplines, $qualification, $designation, $affiliation, $email, $uname, $pass,     $cv_newFileName, $intent_newFileName);
+            $stmt->bind_param("sssssssssssssssssss", $usertype_reviewer, $fullname, $birthdate, $number, $unit, $street , $barangay, $city, $province, $country, $disciplines, $qualification, $designation, $affiliation, $email, $uname, $pass,     $cv_newFileName, $intent_newFileName);
             $stmt->execute();
 
             echo ('<script type="text/javascript"> alert("Application Sent Successfully! Kindly wait for confirmation email that will take 3 to 7 days working days!"); location="index.php"; </script>');
