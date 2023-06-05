@@ -1,0 +1,54 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    background-image: url('pictures/rtu.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.content
+{
+  background-color: white;
+}
+
+h5
+{
+  color: #336090;
+  font-size: 30px;
+  padding: 0 0 0 30px;
+
+}
+
+.volumes
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.covers
+{
+  padding: 30px;
+}
+
+.volumes > .covers
+{
+  height: 310px;
+  width: 210px;
+  margin: 50px;
+}
+.cover-page
+{
+  height: 300px;
+  width: 200px;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+

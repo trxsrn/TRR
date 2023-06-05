@@ -1,0 +1,75 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.content-body
+{
+  margin: 5% 1% 0 1% ;
+}
+
+a
+{
+    color: black;
+}
+
+table
+{
+    width: 100%;
+    margin: 10px 0;
+    border-collapse: collapse;
+}
+
+table th, td
+{
+    padding: 10px;
+    text-align: left;
+}
+
+.rsrch-lbl
+{
+    width: 25%;
+    
+}
+
+.rsrch-desc
+{
+    width: 75%;
+}
+
+.part
+{
+    width: 70%;
+}
+
+
+.answer
+{
+    width: 15%;
+}
+
+th
+{
+    background-color: #002057;
+    color: white;
+}
+
+textarea
+{
+    width: 100%;
+    resize: none;
+    height: 50px;
+    background-color: #D9D9D9;
+}
+
+.review_btn
+{
+    background-color: #002057;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    float: right;
+    text-decoration: none;
+}
+

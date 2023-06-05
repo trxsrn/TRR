@@ -1,0 +1,80 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: 'Century Gothic',"FontAwesome";
+}
+
+h1
+{
+  width: 100%;
+  background-color: #336090;
+  color: white;
+  padding: 10px 0;
+}
+
+.content-body
+{
+    padding: 20px 40px;
+}
+
+.summary
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.summary > .count-summary
+{
+  justify-content: space-between;
+  width: 45%;
+  box-shadow: 0 5px 5px 0 black;
+}
+
+.count-summary
+{
+  background-color: #002057;
+  color: white;
+  padding: 20px;
+}
+
+.summary > .count-progress
+{
+  width: 20%;
+  justify-content: space-evenly;
+  box-shadow: 0 5px 5px 0 black;
+}
+
+.count-progress
+{
+  background-color: #336090;
+  padding: 20px;
+  color: white;
+} 
+
+table
+  {
+    width: 100%;
+  }
+  
+  input[type="search"]
+  {
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid #002057;
+    padding: 10px 0;
+  }
+  
+  th
+  {
+    padding: 10px;
+  }
+
+.assign
+{
+  display: none;
+}
+  
+  

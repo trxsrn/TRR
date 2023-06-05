@@ -1,0 +1,330 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family:'Inter','SansSerif';
+    box-sizing: border-box;
+}
+
+:root{
+    --Nav_Color:#002057;
+    --Second_Color:#FFC001;
+    --Nav_List:#FFFFFF;
+    --Font_Size:1.2rem;
+    --scrollbar-color:rgba(0, 0, 0, 0.05);
+    --scrollbar-thumb:rgb(139, 137, 137);
+    --Item-hover:rgb(206, 204, 204);
+}
+.nav__bar{
+    position: fixed;
+    top: 0;
+    left: -13.5em;
+    width: 13.5em;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--Nav_Color);
+    transition: .75s;
+    z-index: 999;
+}
+
+.nav__bar::before,.nav__bar::after{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    content: '';
+    width: 90%;
+    height: 50vh;
+    background-image: url('RTU_Seal\ 3.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+
+.nav__bar::after{
+    position: absolute;
+    top:50vh;
+    left: 0px;
+    height: 50vh;
+    background-image: url('RDC\ logo\ 2.png');
+    background-position: left;
+    z-index: 0;
+}
+
+.nav__content{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nav__content span i{
+    padding: 5px;
+    font-size: var(--Font_Size);
+    color: var(--Nav_List);
+    cursor: pointer;
+}
+.logo__container{
+    position: relative;
+    padding: 10px;
+    align-self: center;
+    width: 80%;
+    width: 11.5125em;
+    height: 11.5125em;
+}
+
+.logo__container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: solid 8px var(--Second_Color);
+}
+
+.logo__label__container{
+    font-size:var(--Font_Size);
+    text-align: center;
+    font-weight: 500;
+    z-index: 100;
+}
+
+.navigation__links{
+    margin-top: 5rem;
+    width: 100%;
+    z-index: 2;
+}
+
+.navigation__links li{
+    font-size: var(--Font_Size);
+    display: flex;
+}
+
+.navigation__links li a{
+    padding:.5em 0 .5em 0;
+    width: 100%;
+    text-decoration: none;
+    color: var(--Nav_List);
+    padding-left: 1em;
+    font-size: var(--Font_Size);
+    font-weight: 500;
+
+}
+
+.navigation__links li:hover,.--active__link {
+    background-color: var(--Nav_List);
+    background-color: white;
+}
+
+.navigation__links li:hover a,.--active__link a{
+    background-color: var(--Nav_List);
+    color: #000000;
+}
+#drp--dwn{
+    transition: .5s;
+}
+
+#drp--dwn.rotateUp{
+    transform: rotate(-180deg);
+}
+
+/* Header */
+.header__nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 888;
+}
+
+.dummy{
+    width: 100%;
+    min-height: 200vh;
+    background-color: green;
+}
+header{
+    position: relative;
+    height: 4rem;
+    width: 100%;
+    background-color: var(--Nav_Color);
+    padding: 8px 16px 8px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__box{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__box div{
+    font-size: var(--Font_Size);
+    color: var(--Nav_List);
+    align-items: center;
+}
+
+.header__box div:nth-child(1){
+    gap:1em;
+    transition: .75s;
+    transition-delay: .10s;
+}
+
+.header__box div i{
+    font-size: 1.56525rem;
+    cursor: pointer;
+}
+
+.header__box :last-child p:nth-child(1),
+.header__box :last-child p:nth-child(2),
+.header__box :last-child p:nth-child(3),
+.header__box :last-child p:nth-child(4){
+    position: relative;
+    border-right: solid 1px var(--Nav_List);
+    text-align: center;
+    padding: .5em;
+}
+.bell::before{
+    position: absolute;
+    content: '99';
+    top: 0;
+    right: 3px;
+    width: 14px;
+    height: 14px;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: red;
+    border-radius: 50%;
+
+}
+.bell.show::after,.settings::after{
+    display: none;
+    position: absolute;
+    content: '';
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    background-color: white;
+}
+
+.bell.show::after,.settings.show::after{
+    display: block;
+}
+
+.header__box :last-child p{
+    padding: .25em;
+}
+/* Header ENDPOINT */
+
+/* Upper Navigation */
+.Upper__Nav{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    z-index: 999;
+}
+
+.Notification__block,.Settings__block{
+    display: none;
+    position: absolute;
+    right:10px;
+    top: 0;
+    width: 35%;
+    max-height: 450px;
+    padding: 1em;
+    box-shadow: 0 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: var(--Nav_List);
+    overflow-y: hidden;
+}
+
+.Settings__block{
+    display: none;
+    flex-direction: column;
+    width: 20%;
+    padding: 1em;
+}
+
+.Settings__block ul{
+    width: 100%;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: .5em;
+}
+
+.Settings__block ul li{
+    position: relative;
+    list-style: none;
+    display: flex;
+    padding-left: .5em;
+}
+
+.Settings__block ul li a{
+    width: 100%;
+    padding: .5em 0 .5em 0;
+    text-decoration: none;
+    font-weight: 400;
+    color: #000000;
+}
+
+.Settings__block ul li:hover{ 
+    background-color: var(--Item-hover);
+    border-radius: 5px;
+}
+.Notification__block h5,.Settings__block h4{
+    font-size: 13px;
+    width: 100%;
+    padding-bottom: .25em;
+    border-bottom: solid 2px black;
+}
+
+.Settings__block h4{
+    font-size: var(--Font_Size);
+    border-bottom: solid 2px grey;
+}
+
+.Notification__block .notif__messages{
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.Notification__block .notif__messages.notif__messages::-webkit-scrollbar{
+    width: 5px;
+    background-color: var(--scrollbar-color);
+    border-radius: 5px;
+}
+
+.Notification__block .notif__messages.notif__messages::-webkit-scrollbar-thumb{
+    background-color: var(--scrollbar-thumb);
+    border-radius: 10px;
+}
+
+
+.message{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    border-bottom: solid 1px black;
+    padding: .25em;
+}
+
+.message:hover{
+    background-color: var(--Item-hover);
+}
+
+.message p:nth-child(2){
+    padding-top: .5em;
+    font-size: 10px;
+}
+/* Upper Navigation EndPoint */

@@ -1,0 +1,48 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.content-body
+{
+  margin: 5% 1% 0 1% ;
+}
+
+a
+{
+    color: black;
+}
+
+table
+{
+    width: 100%;
+    margin: 10px 0;
+}
+
+table th, td
+{
+    padding: 10px;
+    text-align: left;
+}
+
+td
+{
+    padding: 20px;
+}
+
+th
+{
+    background-color: #002057;
+    color: white;
+}
+
+.review_btn
+{
+    background-color: #002057;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    float: right;
+    text-decoration: none;
+}

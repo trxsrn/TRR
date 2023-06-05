@@ -1,0 +1,55 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}   
+
+h1
+{
+  background-color: #002057;
+  color: white;
+  text-align: center;
+  margin: 0 0 25px 0;
+}
+
+input[type="search"]    
+{
+    margin: 20px;
+    background-color: #265999;
+    width: 100%;
+    border-radius: 25px;
+    border: none;
+    padding: 15px;
+}
+  
+  input[type="search"]::placeholder {
+    color: #bbb;
+  }
+
+table
+{
+    width: 100%;
+    padding: 10px;
+}
+
+tr th
+{
+    padding: 10px;
+}
+
+th
+{
+    border-bottom: 2px solid #002057;
+
+}
+
+
+
+.add-author
+{
+    padding: 10px;
+    background-color: #002057;
+    color: white;
+    border: none;
+}

@@ -1,0 +1,227 @@
+body
+{
+    background-image: url('img/backgrounds/rtu-gb.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.mySlides {display: none}
+
+.mySlides img
+{
+  width:100%; 
+  height: 80%;
+}
+
+img {vertical-align: middle;}
+
+.slideshow-container {
+  position: relative;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.thumbnail {
+  cursor: pointer;
+  width:10%; 
+  height: 10%;
+  margin: 0 2px 0 0;
+  background-color: #bbb;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  opacity: 0.5;
+}
+
+.active, .thumbnail:hover {
+  opacity: 1;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.current
+{
+  height: auto;
+  padding: 20px;
+  background-color: #265a99a3;
+
+}
+
+.cover-page
+{
+  margin: 20px 0 0 12%;
+  height: 500px;
+  width: 350px;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.current-title
+{
+  background-color: #ffc001 ;
+  color: black;
+}
+
+.current-sub
+{
+  text-align: center;
+  padding: 50px  0 0 0;
+  border: none;
+  color: white;
+}
+
+.current-issue
+{
+  margin: 50px 0 0 0;
+  float: right;
+  width: 60%; 
+  text-align: center;
+}
+
+.current-link
+{
+  background-color: #ffc001;
+  padding: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+h1
+{
+    color:#ffc001;
+    padding: 20px;
+}
+
+.about
+{
+    background-color: #265a99f0;
+    border-top: 10px solid #ffc001;
+    border-bottom: 10px solid #ffc001;
+    padding: 50px 100px;  
+    color: rgb(255, 255, 255);   
+    text-align: center;
+}
+
+.values
+{
+
+
+  width:  50%;
+  padding: 50px;
+  float: left;
+}
+
+h2
+{
+    color:  #265999 ;
+    border-left: 5px solid #ffc001;
+    padding-left: 10px;
+}
+
+p
+{
+    font-size: 14px;
+    text-align: left;
+    padding: 20px 30px 20px 30px;
+}
+
+.content
+{
+  background-color: rgba(255, 255, 255, 0.811);
+  padding: 20px 0 0 0;
+}
+
+.events-column
+{
+  width: 25%; 
+  border-left: 5px solid #ffc001; 
+  padding: 20px;
+  float: right;
+}
+
+.events-column img
+{
+  padding: 0 0 0 20px;
+  height: 200px;
+  width: 300px;
+}
+
+.events-column .caption
+{
+  padding: 20px;
+  font-size: 10px;
+} 
+
+@media (max-width: 400px) {
+
+  .current-issue
+  {
+    width: 50%; 
+  }
+
+  .cover-page
+  {
+    margin: 10%;
+    height: 200px;
+    width: 150px;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .current-issue
+  {
+    width: 50%; 
+  }
+
+  .cover-page
+  {
+    margin: 10px 0 0 5%;
+    height: 350px;
+    width: 250px;
+  }
+
+  .events-column
+  {
+    float: none;
+    border-left: none;
+    border-top: 5px solid #ffc001; 
+    width: 100%;
+  }
+
+  .events-column h1
+  {
+    float: none;
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,35 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}   
+
+body
+{
+  font-family: 'Century Gothic';
+}
+
+.content
+{
+  margin:  0 0 0 13%;
+}
+
+.content-body
+{
+  margin: 30px 50px;
+}
+
+
+h1
+{
+  background-color: #002057;
+  color: white;
+  text-align: center;
+  margin: 0 0 25px 0;
+}
+
+p
+{
+    color: black;
+}

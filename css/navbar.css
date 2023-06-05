@@ -1,0 +1,294 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Century Gothic';
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header {
+    background-color: #265999;
+    border-bottom: 5px solid #ffc001;
+}
+
+.header .wrap { 
+    height: 90px;
+    padding: 0 20px;
+    align-items: center;
+}
+
+img
+{
+  height: 80px;
+  width: 450px;
+}
+
+.icon-bar {
+    display: none;
+}
+
+.navbar .close-nav {
+    float: right;
+    display: none;
+}
+
+.navbar ul {
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    align-items: center;
+    z-index: 1;
+}
+
+.navbar li {
+    padding: 0 0.6em;
+}
+
+.navbar .links {
+    font-size: 12px;
+    display: block;
+    padding: 0.3em;
+    font-weight: bold;
+    color: white;
+}
+.navbar .links:hover {
+    color: #ffc001;
+}
+
+.login-btn
+{
+    background-color: #ffc001;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.login-btn:hover
+{
+    color:#336090;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.flex li ul {
+    display: none;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+.flex li:hover ul 
+{
+    display: block;
+    position: absolute;
+    padding: 25px;
+    color: white;
+    border-bottom: #265999;
+
+}
+.navbar li ul li 
+{
+    background-color: #265999;
+    padding: 10px;
+    border-bottom: 2px solid #ffc001;
+}
+
+.footer-banner{
+    width: 100%;
+    min-height:13em;
+    background-color:#265999;
+    border-top: solid 10px #ffc001;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-container{
+    padding: 5px;
+    width: 100%;
+    min-height:12em;
+}
+
+.grid-content{
+    position: relative;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    min-height: 12em;
+    /* background-color: white; */
+}
+
+.collab-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.collab-img-container{
+    position: relative;
+    width: 8em;
+    height: 7em;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    align-items:center
+}
+
+.logo-1,.logo-2{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ffc001;
+    padding: 5px;
+}
+
+.logo-1{
+    top:-25%;
+    left:-25%;
+    z-index:1;
+}
+
+.logo-2{
+    bottom: -25%;
+    right: -25%;
+}
+
+.footer-content{
+    border-left: solid 3px #ffc001;
+    padding: 1em;
+}
+
+.footer-infos{
+    width: 100%;
+    height: 100%;
+    /* background-color: aqua; */
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 1em;
+
+}
+
+.footer-description ,.footer-contacts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    color: white;
+}
+
+.footer-description p{
+    margin-top: 1em;
+    text-align: justify;
+}
+
+.footer-contacts{
+    padding-left: 3em;
+}
+
+.contacts{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    color: white;
+
+}
+
+footer h3{
+    padding: .5em;
+}
+
+footer p{
+    padding: 5px;
+}
+
+@media (max-width: 1000px) {
+.container {
+    font-size: 35px;
+}
+.icon-bar {
+    cursor: pointer;
+    margin-left: 20%;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ffc001;
+    width: 25px;
+    height: 25px;   
+    padding: 5px;
+}
+.icon-bar:hover {
+    background-color: #ffc001;
+}
+.icon-bar span {
+    border-top: 2px solid white;
+    width: 100%;
+}
+.icon-bar span::before,
+.icon-bar span::after {
+    content: "";
+    border-bottom: 2px solid #ffffff;
+    display: block;
+    height: 8px;
+}
+.overflow-none {
+    overflow: hidden;
+}
+.navbar {
+    position: fixed;
+    width: 50%;
+    transition: ease 0.5s;
+    transform: scaleX(0);
+    margin: 25%;
+    top: 0;
+    left: 0;
+    background-color: #265999;
+    z-index: 9;
+}
+.navbar .close-nav {
+    all: unset;
+    font-size: 35px;
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+}
+.navbar .close-nav:hover {
+    color: #ffc001;
+}
+.navbar ul {
+    flex-direction: column;
+    padding: 2rem;
+}
+.navbar li {
+    padding: 0.7rem 0;
+}
+.navbar a {
+    text-align: left;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.navbar a:hover {
+    text-decoration: underline;
+}
+.nav-scale {
+    transform: scale(1) !important;
+}
+}
+
+
+
+
+

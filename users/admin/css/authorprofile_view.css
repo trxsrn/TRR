@@ -1,0 +1,53 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.content-body
+{
+  margin: 5% 1% 0 1% ;
+}
+
+h3
+{
+    margin: 5% 0 2% 0;
+}
+
+.header-back
+{
+    color: black;
+}
+
+img
+{
+    height: 170px;
+    width: 150px;
+}
+
+.author-details
+{
+    display: flex;
+}
+
+.author-details > .card1, .card2
+{
+    flex-wrap: wrap;
+    padding: 25px;
+}
+
+.card1
+{
+    width: 15%;
+}
+
+.card2
+{
+    width: 80%;
+}
+
+table
+{
+    width: 100%;
+    margin: 10px;
+}

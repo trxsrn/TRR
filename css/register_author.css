@@ -1,0 +1,173 @@
+*
+{
+  padding: 0;
+  margin: 0;
+  font-family: 'Century Gothic';
+  font-size: 13px;
+}
+
+body{
+  background-color: #D9D9D9;
+}
+
+.close-form
+{
+  float: right;
+  padding: 10px;
+}
+
+.regi_author
+{
+  margin: 3% 10%;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.regi_author > .personal-info, .login-info
+{
+  width: 50%;
+}
+
+.personal-info-in, .login-info-desc
+{
+  padding: 50px;  
+}
+
+
+.personal-info-title, .sign-up-title
+{
+  font-size: 25px;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.personal-info-title
+{
+  color:#002057;
+}
+
+.sign-up-title
+{
+  color:white;
+}
+
+.name
+{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 20px 0;
+}
+
+.birth-contact
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.personal-info
+{
+  background-color: #D9D9D9;
+}
+
+.login-info
+{
+  background-color: #002057;
+  color: white;
+}
+
+.login-info .input
+{
+  border-bottom: 2px solid white;
+}
+
+.input-personal
+{
+  background: none;
+  border: none;
+  border-bottom: 2px solid black;
+  padding: 5px;
+  width: 140px;
+}
+
+.input-personal-date, .input-personal-contact
+{
+  background: none;
+  border: none;
+  border-bottom: 2px solid black;
+  padding: 5px;
+  width: 200px;
+}
+
+.input-personal-address
+{
+  background: none;
+  border: none;
+  border-bottom: 2px solid black;
+  padding: 5px;
+  width: 98%;
+}
+
+.input-login
+{
+  background: none;
+  border: none;
+  border-bottom: 2px solid white;
+  margin: 10px;
+  width: 100%;
+  color: white;
+}
+
+.author-btn
+{
+  background-color: #ffc001;
+  margin: 30px 20px;
+  padding: 5px;
+  border: none;
+  font-weight: bold;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.address-input
+{
+  margin: 10px 0;
+}
+
+.file-submit
+{
+  margin: 10px 0;
+}
+
+select
+{
+  width: 100%;
+  padding: 5px;
+  margin: 10px 10px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+input[type=text], input[type=date], input[type=email], input[type=password], select, p
+{
+  margin: 0 0 10px 0;
+  font-weight: bold;
+  outline: none;
+}
+
+input[type=file]
+{
+  float: center;
+}
+
+.creden
+{
+  margin: 50px;
+}
+
+.login-input
+{
+  margin: 10px 0;
+}

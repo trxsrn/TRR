@@ -1,0 +1,78 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Century Gothic',"FontAwesome";
+}
+
+h1
+{
+  width: 100%;
+  background-color: #336090;
+  color: white;
+  padding: 10px 0;
+}
+
+.content-body
+{
+  padding: 20px 40px;
+}
+
+.user-type
+{
+    font-size: 20px;
+    color: black;
+}
+.user-type-label
+{
+   padding: 10px  0 0 0;
+  font-size: 15px;
+  color: black;
+}
+
+form
+{
+  display: flex;
+  flex-direction: row-reverse;
+ justify-content: space-between;
+}
+
+table
+{
+  width: 60%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+th
+{
+  width: 25%;
+  text-align:center;
+}
+
+th, td
+{
+  padding: 20px;
+  font-size: 10px;
+}
+
+button, input[type="submit"]
+{
+  padding: 10px 20px;
+  background-color: #002057 ;
+  color: white;
+  border: none;
+  width: 350px;
+  margin: 5px;
+}
+
+img
+{
+  height: 400px;
+  width: 350px;
+}
+
+.personal-info
+{
+  border: none;
+  width: 100%;
+}
