@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/navbar.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -54,7 +54,7 @@
                 </ul>
               </li>
               <li><a href="about.php" class="links" >ABOUT</a></li>
-              <li class="login-btn" class="sign-in" ><a href="login-form.php">SIGN IN</a>
+              <li class="login-btn" class="sign-in" ><a href="login.php">SIGN IN</a>
             </li>
             <ul>
         </nav>

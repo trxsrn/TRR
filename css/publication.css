@@ -1,0 +1,42 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.publication-header
+{
+    margin: 20px;
+    text-align: center;
+}
+
+.publication-ethics
+{
+    padding: 20px;
+}
+
+.ethics
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.editor-responsibilities, .reviewer-responsibilities, .publisher-responsibilities
+{
+    padding: 20px;
+}
+
+.responsibilities
+{
+    padding: 10px;
+}
+
+.card
+{
+    background-color: #265999;
+    padding: 20px;
+    margin: 5px;
+    color: white;
+}
+
+
