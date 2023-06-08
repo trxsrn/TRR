@@ -25,16 +25,6 @@
           $row = mysqli_fetch_assoc($res);
           $User = $row['username'];
 
-          // $User_folder = '../../../Data/';
-          // $upload_dir = '../../../Data/'.$User.'/'.'db_documents/';
-          // //If User Folder does not exist, create a folder for him/her
-          // if (!file_exists($User_folder.$User)) {
-          //     mkdir($User_folder.$User, 0755);  //Create Folder for User
-          //     mkdir($User_folder.$User."/db_documents", 0755); //for pre-submitted documents of user 
-          //     mkdir($User_folder.$User."/db_images", 0755); //for pre-submitted images of user
-          //     mkdir($User_folder.$User."/CV_files", 0755);  //for pre-submitted CV files of user
-          // }
-
       } else {
           $arr = array("status" => 'error', 'message' => 'Check username or password');
       }
@@ -80,5 +70,7 @@
         }
 
         echo json_encode($arr);
+    } else {
+
     }
 ?>
