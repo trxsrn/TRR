@@ -3,19 +3,26 @@
 include 'connection.php';
 include 'navbar.php';
 
-$id = $_GET['id'];
-$result = mysqli_query($conn, "SELECT * FROM author_profile WHERE id = $id " );
-$row = mysqli_fetch_assoc($result);  
+$id = $_GET['id_number'];
+$result = mysqli_query($conn, "SELECT * FROM author_profile WHERE id_number = '$id'");
 
-$fullname = $row['fullname'];
-$username = $row['username'];
-$descipline = $row['discipline'];
-$number = $row['contact_number'];
-$bday = $row['birthdate'];
-$address = $row['unit'] . " " . $row['street'] . " " . $row['barangay'] . " " . $row['city'] . " " . $row['province'] . " " . $row['country'];  
-$qualification = $row['qualification'];
-$designation = $row['designation'];
-$affiliation = $row['affiliation'];
+if ($result && mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+
+    $fullname = $row['fullname'];
+    $username = $row['username'];
+    $discipline = $row['discipline'];
+    $number = $row['contact_number'];
+    $bday = $row['birthdate'];
+    $address = $row['unit'] . " " . $row['street'] . " " . $row['barangay'] . " " . $row['city'] . " " . $row['province'] . " " . $row['country'];
+    $qualification = $row['qualification'];
+    $designation = $row['designation'];
+    $affiliation = $row['affiliation'];
+
+} else {
+    // Handle the case when no rows are found or query execution fails
+    echo "No author profile found for the given ID.";
+}
 
 ?>
 
@@ -47,7 +54,7 @@ $affiliation = $row['affiliation'];
                         </tr>
                         <tr>
                             <td>Disciplines:</td>
-                            <td> <?php echo $descipline  ?> </td>
+                            <td> <?php echo $discipline  ?> </td>
                         </tr>
                 </table>
                 <table>
