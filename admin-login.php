@@ -15,8 +15,6 @@
       <!-- FONT AWESOME ICONS -->
       <link rel="stylesheet" href="fontawesome-library/css/all.css">
       <link rel="stylesheet" href="css/login.css">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
       <script src="js/jquery-3.6.3.min.js"></script>
    </head>
    <body>
@@ -54,12 +52,12 @@
                </div>
                <div class="form-container">
                   <div class="form-inner">
-                     <form action="#" class="login" id="LoginAdmin">
+                     <form action="admin_login_verify.php" class="login" method="POST" >
                         <div class="field">
-                           <input type="text" name="Admin_username" placeholder="&#xf007 Username" required>
+                           <input type="text" name="username" placeholder="&#xf007 Username" required>
                         </div>
                         <div class="field">
-                           <input type="password" name ="Admin_password" placeholder="&#xf023 Password" required>
+                           <input type="password" name ="password" placeholder="&#xf023 Password" required>
                         </div>
                         <div class="pass-link">
                            <a href="#">Forgot password?</a>
@@ -77,57 +75,6 @@
             </div>
          </div>
       </div>
-      
-      <script src="js/jquery-3.6.3.min.js"></script>
-      <script src="js/sweetalert2.min.js"></script>
-      <script>
-         $(() => {
-            $("#LoginAdmin").submit((e) => {
-               e.preventDefault();
-               
-               var form_login = $("#LoginAdmin").serialize();
-               $.ajax({
-                  url: "admin_login_verify.php",
-                  method: 'post',
-                  data: form_login,
-                  success: function(response) {
-                     if (response.status === 'success') {
-                        const Toast = Swal.mixin({
-                           toast: true,
-                           position: 'top-end',
-                           showConfirmButton: false,
-                           timer: 2000,
-                           timerProgressBar: true,
-                           didOpen: (toast) => {
-                              toast.addEventListener('mouseenter', Swal.stopTimer)
-                              toast.addEventListener('mouseleave', Swal.resumeTimer)
-                           }
-                        });
-                        Toast.fire({
-                           icon: 'success',
-                           title: 'Signed in successfully'
-                        }).then(function() {
-                           window.location = 'users/reviewer/dashboard.php';
-                        });
-                     } else {
-                        Swal.fire({
-                           icon: 'error',
-                           title: 'Invalid Input!',
-                           text: 'Username or password is incorrect',
-                        });
-                     }
-                  },
-                  error: function(xhr, status, error) {
-                     Swal.fire({
-                        icon: 'error',
-                        title: 'AJAX Error',
-                        text: 'An error occurred while making the AJAX request: ' + error,
-                     });
-                  }
-               });
-            });
-         });
-      </script>
    </body>
 </html>
 

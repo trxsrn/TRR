@@ -1,47 +1,29 @@
 <?php
+
 session_start();
+
 include 'connection.php';
 
-if(isset($_POST['Admin_username']) && isset($_POST['Admin_password'])) {
-   $username = $_POST['Admin_username'];
-   $password = $_POST['Admin_password'];
+$username = $_POST['username'];
+$password = md5($_POST['password']);
 
-   // Perform your verification logic here
-   // Example: Check the username and password against the database
-   $stmt = $connection->prepare("SELECT * FROM users WHERE username = ?");
-   $stmt->bind_param("s", $username);
-   $stmt->execute();
-   $result = $stmt->get_result();
+$sql = mysqli_query($conn, "SELECT * FROM trr_admin_accounts WHERE username = '$username' AND password='$password'");
+$num = mysqli_num_rows($sql);
+   
+if($num > 0) 
+{
+        $row = mysqli_fetch_array($sql);
+        $query = mysqli_query($conn, "SELECT * FROM trr_admin_accounts WHERE username = '$username' AND password='$password'");
+        $num = mysqli_num_rows($query);
+        if ($num)
+        {
+            $_SESSION['username'] = $row['username'];
+            header("location:users/admin/dashboard.php");
+        } 
 
-   if($result->num_rows === 1) {
-      $row = $result->fetch_assoc();
-      $storedPassword = $row['password'];
-
-      // Verify the password
-      if(password_verify($password, $storedPassword)) {
-         // Authentication successful
-         $_SESSION['id'] = $row['id'];
-         if($row['role'] === 'admin') {
-            $response = [
-               'status' => 'success',
-               'message' => 'Login successful'
-            ];
-            echo json_encode($response);
-            exit;
-         } else {
-            // Redirect to user dashboard or homepage
-            header("Location: users/user/dashboard.php");
-            exit;
-         }
-      }
-   }
 }
 
-// Invalid username or password
-$response = [
-   'status' => 'error',
-   'message' => 'Invalid username or password'
-];
-echo json_encode($response);
-exit;
+else {
+    echo ('<script type="text/javascript"> alert("Invallid username or password."); location="admin-login.php"; </script>');
+}
 ?>
