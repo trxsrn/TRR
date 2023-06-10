@@ -34,6 +34,22 @@ if ($result && mysqli_num_rows($result) > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/authorprofile_view.css">
     <title>Document</title>
+      <!--J Query -->
+      <script src="js/jquery-3.6.3.min.js"></script>
+
+    <!-- Search and Pagination -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- SWEET ALERT FOR REMOVING THE AUTHOR -->
+    
+
 </head>
 <body>
     <div class="content-body">
@@ -81,14 +97,46 @@ if ($result && mysqli_num_rows($result) > 0) {
         </div>
         
 
-        <table>
+        <table class="table table-bordered table-stripped table-hover">
+          <thead>
             <tr>
-                <th width="50%";>Research Title</th>
-                <th>Co-Authors</th>
-                <th>Status</th>
-                <th>Submitted Date </th>
+              <th>PAPER ID</th>
+              <th>TITLE</th>
+              <th>CO-AUTHORS</th>
+              <th>Status</th>
+              <th>SUBMITTED DATE</th>
+              <th>Action</th>
             </tr>
+          </thead>
+          <tbody id="table-data">
+            <?php
+            $sql = mysqli_query($conn, "SELECT * FROM author_profile ");
+            while($row= $sql -> fetch_assoc())
+            {
+            ?>
+            <tr>
+              <td><?= $row['id_number'] ?> </td>
+              <td><?= $row['fullname'] ?> </td>
+              <td><?= $row['discipline'] ?> </td>
+              <td><?= $row['status'] ?> </td>
+              <td><?= $row['status'] ?> </td>
+              <td><a href="authorprofile_view.php?id_number=<?= $row['id_number'] ?>"><i class="fa-regular fa-eye"></i></a>
+                  <a href="delete.php?id_number=<?= $row['id_number'] ?>"><i class="fa-solid fa-trash"></i></a>
+              </td>
+            </tr>
+            <?php } ?>
+          </tbody>
         </table>
+        <script type="text/javascript">
+  $(document).ready(function()
+  {
+    $('table').DataTable();
+  });
+</script>
 </div>
+
+<center>    
+    <p>####INCLUDE FILE VERSION HISTORY ####</p>
+</center>
 </body>
 </html>
