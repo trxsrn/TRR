@@ -121,7 +121,7 @@ include 'connection.php';
               <td><?= $row['fullname'] ?> </td>
               <td><?= $row['discipline'] ?> </td>
               <td><?= $row['status'] ?> </td>
-              <td><a href="authorprofile_view.php?id=<?= $row['id'] ?>" class="accept"><i class="fa-regular fa-eye"></i> VIEW</a></td>
+              <td><a href="authorprofile_view.php?id=<?= $row['id'] ?>" class="accept"><i class="fa-regular fa-eye"></i></a></td>
             </tr>
             <?php } ?>
           </tbody>

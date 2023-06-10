@@ -52,7 +52,7 @@ $intent_newFileName =  "Intent_" . $lastname ."_" . $givenname  . '.' . $intent_
 $cv_directory = 'users/admin/Data/intent_files/';
 $upload_intent = $cv_directory . $intent_newFileName ;
 
-if(isset($_POST["submit_authorQW"]))  
+if(isset($_POST["submit_author"]))  
 {  
     if (move_uploaded_file($_FILES['file_cv']['tmp_name'], $upload_cv)) 
     {
