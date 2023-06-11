@@ -1,8 +1,6 @@
 <?php
-
 include_once 'navbar.php';
 include 'connection.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +23,6 @@ include 'connection.php';
 
     <!-- Search and Pagination -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -40,7 +37,7 @@ include 'connection.php';
 
 <body id="author">
     <section id="content">
-        <div class="content-body">
+    <div class="content-body">
             <div class="summary">
                 <div class="count-progress" style="background: #002057; padding: 20px;">
                     <div class="author_count">
@@ -98,7 +95,7 @@ include 'connection.php';
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Descipline</th>
+                            <th>Discipline</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -108,14 +105,14 @@ include 'connection.php';
                         $sql = mysqli_query($conn, "SELECT * FROM author_profile ");
                         while ($row = $sql->fetch_assoc()) {
                             ?>
-                            <tr>
-                                <td><?= $row['id_number'] ?> </td>
-                                <td><?= $row['fullname'] ?> </td>
-                                <td><?= $row['discipline'] ?> </td>
-                                <td><?= $row['status'] ?> </td>
+                            <tr data-id="<?= $row['id_number'] ?>">
+                                <td><?= $row['id_number'] ?></td>
+                                <td><?= $row['fullname'] ?></td>
+                                <td><?= $row['discipline'] ?></td>
+                                <td><?= $row['status'] ?></td>
                                 <td>
                                     <a href="authorprofile_view.php?id_number=<?= $row['id_number'] ?>"><i class="fa-regular fa-eye"></i></a>
-                                    <a href="#" onclick="confirmDelete(<?= $row['id_number'] ?>)"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="#" onclick="confirmDelete('<?= $row['id_number'] ?>')"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -123,76 +120,55 @@ include 'connection.php';
                 </table>
             </div>
         </div>
-    </div>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('table').DataTable();
-        });
-    </script>
+    </section>
 
     <script>
         $(document).ready(function() {
-            setInterval(function() {
-                $.ajax({
-                    url: 'author_get_record_list.php',
-                    success: function(data) {
-                        $('#table-data').html(data);
-                    }
-                });
-            }, 5000);
+            $('table').DataTable();
         });
 
         function confirmDelete(id) {
-  Swal.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#d33',
-    cancelButtonColor: '#3085d6',
-    confirmButtonText: 'Yes, delete it!'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      deleteRecord(id);
-    }
-  });
-}
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You are about to delete this item.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Call delete function here
+                    deleteItem(id);
+                }
+            });
+        }
 
-function deleteRecord(id) {
-  $.ajax({
-    url: 'delete.php',
-    type: 'GET',
-    data: {
-      id_number: id
-    },
-    success: function(response) {
-      Swal.fire(
-        'Deleted!',
-        'The record has been deleted.',
-        'success'
-      );
-    },
-    error: function(xhr, status, error) {
-      Swal.fire(
-        'Error!',
-        'An error occurred while deleting the record.',
-        'error'
-      );
-    }
-  });
-}
-
-$(document).ready(function() {
-  $('table').DataTable();
-  
-  $(document).on('click', 'a[data-id^="RDC"]', function(event) {
-    event.preventDefault();
-    var id = $(this).data('id');
-    confirmDelete(id);
-  });
-});
-
+        function deleteItem(id) {
+            $.ajax({
+                url: 'delete.php',
+                type: 'POST',
+                data: {
+                    id: id
+                },
+                success: function(response) {
+                    Swal.fire(
+                        'Deleted!',
+                        'The item has been deleted.',
+                        'success'
+                    ).then(function() {
+                        location.reload(); // Reload the table after deletion
+                    });
+                },
+                error: function() {
+                    Swal.fire(
+                        'Error',
+                        'An error occurred while deleting the item.',
+                        'error'
+                    );
+                }
+            });
+        }
     </script>
 </body>
 
