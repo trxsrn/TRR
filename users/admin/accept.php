@@ -60,7 +60,7 @@ if (!$result) {
                     echo '  if (result.isConfirmed) {';
                     echo '    setTimeout(function() {';
                     echo '      window.location.href = "account-approval.php";'; // Replace with your custom page URL
-                    echo '    }, 5000);'; // Delay the redirection by 1 second (1000 milliseconds)
+                    echo '    }, 5000);'; // Delay the redirection by 5 seconds (5000 milliseconds)
                     echo '  }';
                     echo '});';
                     echo '</script>';
@@ -115,7 +115,7 @@ if (!$result) {
                     echo '  if (result.isConfirmed) {';
                     echo '    setTimeout(function() {';
                     echo '      window.location.href = "account-approval.php";'; // Replace with your custom page URL
-                    echo '    }, 5000);'; // Delay the redirection by 1 second (1000 milliseconds)
+                    echo '    }, 5000);'; // Delay the redirection by 5 seconds (5000 milliseconds)
                     echo '  }';
                     echo '});';
                     echo '</script>';

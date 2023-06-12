@@ -117,11 +117,11 @@ include 'connection.php';
             {
             ?>
             <tr>
-              <td><?= $row['id'] ?> </td>
+              <td><?= $row['id_number'] ?> </td>
               <td><?= $row['fullname'] ?> </td>
               <td><?= $row['discipline'] ?> </td>
               <td><?= $row['status'] ?> </td>
-              <td><a href="authorprofile_view.php?id=<?= $row['id'] ?>" class="accept"><i class="fa-regular fa-eye"></i></a></td>
+              <td><a href="authorprofile_view.php?id_number=<?= $row['id_number'] ?>" class="accept"><i class="fa-regular fa-eye"></i></a></td>
             </tr>
             <?php } ?>
           </tbody>
