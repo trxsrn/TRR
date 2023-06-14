@@ -40,35 +40,44 @@ include 'connection.php';
             <div class="form-box">
                 <div class="button-box">
                     <div id="btn"></div>
-                        <button type="button" class="toggle-btn" onclick="leftClick()">AUTHOR</button>
-                        <button type="button" class="toggle-btn" onclick="rightClick()">REVIEWER</button>
+                        <button type="button" class="toggle-btn" onclick="leftClick()" id="acceptedBtn">ACCEPTED</button>
+                        <button type="button" class="toggle-btn" onclick="rightClick()" id="declinedBtn">DECLINED</button>
                     </div>
             </div>
             <div class="content" style="margin: 25px;">
                 <table class="table table-bordered table-stripped table-hover">
-                <thead>
+                <thead id="heading">
                     <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Descipline</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                            <th>User Type</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="table-data">
                     <?php
-                    $sql = mysqli_query($conn, "SELECT * FROM author_profile ");
-                    while($row= $sql -> fetch_assoc())
-                    {
+                    $sql1 = mysqli_query($conn, "SELECT * FROM author_profile");
+                    while ($row = $sql1->fetch_assoc()) {
+                        echo '
+                            <tr>
+                                <td>AUTHOR</td>
+                                <td>' . $row['id_number'] . '</td>
+                                <td>' . $row['fullname'] . '</td>
+                                <td><a href="authorprofile_view.php?id=' . $row['id_number'] . '" class="accept"><i class="fa-regular fa-eye"></i> VIEW</a></td>
+                            </tr>';
+                    }
+
+                    $sql2 = mysqli_query($conn, "SELECT * FROM reviewer_profile");
+                    while ($row = $sql2->fetch_assoc()) {
+                        echo '
+                            <tr>
+                                <td>REVIEWER</td>
+                                <td>' . $row['id_number'] . '</td>
+                                <td>' . $row['fullname'] . '</td>
+                                <td><a href="reviewerprofile_view.php?id=' . $row['id_number'] . '" class="accept"><i class="fa-regular fa-eye"></i> VIEW</a></td>
+                            </tr>';
+                    }
                     ?>
-                    <tr>
-                    <td><?= $row['id'] ?> </td>
-                    <td><?= $row['fullname'] ?> </td>
-                    <td><?= $row['discipline'] ?> </td>
-                    <td><?= $row['status'] ?> </td>
-                    <td><a href="authorprofile_view.php?id=<?= $row['id'] ?>" class="accept"><i class="fa-regular fa-eye"></i> VIEW</a></td>
-                    </tr>
-                    <?php } ?>
                 </tbody>
                 </table>
             </div>
@@ -76,9 +85,33 @@ include 'connection.php';
         
         </div>
     </section>
-<!-- Responsive Navigation Bar -->
-<script src="js/admin-active-navbar.js"></script> <!--highlights the active tab --> 
-<script src="js/user-page-responsive.js"></script>
 <script src="JS/toggle-swiper.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $('table').DataTable();
+    });
+
+    function leftClick() {
+        $.ajax({
+            url: 'accepted_data.php', // PHP script to fetch data from the accepted table
+            type: 'GET',
+            success: function(response) {
+                $('#table-data').html(response); // Update the table with the fetched data
+            }
+        });
+    }
+
+    function rightClick() {
+        $.ajax({
+            url: 'declined_data.php', // PHP script to fetch data from the declined table
+            type: 'GET',
+            success: function(response) {
+                $('#table-data').html(response); // Update the table with the fetched data
+            }
+        });
+    }
+</script>
+
 </body>
 </html>
