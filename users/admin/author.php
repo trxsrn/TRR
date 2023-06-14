@@ -127,15 +127,26 @@ include 'connection.php';
             $('table').DataTable();
         });
 
+        $(document).ready(function() {
+            setInterval(function() {
+                $.ajax({
+                    url: 'author_get_record_list.php',
+                    success: function(data) {
+                        $('#table-data').html(data);
+                    }
+                });
+            }, 5000);
+        });
+
         function confirmDelete(id) {
             Swal.fire({
                 title: 'Are you sure?',
-                text: 'You are about to delete this item.',
+                text: 'You are about to remove this author.',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Yes, remove!'
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Call delete function here
@@ -170,6 +181,7 @@ include 'connection.php';
             });
         }
     </script>
+    <script src="js/author_auto_update.js"></script>
 </body>
 
 </html>

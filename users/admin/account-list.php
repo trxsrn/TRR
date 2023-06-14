@@ -40,8 +40,8 @@ include 'connection.php';
             <div class="form-box">
                 <div class="button-box">
                     <div id="btn"></div>
-                        <button type="button" class="toggle-btn" onclick="leftClick()" id="acceptedBtn">ACCEPTED</button>
-                        <button type="button" class="toggle-btn" onclick="rightClick()" id="declinedBtn">DECLINED</button>
+                        <button type="button" class="toggle-btn" onclick="toggleClick('accepted')">ACCEPTED</button>
+                        <button type="button" class="toggle-btn" onclick="toggleClick('declined')">DECLINED</button>
                     </div>
             </div>
             <div class="content" style="margin: 25px;">
@@ -85,32 +85,36 @@ include 'connection.php';
         
         </div>
     </section>
-<script src="JS/toggle-swiper.js"></script>
+<script src="js/toggle-swiper.js"></script>
 
 <script>
     $(document).ready(function() {
     $('table').DataTable();
     });
 
-    function leftClick() {
-        $.ajax({
-            url: 'accepted_data.php', // PHP script to fetch data from the accepted table
-            type: 'GET',
-            success: function(response) {
-                $('#table-data').html(response); // Update the table with the fetched data
-            }
-        });
+    var btn = document.getElementById('btn');
+
+function toggleClick(status) {
+    var url = '';
+    if (status === 'accepted') {
+        url = 'accepted_data.php';
+        btn.style.left = '0';
+        btn.style.color = 'white';
+    } else if (status === 'declined') {
+        url = 'declined_data.php';
+        btn.style.left = '50%';
+        btn.style.color = 'black';
     }
 
-    function rightClick() {
-        $.ajax({
-            url: 'declined_data.php', // PHP script to fetch data from the declined table
-            type: 'GET',
-            success: function(response) {
-                $('#table-data').html(response); // Update the table with the fetched data
-            }
-        });
-    }
+    $.ajax({
+        url: url, // PHP script to fetch data based on the status
+        type: 'GET',
+        success: function(response) {
+            $('#table-data').html(response); // Update the table with the fetched data
+        }
+    });
+}
+
 </script>
 
 </body>

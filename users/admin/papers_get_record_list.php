@@ -31,5 +31,7 @@ while($row= $sql -> fetch_assoc()) {
   $output .= '</tr>';
 }
 
+echo '<td colspan="8" style="text-align: center;">No data available in table</td>';
+
 echo $output;
 ?>
