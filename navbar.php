@@ -49,7 +49,7 @@
                     <li><a href="" class="links" >Forum & Colloquium</a></li>
                     <li><a href="" class="links" >REC Form</a></li>
                     <li><a href="register_author.php" class="links" >Author Application Form</a></li>
-                    <li><a href="" class="links" >Reviewer Application Form</a></li>
+                    <li><a href="register_reviewer.php" class="links" >Reviewer Application Form</a></li>
                     <li><a href="" class="links" >Copyright Agreement</a></li>
                 </ul>
               </li>

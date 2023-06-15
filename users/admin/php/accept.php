@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'connection.php';
+include '../connection.php';
 
 $id = $_GET['id'];
 $user_type_query = "SELECT user_type, fullname FROM for_approval_of_account WHERE id = '$id'";
@@ -49,7 +49,7 @@ if (!$result) {
                     echo "Error executing query: " . mysqli_error($conn);
                 } else {
                     // Redirect to account-approval.php after a successful insertion and deletion
-                    header("Location: account-approval.php");
+                    header("Location: ../account-approval.php");
                     exit();
                 }
             }
@@ -91,7 +91,7 @@ if (!$result) {
                     echo "Error executing query: " . mysqli_error($conn);
                 } else {
                     // Redirect to account-approval.php after a successful insertion and deletion
-                    header("Location: account-approval.php");
+                    header("Location: ../account-approval.php");
                     exit();
                 }
             }

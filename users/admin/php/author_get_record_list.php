@@ -1,6 +1,6 @@
 <?php
 
-include 'connection.php';
+include '../connection.php';
 
 $sql = mysqli_query($conn, "SELECT * FROM author_profile ");
 $output = '';

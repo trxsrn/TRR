@@ -98,7 +98,7 @@ include 'connection.php';
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Redirect to accept.php with the author ID as a query parameter
-                    window.location.href = `accept.php?id=${id}`;
+                    window.location.href = `php/accept.php?id=${id}`;
                 }
             });
         }
@@ -116,7 +116,7 @@ include 'connection.php';
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Redirect to accept.php with the author ID as a query parameter
-                    window.location.href = `decline.php?id=${id}`;
+                    window.location.href = `php/decline.php?id=${id}`;
                 }
             });
         }

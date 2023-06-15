@@ -21,7 +21,7 @@ include 'connection.php';
     <section id="content">
         <div class="content-body">
         <div class="customize-banner">
-    <form action="submit-details.php" method="post" enctype="multipart/form-data">
+    <form action="php/submit-details.php" method="post" enctype="multipart/form-data">
         <table>
             <tr>
                 <th class="title">BANNERS</th>
@@ -124,7 +124,7 @@ include 'connection.php';
             </div>
             <div class="announcement-form" id="announcement-form">
                 <div class="announcement-details">
-                    <form action="submit-details.php" method="post" enctype="multipart/form-data">
+                    <form action="php/submit-details.php" method="post" enctype="multipart/form-data">
                         <h1 class="new-announcement-header"> NEW ANNOUNCEMENT </h1>
                         <div class="announcement-form-body">
                             <div class="subject">
@@ -176,7 +176,6 @@ include 'connection.php';
 <!-- Responsive Navigation Bar -->
 <script src="js/admin-active-navbar.js"></script> 
 <script src="js/file_chooser.js"></script> 
-<!-- <script src="js/user-page-responsive.js"></script> -->
 </body>
 </html>
 

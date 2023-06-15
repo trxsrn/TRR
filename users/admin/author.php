@@ -130,7 +130,7 @@ include 'connection.php';
         $(document).ready(function() {
             setInterval(function() {
                 $.ajax({
-                    url: 'author_get_record_list.php',
+                    url: 'php/author_get_record_list.php',
                     success: function(data) {
                         $('#table-data').html(data);
                     }

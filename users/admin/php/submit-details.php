@@ -1,6 +1,6 @@
 <?php
 
-include 'connection.php';
+include '../connection.php';
 
 if (isset($_POST['post-announcement'])) {
     $subject = $_POST['subject'];
@@ -25,7 +25,7 @@ if (isset($_POST['post-announcement'])) {
     // Verify MIME type
     if (in_array($filetype, $allowed)) {
         // Upload file
-        $uploadDir = "css/announcements/";
+        $uploadDir = "../css/announcements/";
         $path = $uploadDir . $filename;
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $path)) {
             // Database insertion
@@ -33,7 +33,7 @@ if (isset($_POST['post-announcement'])) {
             $insertQuery = "INSERT INTO announcements (`subject`, `announcement`, `attachment`, `posted_by`) 
                             VALUES ('$subject', '$details', '$filename', '')";
             if (mysqli_query($conn, $insertQuery)) {
-                echo '<script type="text/javascript"> alert("POSTED SUCCESSFULLY"); location="website.php"; </script>';
+                echo '<script type="text/javascript"> alert("POSTED SUCCESSFULLY"); location="../website.php"; </script>';
             } else {
                 echo "Error: There was a problem inserting data into the database. Please try again.";
             }
@@ -54,7 +54,7 @@ if (isset($_POST['save-banner'])) {
         // Check if an image is uploaded
         if (!empty($imageFile)) {
             // Move the uploaded file to the desired directory
-            $targetDirectory = 'css/banners/';
+            $targetDirectory = '../css/banners/';
             $targetFile = $targetDirectory . basename($imageFile);
             move_uploaded_file($_FILES['img' . $bannerId]['tmp_name'], $targetFile);
 
@@ -68,7 +68,7 @@ if (isset($_POST['save-banner'])) {
     }
 
     // Redirect back to the form or any other page
-    header('Location: website.php');
+    header('Location: ../website.php');
     exit();
 }
 

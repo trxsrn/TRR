@@ -121,7 +121,7 @@ if ($result && mysqli_num_rows($result) > 0) {
               <td><?= $row['status'] ?> </td>
               <td><?= $row['status'] ?> </td>
               <td><a href="authorprofile_view.php?id_number=<?= $row['id_number'] ?>"><i class="fa-regular fa-eye"></i></a>
-                  <a href="delete.php?id_number=<?= $row['id_number'] ?>"><i class="fa-solid fa-trash"></i></a>
+                  <a href="php/delete.php?id_number=<?= $row['id_number'] ?>"><i class="fa-solid fa-trash"></i></a>
               </td>
             </tr>
             <?php } ?>
