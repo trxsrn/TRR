@@ -51,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
     <link rel="stylesheet" href="css/paper.css">
+    <link rel="stylesheet" href="css/navigation.css">
 </head>
 
 <body>
@@ -101,10 +102,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         while ($row = $sql->fetch_assoc()) {
                         ?>
                             <tr>
-                                <td><?= $row['id'] ?></td>
+                                <td><?= $row['id_number'] ?></td>
                                 <td><?= $row['fullname'] ?></td>
                                 <td><?= $row['discipline'] ?></td>
-                                <td><?= getButton(strtolower($row['status']), $row['id']) ?></td>
+                                <td><?= getButton(strtolower($row['status']), $row['id_number']) ?></td>
                             </tr>
                         <?php } ?>
 
