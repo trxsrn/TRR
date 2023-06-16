@@ -121,11 +121,11 @@ include 'connection.php';
             <?php
              function getButton($status, $id) {
               if($status == "to assign") {
-                return '<a href="assign.php?id='.$id.'" class="assign-btn" >ASSIGN</a>';
+                return '<a href="php/assign.php?id='.$id.'" class="assign-btn" >ASSIGN</a>';
               } else if ($status == "under reviewing") {
                 return '<a href="#" class="assign-btn">CONTINUE REVIEWING</a>';
               } else if ($status == "to publish"){
-                return '<a href="#" class="assign-btn">PUBLISH</a>';
+                return '<a href="#" onclick="closeForm()" class="assign-btn">PUBLISH</a>';
               } else {
                 return '<a href="#" class="assign-btn">VIEW</a>';
               } 
@@ -150,26 +150,81 @@ include 'connection.php';
       </div>
     </div>
   </div>
+  <div class="announcement-form" id="announcement-form">
+                <div class="announcement-details">
+                    <form action="php/submit-details.php" method="post" enctype="multipart/form-data">
+                        <h1 class="new-announcement-header"> NEW ANNOUNCEMENT </h1>
+                        <div class="announcement-form-body">
+                            <div class="subject">
+                                Subject: <input type="text" name="subject" class="subject-input">
+                            </div>
+                            <div class="description">
+                                Description: 
+                                <textarea name="announcement-details" class="textarea-input"></textarea>
+                            </div>
+                            <div class="attachment">
+                                Attachment: <br>
+                                <div class="drag-area">
+                                        <span class="visible">
+                                            <i class="fas fa-image" style="font-size: 25px;"></i><br>
+                                            DRAG AND DROP A PHOTO 
+                                            <br> OR <br>
+                                            <span class="select" role="button">Browse</span>
+                                        </span>
+                                        <span class="on-drop">Drop images here</span>
+                                        <input name="image" type="file" class="file" multiple />
+                                </div>
+
+                                    <!-- IMAGE PREVIEW CONTAINER -->
+                                <div class="container"></div>
+                                </div>
+                            </div>
+                            <center>
+                                <button type="button" onclick="closeForm()" class="close-btn">CANCEL</button>
+                                <input type="submit" value="POST" name="post-announcement" style="background: #002057;   border-radius: 10px; margin: 2em;">
+                            </center>
+                        </div>
+                    </div>
+            </div>
+            <script>
+                function openForm() 
+                {
+                    document.getElementById("announcement-form").style.display = "block";
+                }
+
+                function closeForm() 
+                {
+                    document.getElementById("announcement-form").style.display = "none";
+                }
+            </script>
 <script type="text/javascript">
   $(document).ready(function()
   {
     $('table').DataTable();
   });
-</script>
 
-<script>
-$(document).ready(function() {
-    setInterval(function() {
-        $.ajax({
-            url: 'papers_get_record_list.php',
-            success: function(data) {
-                $('#table-data').html(data);
-            }
-        });
-    }, 5000);
-});
+  $(document).ready(function() {
+      setInterval(function() {
+          $.ajax({
+              url: 'papers_get_record_list.php',
+              success: function(data) {
+                  $('#table-data').html(data);
+              }
+          });
+      }, 5000);
+  });
+
+  function openForm() 
+                {
+                    document.getElementById("publish-form").style.display = "block";
+                }
+
+                function closeForm() 
+                {
+                    document.getElementById("publish-form").style.display = "none";
+                }
 </script>
-        </div>
+</div>
 
     </section>
 <script src="js/papers_auto_update.js"></script>

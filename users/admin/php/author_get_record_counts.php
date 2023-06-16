@@ -1,6 +1,6 @@
 <?php
 
-include 'connection.php';
+include '../connection.php';
 
 // Query the database and retrieve the number of idle records
 $sql = "SELECT COUNT(*) AS count FROM author_profile WHERE status = 'IDLE'";
