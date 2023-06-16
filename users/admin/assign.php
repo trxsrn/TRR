@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $reviewerId = $_POST['reviewer'];
 
     // Retrieve reviewer details from the reviewer_profile table
-    $result = mysqli_query($conn, "SELECT * FROM reviewer_profile WHERE id = $reviewerId");
+    $result = mysqli_query($conn, "SELECT * FROM reviewer_profile WHERE id_number = $reviewerId");
     $reviewer = mysqli_fetch_assoc($result);
 
     if ($reviewer) {

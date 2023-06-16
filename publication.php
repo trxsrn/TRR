@@ -1,6 +1,6 @@
 <?php 
 
-include 'navbar.php'
+include 'navbar.php';
 
 ?>
 
@@ -12,8 +12,8 @@ include 'navbar.php'
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publication</title>
     <link rel="stylesheet" href="css/publication.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-BDyFRi+evjh8d5ZofjB9VkoqsDjrs9B0zAvqUw5h7p/WqNhhkTK1QqD1vmyRDtJb" crossorigin="anonymous">
+
 </head> 
 <body>
     <div class="publication-ethics">
@@ -26,7 +26,7 @@ include 'navbar.php'
         </div>
         <div class="ethics">
             <div class="card">
-            <!-- <i class="fa-regular fa-circle-check"></i> -->
+            <i class="fa-sharp fa-light fa-check"></i>
             <h3>Ethical Standard</h3>
             <p>
             In order to preserve the integrity of their work, it is necessary that the authors of original articles provide accurate information regarding their research and an extensive evaluation of its importance. The paper should have all of the details of the references that let others copy the parts. TRR guarantees that research published in a journal is in accordance with ethical standards as well as relevant laws. It involves evaluating informed consent, confidentiality, and other ethical factors.
