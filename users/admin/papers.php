@@ -125,7 +125,7 @@ include 'connection.php';
               } else if ($status == "under reviewing") {
                 return '<a href="#" class="assign-btn">CONTINUE REVIEWING</a>';
               } else if ($status == "to publish"){
-                return '<a href="#" onclick="closeForm()" class="assign-btn">PUBLISH</a>';
+                return '<a href="#" onclick="openForm()" class="assign-btn">PUBLISH</a>';
               } else {
                 return '<a href="#" class="assign-btn">VIEW</a>';
               } 
@@ -150,17 +150,17 @@ include 'connection.php';
       </div>
     </div>
   </div>
-  <div class="announcement-form" id="announcement-form">
-                <div class="announcement-details">
+  <div class="publish-form" id="publish-form">
+                <div class="publish-details">
                     <form action="php/submit-details.php" method="post" enctype="multipart/form-data">
-                        <h1 class="new-announcement-header"> NEW ANNOUNCEMENT </h1>
-                        <div class="announcement-form-body">
+                        <h1 class="new-publish-header"> PUBLISH NEW PAPER </h1>
+                        <div class="publish-form-body">
                             <div class="subject">
                                 Subject: <input type="text" name="subject" class="subject-input">
                             </div>
                             <div class="description">
                                 Description: 
-                                <textarea name="announcement-details" class="textarea-input"></textarea>
+                                <textarea name="publish-details" class="textarea-input"></textarea>
                             </div>
                             <div class="attachment">
                                 Attachment: <br>
@@ -186,18 +186,7 @@ include 'connection.php';
                         </div>
                     </div>
             </div>
-            <script>
-                function openForm() 
-                {
-                    document.getElementById("announcement-form").style.display = "block";
-                }
-
-                function closeForm() 
-                {
-                    document.getElementById("announcement-form").style.display = "none";
-                }
-            </script>
-<script type="text/javascript">
+<script>
   $(document).ready(function()
   {
     $('table').DataTable();
@@ -206,7 +195,7 @@ include 'connection.php';
   $(document).ready(function() {
       setInterval(function() {
           $.ajax({
-              url: 'papers_get_record_list.php',
+              url: 'php/papers_get_record_list.php',
               success: function(data) {
                   $('#table-data').html(data);
               }
@@ -214,20 +203,40 @@ include 'connection.php';
       }, 5000);
   });
 
-  function openForm() 
-                {
-                    document.getElementById("publish-form").style.display = "block";
-                }
+    // JavaScript function to retrieve and display the number of to assign, to review, under review and to publish records
+  function updateRecordCounts() {
+      // Use AJAX to call the PHP script and retrieve the number of to assign, to review, under review and to publish records
+      $.ajax({
+        url: 'php/papers_get_record_counts.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+          // Update the HTML elements that will display the total number of to assign, to review, under review and to publish records
+          $('#toAssign-count').text(response.toAssignCount);
+          $('#toReview-count').text(response.toReviewCount);
+          $('#underReview-count').text(response.underReviewCount);
+          $('#toPublish-count').text(response.toPublishCount);
+        }
+      });
+    }
+    
+    // Set an interval for the function to be called periodically
+    setInterval(updateRecordCounts, 5000); // 5000 milliseconds = 5 seconds
 
-                function closeForm() 
-                {
-                    document.getElementById("publish-form").style.display = "none";
-                }
+    // Function to load the data from the server and update the table
+
+
+
+  function openForm() 
+  {
+    document.getElementById("publish-form").style.display = "block";
+  }
+  function closeForm() 
+  {
+    document.getElementById("publish-form").style.display = "none";
+  }
 </script>
 </div>
-
-    </section>
-<script src="js/papers_auto_update.js"></script>
   
 </body>
 </html>

@@ -1,7 +1,6 @@
 <?php
 
-include 'connection.php';
-//include 'css/paper.css';
+include '../connection.php';
 
 function getButton($status, $id) {
   if($status == "to assign") {

@@ -154,6 +154,55 @@
   display: block;
   width: 100%;
 }
+
+.publish-form
+{
+  display: none;
+  background-color: rgba(0, 0, 0, 0.60);
+  color: black;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 99999;
+}
+
+.publish-details
+{
+  background-color: white;
+  margin: 5% 30%;
+}
+
+
+.new-publish-header
+{
+  background-color: #002057;
+  color: white;
+  font-size: 1em;
+  padding: 2em;
+}
+
+.publish-form-body
+{
+  padding: 30px;
+}
+
+.subject, .description, .attachment
+{
+  margin: 10px;
+}
+
+.subject-input, .textarea-input, .attachment
+{
+  padding: 5px;
+}
+
+.textarea-input
+{
+  height: 5em;
+  resize: none;
+}
   
   
   
