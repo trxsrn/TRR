@@ -5,10 +5,10 @@ include '../connection.php';
 function getButton($status, $id) {
   if($status == "to assign") {
     return '<a href="assign.php?id='.$id.'" class="assign-btn" >ASSIGN</a>';
+  } else if ($status == "to review") {
+    return '<a href="view.php?id='.$id.'" class="assign-btn">VIEW</a>';
   } else if ($status == "under reviewing") {
     return '<a href="#" class="assign-btn">CONTINUE REVIEWING</a>';
-  } else if ($status == "to publish"){
-    return '<a href="#" class="assign-btn">PUBLISH</a>';
   } else {
     return '<a href="#" class="assign-btn">VIEW</a>';
   } 
@@ -21,7 +21,7 @@ $output = '';
 while($row= $sql -> fetch_assoc()) {
   
   $reviewers = explode(";", $row['reviewer']);
-  $reviewer_count = count($reviewers);
+  $reviewer_count = count($reviewers) -1  ;
 
   $output .= '<tr>';
   $output .= '<td>' . $row['id'] . '</td>';

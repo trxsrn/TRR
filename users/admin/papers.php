@@ -105,21 +105,21 @@ include 'connection.php';
           <?php
           function getButton($status, $id)
           {
-            if ($status == "to assign") {
-              return '<a href="assign.php?id=' . $id . '" class="assign-btn" >ASSIGN</a>';
+            if($status == "to assign") {
+              return '<a href="assign.php?id='.$id.'" class="assign-btn" >ASSIGN</a>';
             } else if ($status == "under reviewing") {
               return '<a href="#" class="assign-btn">CONTINUE REVIEWING</a>';
-            } else if ($status == "to publish") {
-              return '<a href="#" onclick="openForm()" class="assign-btn">PUBLISH</a>';
+            } else if ($status == "to review") {
+              return '<a href="#" class="assign-btn">VIEW</a>';
             } else {
               return '<a href="#" class="assign-btn">VIEW</a>';
-            }
+            } 
           }
           $sql = mysqli_query($conn, "SELECT * FROM papers");
           while ($row = $sql->fetch_assoc()) {
             // Count the number of reviewers assigned
             $reviewers = explode(";", $row['reviewer']);
-            $reviewer_count = count($reviewers);
+            $reviewer_count = count($reviewers) -1;
             ?>
             <tr>
               <td><?= $row['id'] ?> </td>
