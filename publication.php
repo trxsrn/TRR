@@ -12,12 +12,12 @@ include 'navbar.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publication</title>
     <link rel="stylesheet" href="css/publication.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-BDyFRi+evjh8d5ZofjB9VkoqsDjrs9B0zAvqUw5h7p/WqNhhkTK1QqD1vmyRDtJb" crossorigin="anonymous">
 
 </head> 
 <body>
     <div class="publication-ethics">
         <div class="publication-header">
+        <i class="fa-sharp fa-light fa-shield-check"></i>
         <h1> Publication Ethics </h1>
         <p>       
             The researcher can choose to make their paper available in either The Rizalian Review Journal from RTU or any journal recognized by the Commission on Higher Education or CHED.

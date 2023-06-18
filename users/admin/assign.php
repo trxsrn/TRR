@@ -11,30 +11,37 @@ $author = $row['author'];
 $discipline = $row['discipline'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $reviewerId = $_POST['reviewer'];
+    $reviewerIds = $_POST['reviewer'];
 
-    // Retrieve reviewer details from the reviewer_profile table
-    $result = mysqli_query($conn, "SELECT * FROM reviewer_profile WHERE id_number = $reviewerId");
-    $reviewer = mysqli_fetch_assoc($result);
+    // Assign reviewers to the paper
+    $count = 0; // Counter for assigned reviewers
+    foreach ($reviewerIds as $reviewerId) {
+        if ($count >= 5) {
+            break; // Limit to 5 reviewers
+        }
 
-    if ($reviewer) {
-        $paperId = $_POST['paper_id'];
+        // Retrieve reviewer details from the reviewer_profile table
+        $result = mysqli_query($conn, "SELECT * FROM reviewer_profile WHERE id_number = '$reviewerId'");
+        $reviewer = mysqli_fetch_assoc($result);
 
-        // Update the paper in the database with the assigned reviewer's fullname
-        $updateQuery = "UPDATE papers SET reviewer = '{$reviewer['fullname']}' WHERE id = $paperId";
-        mysqli_query($conn, $updateQuery);
-        header('assign.php');
-        exit();
+        if ($reviewer) {
+            $paperId = $_POST['paper_id'];
 
-    } else {
-        // Handle the case where the reviewer does not exist  
-        echo "Reviewer not found.";
-        exit();
+            // Update the paper in the database with the assigned reviewer's id_number
+            $updateQuery = "UPDATE papers SET reviewer = '{$reviewer['id_number']}' WHERE id = $paperId";
+            mysqli_query($conn, $updateQuery);
+
+            $count++; // Increment the counter
+        }
     }
+    header("Location: assign.php");
+    exit();
 }
+
+// Retrieve assigned reviewers for the paper
+$assignedReviewers = mysqli_query($conn, "SELECT DISTINCT reviewer FROM papers WHERE id = $id");
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1><?php echo $title; ?></h1>
             <h3><?php echo $author; ?></h3>
             <h6><?php echo $discipline; ?></h6>
-            <br>
             <form method="POST">
                 <input type="hidden" name="paper_id" value="<?php echo $id; ?>">
                 <table class="table table-bordered table-stripped table-hover">
@@ -77,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         function getButton($status, $id)
                         {
                             if ($status == "idle" || $status == "active") {
-                                return '<button type="submit" name="reviewer" value="' . $id . '" class="btn btn-primary">ASSIGN</button>';
+                                return '<button type="submit" name="reviewer[]" value="' . $id . '" class="btn btn-primary">ASSIGN</button>';
                             } else {
                                 return '<button type="button" class="btn btn-secondary" disabled>ASSIGN</button>';
                             }
@@ -100,12 +106,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         }
 
                         while ($row = $sql->fetch_assoc()) {
+                            // Check if the reviewer is already assigned to the paper
+                            $isAssigned = mysqli_query($conn, "SELECT * FROM papers WHERE id = $id AND reviewer = '{$row['id_number']}'");
+
+                            if (mysqli_num_rows($isAssigned) > 0) {
+                                $buttonText = 'ASSIGNED';
+                                $buttonClass = 'btn btn-success';
+                            } else {
+                                $buttonText = getButton(strtolower($row['status']), $row['id_number']);
+                                $buttonClass = 'btn btn-primary';
+                            }
                         ?>
                             <tr>
                                 <td><?= $row['id_number'] ?></td>
                                 <td><?= $row['fullname'] ?></td>
                                 <td><?= $row['discipline'] ?></td>
-                                <td><?= getButton(strtolower($row['status']), $row['id_number']) ?></td>
+                                <td><button type="button" class="<?php echo $buttonClass; ?>" disabled><?php echo $buttonText; ?></button></td>
                             </tr>
                         <?php } ?>
 
