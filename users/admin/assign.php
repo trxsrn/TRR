@@ -57,6 +57,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 mysqli_query($conn, $updateQuery);
 
                 $count++; // Increment the counter
+
+                // Check if the reviewer column reached 5 reviewers
+                if ($count == $maxReviewers) {
+                    // Update the status in the database to "TO REVIEW"
+                    $updateStatusQuery = "UPDATE papers 
+                                          SET status = 'TO REVIEW' 
+                                          WHERE id = $paperId";
+                    mysqli_query($conn, $updateStatusQuery);
+                }
             }
         }
     }

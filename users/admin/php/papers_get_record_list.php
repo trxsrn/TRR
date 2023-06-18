@@ -17,13 +17,18 @@ function getButton($status, $id) {
 $sql = mysqli_query($conn, "SELECT * FROM papers ");
 $output = '';
 
+
 while($row= $sql -> fetch_assoc()) {
+  
+  $reviewers = explode(";", $row['reviewer']);
+  $reviewer_count = count($reviewers);
+
   $output .= '<tr>';
   $output .= '<td>' . $row['id'] . '</td>';
   $output .= '<td>' . $row['research_title'] . '</td>';
   $output .= '<td>' . $row['author'] . '</td>';
   $output .= '<td>' . $row['Co-Author'] . '</td>';
-  $output .= '<td>' . $row['reviewer'] . '</td>';
+  $output .= '<td>' . $reviewer_count . '/5</td>';
   $output .= '<td>' . $row['last_modified'] . '</td>';
   $output .= '<td>' . $row['status'] . '</td>';
   $output .= '<td><center>' . getButton(strtolower($row['status']), $row['id']) . '</center></td>';
