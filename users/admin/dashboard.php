@@ -77,9 +77,8 @@ if (!isset($_SESSION['username'])) {
     <section id="content">
         <div class="content-body">
                 <div class="summary">
-                    <div class="count-summary">
+                    <div class="count-summary" id="authors">
                     <i class="fa-solid fa-pen-nib" style="color: white; opacity: 50%; font-size: 30px; float: left; margin: .2em;"></i>
-
                         <div class="text">
                             <?php 
                                     $query = mysqli_query( $conn, "SELECT * FROM author_profile");
@@ -95,7 +94,7 @@ if (!isset($_SESSION['username'])) {
                             <span class="author-label"> Author/s </span>
                         </div>
                     </div>
-                    <div class="count-summary">
+                    <div class="count-summary" id="reviewers">
                     <i class="fa-solid fa-book-open" style="color: white; opacity: 50%; font-size: 30px; float: left; margin: .2em;"></i>
                         <div class="text">
                         <?php 
@@ -114,7 +113,7 @@ if (!isset($_SESSION['username'])) {
                     </div>
                 </div> 
                 <div class="summary">
-                    <div class="count-progress">
+                    <div class="count-progress" id="to_review">
                                 <p class="text-label"> To Review &nbsp &nbsp<i class="fa-solid fa-chevron-right"></i></p>
                                 <?php
                                       $query = mysqli_query( $conn, "SELECT * FROM papers WHERE status = 'TO REVIEW'" );
@@ -128,7 +127,7 @@ if (!isset($_SESSION['username'])) {
                                       }
                                 ?>
                     </div>
-                    <div class="count-progress">
+                    <div class="count-progress" id="to_publish">
                                 <p class="text-label"> To Publish &nbsp &nbsp<i class="fa-solid fa-chevron-right"></i></p>
                                 <?php   
                                 $query = mysqli_query( $conn, "SELECT * FROM papers WHERE status='TO PUBLISH'");
@@ -142,7 +141,7 @@ if (!isset($_SESSION['username'])) {
                                     }
                             ?>
                     </div>
-                    <div class="count-progress">
+                    <div class="count-progress" id="published">
                                 <p class="text-label"> Published &nbsp &nbsp<i class="fa-solid fa-chevron-right"></i></p>
                                 <?php   
                                 $query = mysqli_query( $conn, "SELECT * FROM papers WHERE status='PUBLISHED'");
@@ -156,7 +155,7 @@ if (!isset($_SESSION['username'])) {
                                     }
                             ?>
                     </div>
-                    <div class="count-progress">
+                    <div class="count-progress" id="issues">
                                 <p class="text-label"> Issues &nbsp &nbsp<i class="fa-solid fa-chevron-right"></i></p>
                                 <?php
                                     $query = mysqli_query( $conn, "SELECT * FROM papers");
@@ -204,7 +203,6 @@ if (!isset($_SESSION['username'])) {
                                 <th colspan="4" class="discipline-title">ACTIVITY LOG</th>
                             </tr>
                                     <tr>
-                                        <th>FULL NAME</th>
                                         <th>USER TYPE</th>
                                         <th>ACTION </th>
                                         <th>TIMESTAMP </th>
@@ -218,11 +216,13 @@ if (!isset($_SESSION['username'])) {
                                             echo "<th colspan='4'>No activity found.</th>";
                                         } else {
                                             while ($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) {
+
+                                                $timestamp = $row['timestamp'];
+                                                $formattedTimestamp = date('F j, Y', strtotime($timestamp));
                                                 echo "<tr>
-                                                    <td>" . $row['fullname'] . "</td>
                                                     <td>" .$row['user_type'] . "</td>
                                                     <td>" .$row['action'] . "</td>
-                                                    <td>" .$row['timestamp'] . "</td>";
+                                                    <td>" .$formattedTimestamp  . "</td>";
                                                 echo '</tr>';	
                                             }	  
                                         }
@@ -254,15 +254,31 @@ if (!isset($_SESSION['username'])) {
                 </div>
     </section>
 <script>
-                function viewMore() 
-                {
-                    document.getElementById("ranking").style.display = "block";
-                }
+    function viewMore() 
+    {
+    document.getElementById("ranking").style.display = "block";
+    }
 
-                function close() 
-                {
-                    document.getElementById("ranking").style.display = "none";
-                }
+    function close() 
+    {
+    document.getElementById("ranking").style.display = "none";
+    }
+    document.getElementById("authors").addEventListener("click", function() 
+    {
+        window.location.href = "author.php";
+    });
+    document.getElementById("reviewers").addEventListener("click", function() 
+    {
+    window.location.href = "reviewer.php";
+    });
+    document.getElementById("to_review").addEventListener("click", function() 
+    {
+        window.location.href = "papers.php";
+    });
+    document.getElementById("to_publish").addEventListener("click", function() 
+    {
+    window.location.href = "papers.php";
+    });
 
 </script>
 <script src="js/admin-active-navbar.js"></script>

@@ -100,6 +100,8 @@ include 'connection.php';
                                     }
                                     while ($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) //displays the list of the employees fetched from the database
                                     {
+                                        $timestamp = $row['posted_timestamp'];
+                                        $formattedTimestamp = date('F j, Y', strtotime($timestamp));
                                         if ($row == 0)
                                         {
                                             echo "<p> No available announcement. </p>";
@@ -110,7 +112,7 @@ include 'connection.php';
                                             echo "<tr><td>" . $row['subject']. "</a></td>
                                             <td>" . $row['announcement'] . "</td>
                                             <td>" . $row['attachment'] . "</td>
-                                            <td>"  . $row['posted_timestamp']. "</td>";
+                                            <td>"  . $formattedTimestamp . "</td>";
                                             echo '</tr>';	
                                         }	  		
                                     }

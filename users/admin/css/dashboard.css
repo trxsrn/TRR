@@ -28,7 +28,6 @@
 {
   width: 49%;
   padding: 1%;
-  box-shadow: 0 5px 5px 0 black;
 }
 
 .count-summary
@@ -37,18 +36,27 @@
   color: white;
   padding: 1%;
   border-radius: 10px 10px;
+  cursor: pointer;
+}
+
+.count-summary:hover{
+  box-shadow: 0 5px 5px 0 black;
 }
 
 .summary > .count-progress
 {
   width: 23%;
-  box-shadow: 0 5px 5px 0 black;
 }
 
 .count-progress
 {
   color: white;
   border-radius: 10px;
+  box-shadow: 0 2px 2px 0 black;
+}
+
+.count-progress:hover{
+  box-shadow: 0 5px 5px 0 black;
 }
 
 .author-label, .reviewer-label
