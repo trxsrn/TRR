@@ -123,20 +123,42 @@ include 'connection.php';
     </section>
 
     <script>
-        $(document).ready(function() {
-            $('table').DataTable();
+    $(document).ready(function() {
+        var table = $('table').DataTable({
+            "lengthMenu": [10, 25, 50, 100], // Set the available options for rows per page
+            "pageLength": 10, // Set the initial number of rows per page
+            "ajax": {
+                "url": "php/author_get_record_list.php",
+                "dataSrc": "" // Set the property from which data should be read
+            },
+            "columns": [
+                { "data": "id_number" },
+                { "data": "fullname" },
+                { "data": "discipline" },
+                { "data": "status" },
+                {
+                    "data": null,
+                    "render": function(data, type, row) {
+                        return '<a href="authorprofile_view.php?id_number=' + row.id_number + '"><i class="fa-regular fa-eye"></i></a>' +
+                            '<a href="#" onclick="confirmDelete(\'' + row.id_number + '\')"><i class="fa-solid fa-trash"></i></a>';
+                    }
+                }
+            ]
         });
 
-        $(document).ready(function() {
-            setInterval(function() {
-                $.ajax({
-                    url: 'php/author_get_record_list.php',
-                    success: function(data) {
-                        $('#table-data').html(data);
-                    }
-                });
-            }, 5000);
+        // Handle the change event of the length dropdown
+        $('table').on('length.dt', function(e, settings, len) {
+            table.page.len(len).draw(); // Set the new page length and redraw the table
         });
+
+        // Set an interval to auto-update the table
+        setInterval(function() {
+            table.ajax.reload(null, false); // Reload the table data without resetting the current page
+        }, 5000);
+    });
+
+
+
 
         function confirmDelete(id) {
             Swal.fire({

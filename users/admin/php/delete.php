@@ -1,6 +1,5 @@
 <?php
-include_once 'navbar.php';
-include 'connection.php';
+include '../connection.php';
 
 // Function to delete a record from the author_profile table
 function deleteAuthorProfile($id) {

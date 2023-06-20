@@ -4,7 +4,7 @@ include 'connection.php';
 include 'navbar.php';
 
 $id = $_GET['id_number'];
-$result = mysqli_query($conn, "SELECT * FROM author_profile WHERE id_number = '$id'");
+$result = mysqli_query($conn, "SELECT * FROM reviewer_profile WHERE id_number = '$id'");
 
 if ($result && mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
@@ -21,7 +21,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 
 } else {
     // Handle the case when no rows are found or query execution fails
-    echo "No author profile found for the given ID.";
+    echo "No reviewer profile found for the given ID.";
 }
 
 ?>
@@ -44,13 +44,10 @@ if ($result && mysqli_num_rows($result) > 0) {
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 
-    <!-- SWEET ALERT FOR REMOVING THE AUTHOR -->
-    
-
 </head>
 <body>
     <div class="content-body">
-        <h3><a href="author.php" class="header-back">AUTHORS</a> <i class="fa-solid fa-chevron-left"></i> <?php echo $fullname ; ?></h3>
+        <h3><a href="reviewer.php" class="header-back">REVIEWERS</a> <i class="fa-solid fa-chevron-left"></i> <?php echo $fullname ; ?></h3>
         <div class="author-details">
             <div class="card1">
                 <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row['profile_picture'] ).'" alt="">'; ?>
@@ -94,20 +91,21 @@ if ($result && mysqli_num_rows($result) > 0) {
         </div>
         
 
-        <table class="table table-bordered table-stripped table-hover" id="authorTable">
+        <table class="table table-bordered table-stripped table-hover" id="reviewerTable">
             <thead>
                 <tr>
                     <th>PAPER ID</th>
                     <th>TITLE</th>
+                    <th>AUTHOR</th>
                     <th>CO-AUTHOR/S</th>
                     <th>SUBMITTED DATE</th>
                     <th>STATUS</th>
-                    <th>ACTION</th>
+                    <th>A</th>
                 </tr>
             </thead>
             <tbody id="table-data">
                 <?php
-                $sql = mysqli_query($conn, "SELECT * FROM papers WHERE author = '$id' ");
+                $sql = mysqli_query($conn, "SELECT * FROM papers WHERE reviewer = '$id' ");
                 while($row= $sql->fetch_assoc())
                 {
                 ?>
@@ -132,7 +130,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#authorTable').DataTable();
+            $('#reviewerTable').DataTable();
         });
     </script>
 </body>

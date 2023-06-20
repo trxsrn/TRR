@@ -1,24 +1,25 @@
 <?php
-
-include 'connection.php';
+include '../connection.php';
 
 $sql = mysqli_query($conn, "SELECT * FROM reviewer_profile ");
-$output = '';
+$data = array(); // Create an empty array to store the data
 
-while($row= $sql -> fetch_assoc()) {
-  $output .= '<tr>';
-  $output .= '<td>' . $row['id_number'] . '</td>';
-  $output .= '<td>' . $row['fullname'] . '</td>';
-  $output .= '<td>' . $row['discipline'] . '</td>';
-  $output .= '<td>' . $row['status'] . '</td>';
-  $output .= '<td>
-    <a href="reviewerprofile_view.php?id_number=' .  $row['id_number'] .'"><i class="fa-regular fa-eye"></i></a>
-    <a href="#" onclick="confirmDelete(\'' .  $row['id_number'] . '\')"><i class="fa-solid fa-trash"></i></a>
-  </td>';
-  $output .= '</tr>';
+while($row = $sql->fetch_assoc()) {
+    $data[] = array(
+        'id_number' => $row['id_number'],
+        'fullname' => $row['fullname'],
+        'discipline' => $row['discipline'],
+        'status' => $row['status']
+    );
 }
 
-echo '<td colspan="5" style="text-align: center;">No data available in table</td>';
+if (empty($data)) {
+    $data = array('message' => 'No data available in table');
+}
 
-echo $output;
+// Set the response header to indicate JSON content
+header('Content-Type: application/json');
+
+// Output the JSON-encoded data
+echo json_encode($data);
 ?>
