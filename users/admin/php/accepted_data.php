@@ -1,5 +1,5 @@
 <?php
-include 'connection.php';
+include '../connection.php';
 
 $sql1 = mysqli_query($conn, "SELECT * FROM reviewer_profile");
 $sql2 = mysqli_query($conn, "SELECT * FROM author_profile");
@@ -13,7 +13,8 @@ while ($row = $sql1->fetch_assoc()) {
             <td>AUTHOR</td>
             <td>' . $row['id_number'] . '</td>
             <td>' . $row['fullname'] . '</td>
-            // <td><a href="reviewerprofile_view.php?id=' . $row['id_number'] . '" class="accept"><i class="fa-regular fa-eye"></i> VIEW</a></td>
+            <td>' . $row['username'] . '</td>
+            <td><a href="reviewerprofile_view.php?id=' . $row['id_number'] . '" class="accept"><i class="fa-regular fa-eye"></i> VIEW</a></td>
         </tr>';
 }
 
@@ -24,6 +25,7 @@ while ($row = $sql2->fetch_assoc()) {
             <td>REVIEWER</td>
             <td>' . $row['id_number'] . '</td>
             <td>' . $row['fullname'] . '</td>
+            <td>' . $row['username'] . '</td>
             <td><a href="authorprofile_view.php?id=' . $row['id_number'] . '" class="accept"><i class="fa-regular fa-eye"></i> VIEW</a></td>
         </tr>';
 }

@@ -22,14 +22,22 @@ while($row= $sql -> fetch_assoc()) {
   
   $reviewers = explode(";", $row['reviewer']);
   $reviewer_count = count($reviewers) -1  ;
+  $authorId = $row['author'];
+  $authorQuery = mysqli_query($conn, "SELECT fullname FROM author_profile WHERE id_number = '$authorId'");
+  $authorData = mysqli_fetch_assoc($authorQuery);
+  $authorName = $authorData['fullname'];
+  $timestamp = $row['last_modified'];
+  $formattedTimestamp = date('F j, Y', strtotime($timestamp));
+
+
 
   $output .= '<tr>';
   $output .= '<td>' . $row['id'] . '</td>';
   $output .= '<td>' . $row['research_title'] . '</td>';
-  $output .= '<td>' . $row['author'] . '</td>';
+  $output .= '<td><a href="">' . $authorName . '</a></td>';
   $output .= '<td>' . $row['Co-Author'] . '</td>';
   $output .= '<td>' . $reviewer_count . '/5</td>';
-  $output .= '<td>' . $row['last_modified'] . '</td>';
+  $output .= '<td>' . $formattedTimestamp . '</td>';
   $output .= '<td>' . $row['status'] . '</td>';
   $output .= '<td><center>' . getButton(strtolower($row['status']), $row['id']) . '</center></td>';
   $output .= '</tr>';

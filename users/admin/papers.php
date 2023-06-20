@@ -120,14 +120,26 @@ include 'connection.php';
             // Count the number of reviewers assigned
             $reviewers = explode(";", $row['reviewer']);
             $reviewer_count = count($reviewers) -1;
+
+            $authorId = $row['author'];
+            $authorQuery = mysqli_query($conn, "SELECT fullname FROM author_profile WHERE id_number = '$authorId'");
+            $authorData = mysqli_fetch_assoc($authorQuery);
+            $authorName = $authorData['fullname'];
+
+            // Fetch the timestamp from the database (assuming it's in the $row['last_modified'] variable)
+            $timestamp = $row['last_modified'];
+
+            // Format the timestamp
+            $formattedTimestamp = date('F j, Y', strtotime($timestamp));
+
             ?>
             <tr>
               <td><?= $row['id'] ?> </td>
               <td><?= $row['research_title'] ?> </td>
-              <td><?= $row['author'] ?> </td>
+              <td><a href=""><?= $authorName ?></a</td>
               <td><?= $row['Co-Author'] ?> </td>
               <td><?= $reviewer_count ?>/5</td> <!-- Display number of reviewers assigned -->
-              <td><?= $row['last_modified'] ?> </td>
+              <td><?= $formattedTimestamp ?> </td>
               <td><?= $row['status'] ?> </td>
               <td><center><?= getButton(strtolower($row['status']), $row['id']) ?></center></td>
             </tr>

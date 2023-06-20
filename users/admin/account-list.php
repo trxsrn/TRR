@@ -51,6 +51,7 @@ include 'connection.php';
                             <th>User Type</th>
                             <th>ID</th>
                             <th>Name</th>
+                            <th>Username</th>
                             <th>Action</th>
                     </tr>
                 </thead>
@@ -63,6 +64,7 @@ include 'connection.php';
                                 <td>AUTHOR</td>
                                 <td>' . $row['id_number'] . '</td>
                                 <td>' . $row['fullname'] . '</td>
+                                <td>' . $row['username'] . '</td>
                                 <td><a href="authorprofile_view.php?id=' . $row['id_number'] . '" class="accept"><i class="fa-regular fa-eye"></i> VIEW</a></td>
                             </tr>';
                     }
@@ -74,6 +76,7 @@ include 'connection.php';
                                 <td>REVIEWER</td>
                                 <td>' . $row['id_number'] . '</td>
                                 <td>' . $row['fullname'] . '</td>
+                                <td>' . $row['username'] . '</td>
                                 <td><a href="reviewerprofile_view.php?id=' . $row['id_number'] . '" class="accept"><i class="fa-regular fa-eye"></i> VIEW</a></td>
                             </tr>';
                     }
@@ -97,11 +100,11 @@ include 'connection.php';
 function toggleClick(status) {
     var url = '';
     if (status === 'accepted') {
-        url = 'accepted_data.php';
+        url = 'php/accepted_data.php';
         btn.style.left = '0';
         btn.style.color = 'white';
     } else if (status === 'declined') {
-        url = 'declined_data.php';
+        url = 'php/declined_data.php';
         btn.style.left = '50%';
         btn.style.color = 'black';
     }

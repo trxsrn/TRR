@@ -18,11 +18,12 @@ if ($result && mysqli_num_rows($result) > 0) {
     $qualification = $row['qualification'];
     $designation = $row['designation'];
     $affiliation = $row['affiliation'];
-
 } else {
     // Handle the case when no rows are found or query execution fails
     echo "No reviewer profile found for the given ID.";
 }
+
+$reviewer = str_replace(';', '', trim($id));
 
 ?>
 
@@ -105,13 +106,14 @@ if ($result && mysqli_num_rows($result) > 0) {
             </thead>
             <tbody id="table-data">
                 <?php
-                $sql = mysqli_query($conn, "SELECT * FROM papers WHERE reviewer = '$id' ");
+                $sql = mysqli_query($conn, "SELECT * FROM papers WHERE reviewer LIKE '%$reviewer%'");
                 while($row= $sql->fetch_assoc())
                 {
                 ?>
                 <tr>
                     <td><?= $row['id'] ?> </td>
                     <td><?= $row['research_title'] ?> </td>
+                    <td><?= $row['author'] ?> </td>
                     <td><?= $row['Co-Author'] ?> </td>
                     <td><?= $row['last_modified'] ?> </td>
                     <td><?= $row['status'] ?> </td>

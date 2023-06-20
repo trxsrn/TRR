@@ -58,6 +58,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $count++; // Increment the counter
 
+                $updateReviewerStatusQuery = "UPDATE reviewer_profile 
+                SET status = 'ACTIVE' 
+                WHERE id_number = '$reviewerId'";
+                mysqli_query($conn, $updateReviewerStatusQuery);
+
                 // Check if the reviewer column reached 5 reviewers
                 if ($count == $maxReviewers) {
                     // Update the status in the database to "TO REVIEW"
