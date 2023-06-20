@@ -13,12 +13,13 @@ if ($sql->num_rows > 0) {
                 <td>' . $row['user_type'] . '</td>
                 <td>' . $row['id'] . '</td>
                 <td>' . $row['fullname'] . '</td>
+                <td>' . $row['username'] . '</td>
                 <td><a href="reviewerprofile_view.php?id=' . $row['id'] . '" class="accept">VIEW DETAILS</a></td>
             </tr>';
     }
 
     echo $output;
 } else {
-    echo '<tr><td colspan="4">No declined accounts found.</td></tr>';
+    echo '<tr><td colspan="5">No declined accounts found.</td></tr>';
 }
 ?>

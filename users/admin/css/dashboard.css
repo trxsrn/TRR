@@ -57,6 +57,7 @@
 
 .count-progress:hover{
   box-shadow: 0 5px 5px 0 black;
+  cursor: pointer;
 }
 
 .author-label, .reviewer-label

@@ -67,6 +67,7 @@ if (!isset($_SESSION['username'])) {
                     <li class="submission__btn "><a href="#">ACCOUNTS &nbsp &nbsp &nbsp<i id="drp--dwn" class="fa-solid fa-caret-down"></i></a></li>
                     <div class="sub__submission__btn" style="display: none;">
                         <li style="padding-left: 1em;"><a href="account-list.php">LISTS</a></li>   
+                        <li style="padding-left: 1em;"><a href="account-declined.php">DECLINED</a></li>   
                         <li style="padding-left: 1em;"><a href="account-approval.php">FOR APPROVAL</a></li>
                         <li style="padding-left: 1em;"><a href="#">FOR DELETION</a></li> 
                     </div>
