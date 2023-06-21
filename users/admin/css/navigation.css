@@ -97,14 +97,15 @@
 .navigation__links li{
     font-size: var(--Font_Size);
     display: flex;
+    margin-bottom: 0%;
+    line-height: 1.2em;
 }
 
 .navigation__links li a{
-    padding:.5em 0 .5em 0;
+    padding:.5em 0 .5em 1em ;
     width: 100%;
     text-decoration: none;
     color: var(--Nav_List);
-    padding-left: 1em;
     font-size: var(--Font_Size);
     font-weight: 500;
 
@@ -121,6 +122,23 @@
 }
 #drp--dwn{
     transition: .5s;
+}
+
+#user__name.user__name
+{
+    color:var(--Nav_List);
+    margin-bottom: 0%;
+}
+
+#nav__links.nav__links
+{
+    margin-bottom: 0%;
+}
+
+#user__lbl.user__lbl
+{
+    color:var(--Second_Color);
+    margin-bottom: 0%;
 }
 
 #drp--dwn.rotateUp{

@@ -39,6 +39,7 @@ include 'connection.php';
                             <th>ID</th>
                             <th>Name</th>
                             <th>Username</th>
+                            <th>Reason</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -52,6 +53,7 @@ include 'connection.php';
                                     <td>' . $row['id_number'] . '</td>
                                     <td>' . $row['fullname'] . '</td>
                                     <td>' . $row['username'] . '</td>
+                                    <td>' . $row['reason'] . '</td>
                                     <td><a href="authorprofile_view.php?id=' . $row['id_number'] . '" class="accept"><i class="fa-regular fa-eye"></i> VIEW</a></td>
                                 </tr>';
                         }

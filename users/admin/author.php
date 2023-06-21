@@ -18,11 +18,12 @@ include 'connection.php';
     <script src="https://kit.fontawesome.com/1688d1e392.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!--J Query -->
+    <!-- J Query -->
     <script src="js/jquery-3.6.3.min.js"></script>
 
     <!-- Search and Pagination -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/navigation.css">
     <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -33,6 +34,7 @@ include 'connection.php';
     <!-- SWEET ALERT FOR REMOVING THE AUTHOR -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
+    
 </head>
 
 <body id="author">

@@ -54,22 +54,22 @@ if (!isset($_SESSION['username'])) {
                 </div>
                 <div class="logo__label__container">
                     <?php
-                            echo "<p classs='Username__Author' style='color: var(--Nav_List);'>" . $_SESSION['username'] . "</p>";
+                            echo "<p class='user__name'; id='user__name'>" . $_SESSION['username'] . "</p>";
+                            echo "<p class='user__lbl'; id='user__lbl'>Administrator</p>";
                     ?>
-                    <p class="label__Author" style="color:var(--Second_Color);">Administrator</p>
                 </div>
-                <ul class="navigation__links">
-                    <li><a href="dashboard.php">DASHBOARD</a></li>
-                    <li><a href="website.php">WEBSITE</a></li>
-                    <li><a href="author.php">AUTHORS</a></li>
-                    <li><a href="reviewer.php">REVIEWERS</a></li>
-                    <li><a href="papers.php">PAPERS</a></li>
-                    <li class="submission__btn "><a href="#">ACCOUNTS &nbsp &nbsp &nbsp<i id="drp--dwn" class="fa-solid fa-caret-down"></i></a></li>
+                <ul class="navigation__links"">
+                    <li><a class="nav__links" id="nav__links" href="dashboard.php">DASHBOARD</a></li>
+                    <li><a class="nav__links" id="nav__links" href="website.php">WEBSITE</a></li>
+                    <li><a class="nav__links" id="nav__links" href="author.php">AUTHORS</a></li>
+                    <li><a class="nav__links" id="nav__links" href="reviewer.php">REVIEWERS</a></li>
+                    <li><a class="nav__links" id="nav__links" href="papers.php">PAPERS</a></li>
+                    <li class="submission__btn "><a class="nav__links" id="nav__links" href="#">ACCOUNTS &nbsp &nbsp &nbsp<i id="drp--dwn" class="fa-solid fa-caret-down"></i></a></li>
                     <div class="sub__submission__btn" style="display: none;">
-                        <li style="padding-left: 1em;"><a href="account-list.php">LISTS</a></li>   
-                        <li style="padding-left: 1em;"><a href="account-declined.php">DECLINED</a></li>   
-                        <li style="padding-left: 1em;"><a href="account-approval.php">FOR APPROVAL</a></li>
-                        <li style="padding-left: 1em;"><a href="#">FOR DELETION</a></li> 
+                        <li style="padding-left: 1em;"><a class="nav__links" id="nav__links" href="account-list.php">LISTS</a></li>   
+                        <li style="padding-left: 1em;"><a class="nav__links" id="nav__links" href="account-declined.php">DECLINED</a></li>   
+                        <li style="padding-left: 1em;"><a class="nav__links" id="nav__links" href="account-approval.php">FOR APPROVAL</a></li>
+                        <li style="padding-left: 1em;"><a class="nav__links" id="nav__links" href="#">FOR DELETION</a></li> 
                     </div>
                    
 
