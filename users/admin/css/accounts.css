@@ -53,3 +53,18 @@ th
     color: white;
     border: none;
 }
+
+@media print {
+  table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+  th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+  }
+  h3 {
+      margin-top: 0;
+  }
+}
