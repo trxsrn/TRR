@@ -77,10 +77,6 @@ if (!isset($_SESSION['username'])) {
             </div>
         </div>
     </nav>
-    <!-- Navigation Area -->
-
-    <!-- Header -->
-       <!-- DashBoard -->
     <nav class="header__nav">
         <header>
             <div class="header__box">

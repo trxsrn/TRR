@@ -105,8 +105,7 @@ function printData() {
     printWindow.document.write('<th>User Type</th>');
     printWindow.document.write('<th>ID</th>');
     printWindow.document.write('<th>Name</th>');
-    printWindow.document.write('<th class="no-print">Username</th>'); // Add "no-print" class to exclude the column from printing
-    printWindow.document.write('<th>Action</th>');
+    printWindow.document.write('<th>Username</th>');
     printWindow.document.write('</tr>');
     printWindow.document.write('</thead>');
     printWindow.document.write('<tbody>');
@@ -115,7 +114,7 @@ function printData() {
         var rowData = tableRows[i].querySelectorAll("td");
         printWindow.document.write('<tr>');
         for (var j = 0; j < rowData.length; j++) {
-            if (!rowData[j].classList.contains("no-print")) { // Exclude cells with "no-print" class from printing
+            if (j !== rowData.length - 1) { // Exclude the last column (Action column)
                 printWindow.document.write('<td>' + rowData[j].innerHTML + '</td>');
             }
         }
@@ -128,6 +127,7 @@ function printData() {
     printWindow.print();
 }
 </script>
+
 
 </body>
 </html>
