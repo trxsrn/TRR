@@ -135,7 +135,7 @@ include 'connection.php';
             ?>
             <tr>
               <td><?= $row['id'] ?> </td>
-              <td><?= $row['research_title'] ?> </td>
+              <td><a href=""><?= $row['research_title'] ?> </a></td>
               <td><a href=""><?= $authorName ?></a</td>
               <td><?= $row['Co-Author'] ?> </td>
               <td><?= $reviewer_count ?>/5</td> <!-- Display number of reviewers assigned -->

@@ -234,10 +234,9 @@ if (!isset($_SESSION['username'])) {
                             </table>
                     </div>
                 </div>
-                <div class="ranking" id="ranking" onclick="close()">
-                    <div class="overall-ranking">
-                        <h1 class="ranking-headers"> RANKING OF DISCIPLINES ACCORDING TO PUBLISHED PAPERS </h1>
-                        <!-- <button class="" onclick="close()"><i class="fa-solid fa-xmark"></i></button> -->
+                <div class="ranking" id="ranking" onclick="closeRanking()">
+                  <div class="overall-ranking">
+                        <h3 class="ranking-headers"> RANKING OF DISCIPLINES ACCORDING TO PUBLISHED PAPERS </h3>
                             <table>
                                 <?php 
                                     foreach ($counts as $discipline => $count) {
@@ -255,12 +254,16 @@ if (!isset($_SESSION['username'])) {
     function viewMore() 
     {
     document.getElementById("ranking").style.display = "block";
+    const rankingElement = document.querySelector('.overall-ranking');
+    rankingElement.classList.add('slide-in');
+
+    }
+    function closeRanking() {
+    document.getElementById("ranking").style.display = "none";
+    const rankingElement = document.querySelector('.overall-ranking');
+    rankingElement.classList.add('slide-out');
     }
 
-    function close() 
-    {
-    document.getElementById("ranking").style.display = "none";
-    }
     document.getElementById("authors").addEventListener("click", function() 
     {
         window.location.href = "author.php";
