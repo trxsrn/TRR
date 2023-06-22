@@ -135,8 +135,8 @@ include 'connection.php';
             ?>
             <tr>
               <td><?= $row['id'] ?> </td>
-              <td><a href=""><?= $row['research_title'] ?> </a></td>
-              <td><a href=""><?= $authorName ?></a</td>
+              <td><a href="paper_view.php?id=<?= $row['id'] ?>"><?= $row['research_title'] ?> </a></td>
+              <td><a onclick="openprofile()"><?= $authorName ?></a</td>
               <td><?= $row['Co-Author'] ?> </td>
               <td><?= $reviewer_count ?>/5</td> <!-- Display number of reviewers assigned -->
               <td><?= $formattedTimestamp ?> </td>
@@ -184,6 +184,11 @@ include 'connection.php';
         </center>
       </div>
     </div>
+    <div class="authorprofile" id="authorprofile">
+      <div class="">
+        <
+      </div>
+    </div>
   </div>
   <script>
     $(document).ready(function() {
@@ -221,6 +226,12 @@ include 'connection.php';
 
     function closeForm() {
       document.getElementById("publish-form").style.display = "none";
+    }
+    function openprofile(){
+      document.getElementById("authorprofile").style.display = "block";
+    }
+    function closeprofile(){
+      document.getElementById("authorprofile").style.display = "none";
     }
   </script>
 </div>

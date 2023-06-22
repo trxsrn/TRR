@@ -8,6 +8,7 @@ $row = mysqli_fetch_assoc($result);
 
 $title = $row['research_title'];
 $author = $row['author'];
+$co_authors = $row['Co-Authors'];
 $discipline = $row['discipline'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -97,6 +98,11 @@ $assignedReviewersResult = mysqli_query($conn, "SELECT reviewer FROM papers WHER
 $assignedReviewersRow = mysqli_fetch_assoc($assignedReviewersResult);
 $assignedReviewers = explode(';', $assignedReviewersRow['reviewer']);
 $assignedReviewers = array_filter($assignedReviewers);
+
+$authorId = $row['author'];
+$authorQuery = mysqli_query($conn, "SELECT fullname FROM author_profile WHERE id_number = '$authorId'");
+$authorData = mysqli_fetch_assoc($authorQuery);
+$authorName = $authorData['fullname'];
 ?>
 
 <!DOCTYPE html>
@@ -122,8 +128,10 @@ $assignedReviewers = array_filter($assignedReviewers);
     <div class="content-body">
         <div class="content" style="margin: 25px;">
             <h1><?php echo $title; ?></h1>
-            <h3><?php echo $author; ?></h3>
-            <h6><?php echo $discipline; ?></h6>
+            <h5>Author: <?php echo $authorName; ?></h3>
+            <h6>Co-Author/s: <?php echo $co_authors; ?></h3>
+            <h6>Discipline: <?php echo $discipline; ?></h6>
+            <br>
             <form method="POST">
                 <input type="hidden" name="paper_id" value="<?php echo $id; ?>">
                 <table class="table table-bordered table-striped table-hover">
@@ -173,6 +181,8 @@ $assignedReviewers = array_filter($assignedReviewers);
                                 $buttonText = getButton(strtolower($row['status']), $row['id_number']);
                                 $buttonClass = 'btn btn-primary';
                             }
+
+                    
                         ?>
                             <tr>
                                 <td><?= $row['id_number'] ?></td>

@@ -50,7 +50,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 </head>
 <body>
     <div class="content-body">
-        <h3><a href="author.php" class="header-back">AUTHORS</a> <i class="fa-solid fa-chevron-left"></i> <?php echo $fullname ; ?></h3>
+        <h3><a href="author.php" class="header-back"><i class="fa-solid fa-chevron-left"></i>AUTHORS</a></h3>
         <div class="author-details">
             <div class="card1">
                 <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row['profile_picture'] ).'" alt="">'; ?>
@@ -58,15 +58,15 @@ if ($result && mysqli_num_rows($result) > 0) {
             <div class="card2">
                 <table>
                     <tr>
-                        <td>ID:</td>
+                        <td width="20%">ID:</td>
                         <td> <?php echo "<p><strong>" . $id . "</strong><br>";?> </td>
                     </tr>
                     <tr>
-                        <td>Name / Username:</td>
+                        <td width="20%">Name / Username:</td>
                         <td> <?php  echo "<strong>" . $fullname . " </strong>/ " . $username . "<br>" ; ?> </td>
                     </tr>
                     <tr>
-                        <td>Disciplines:</td>
+                        <td width="20%">Disciplines:</td>
                         <td> <?php echo $discipline  ?> </td>
                     </tr>
                 </table>
