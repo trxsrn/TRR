@@ -108,17 +108,20 @@ a
     color: black;
 }
 
-
-.accept
+.view
 {
-    background-color: green;
-    color: white;
+    color: #00286c;
+    text-align: center;
+    font-size: medium;
+    margin: 0 10px 0 10px;
 }
 
-.decline
+.remove
 {
-    background-color: red;
-    color: white;
+    color: red;
+    text-align:  center;
+    font-size: medium;
+    margin: 0 10px 0 10px;
 }
 
 

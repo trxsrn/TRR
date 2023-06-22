@@ -113,8 +113,8 @@ include 'connection.php';
                                 <td><?= $row['discipline'] ?></td>
                                 <td><?= $row['status'] ?></td>
                                 <td>
-                                    <a href="authorprofile_view.php?id_number=<?= $row['id_number'] ?>"><i class="fa-regular fa-eye"></i></a>
-                                    <a href="#" onclick="confirmDelete('<?= $row['id_number'] ?>')"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="authorprofile_view.php?id_number=<?= $row['id_number'] ?>"><i class="fa-regular fa-eye"></i>VIEW</a>
+                                    <a href="#" onclick="confirmDelete('<?= $row['id_number'] ?>')"><i class="fa-solid fa-trash"></i>REMOVE</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -141,8 +141,8 @@ include 'connection.php';
                 {
                     "data": null,
                     "render": function(data, type, row) {
-                        return '<a href="authorprofile_view.php?id_number=' + row.id_number + '"><i class="fa-regular fa-eye"></i></a>' +
-                            '<a href="#" onclick="confirmDelete(\'' + row.id_number + '\')"><i class="fa-solid fa-trash"></i></a>';
+                        return '<center><a class="view" href="authorprofile_view.php?id_number=' + row.id_number + '"><i class="fa-regular fa-eye"></i></a>' +
+                            '<a class="remove" href="#" onclick="confirmDelete(\'' + row.id_number + '\')"><i class="fa-solid fa-trash"></i></a></center>';
                     }
                 }
             ]

@@ -196,46 +196,52 @@ if (!isset($_SESSION['username'])) {
                         </table>
                     </div>
                     <div class="activity-log">
-                        <table class="activity-log-table">
-                            <tr>
-                                <th colspan="4" class="discipline-title">ACTIVITY LOG</th>
-                            </tr>
-                                    <tr>
-                                        <th>USER TYPE</th>
-                                        <th>ACTION </th>
-                                        <th>TIMESTAMP </th>
-                                    </tr>
-                                    
-                                    <?php
-                                        mysqli_select_db($conn,'trr');
-                                        $sql = mysqli_query($conn, "SELECT * FROM activity_log ORDER BY id DESC LIMIT 5");
-                                        
-                                        if (mysqli_num_rows($sql) == 0) {
-                                            echo "<th colspan='4'>No activity found.</th>";
-                                        } else {
-                                            while ($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) {
+                        <div class="table-container">
+                            <table class="activity-log-table">
+                            <thead class="log-header">
+                                <tr>
+                                <th colspan="3" class="log-title">ACTIVITY LOG</th>
+                                </tr>
+                                <tr>
+                                <th class="headers">USER TYPE</th>
+                                <th class="headers">ACTION</th>
+                                <th class="headers">TIMESTAMP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                mysqli_select_db($conn, 'trr');
+                                $sql = mysqli_query($conn, "SELECT * FROM activity_log ORDER BY id DESC LIMIT 7 ");
 
-                                                $timestamp = $row['timestamp'];
-                                                $formattedTimestamp = date('F j, Y', strtotime($timestamp));
-                                                echo "<tr>
-                                                    <td>" .$row['user_type'] . "</td>
-                                                    <td>" .$row['action'] . "</td>
-                                                    <td>" .$formattedTimestamp  . "</td>";
-                                                echo '</tr>';	
-                                            }	  
-                                        }
-                                        
-                                        mysqli_free_result($sql);
-                                    ?>
+                                if (mysqli_num_rows($sql) == 0) {
+                                    echo "<tr><td colspan='3'>No activity found.</td></tr>";
+                                } else {
+                                    while ($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) {
+                                    $timestamp = $row['timestamp'];
+                                    $formattedTimestamp = date('F j, Y', strtotime($timestamp));
+                                    echo "<tr>
+                                            <td>" . $row['user_type'] . "</td>
+                                            <td>" . $row['action'] . "</td>
+                                            <td>" . $formattedTimestamp . "</td>
+                                            </tr>";
+                                    }
+                                }
 
-                            <tr>
-                                <th colspan="4" class="discipline-footer">See More</th>
-                            </tr>
+                                mysqli_free_result($sql);
+                                ?>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                <th colspan="3" class="activity-footer">See More</th>
+                                </tr>
+                            </tfoot>
                             </table>
+                        </div>
+                        </div>
                     </div>
                 </div>
                 <div class="ranking" id="ranking" onclick="closeRanking()">
-                  <div class="overall-ranking">
+                  <div class="overall-ranking" id="overall-ranking">
                         <h3 class="ranking-headers"> RANKING OF DISCIPLINES ACCORDING TO PUBLISHED PAPERS </h3>
                             <table>
                                 <?php 
@@ -255,15 +261,12 @@ if (!isset($_SESSION['username'])) {
     {
     document.getElementById("ranking").style.display = "block";
     const rankingElement = document.querySelector('.overall-ranking');
+    rankingElement.classList.remove('slide-out');
     rankingElement.classList.add('slide-in');
-
     }
     function closeRanking() {
-    document.getElementById("ranking").style.display = "none";
-    const rankingElement = document.querySelector('.overall-ranking');
-    rankingElement.classList.add('slide-out');
+        document.getElementById("ranking").style.display = "none";
     }
-
     document.getElementById("authors").addEventListener("click", function() 
     {
         window.location.href = "author.php";

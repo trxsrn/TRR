@@ -91,7 +91,7 @@
   width: 49%;
 }
 
-.discipline-title {
+.discipline-title, .log-title {
   text-align: center;
   background-color: #002057;
   color: white;
@@ -100,23 +100,53 @@
   font-size: large;
 }
 
-.discipline-footer {
+.discipline-footer, .activity-footer {
   text-align: center;
   color: black;
   border-radius: 0 0 10px 10px;
   padding: 0.5em;
   border-top: 2px solid rgba(0, 0, 0, 0.792);
-  font-size: small;
 }
 
 .discipline-table,
-.activity-log-table {
+.table-container {
   border-radius: 10px;
   box-shadow: 0 5px 5px 0 black;
   border-collapse: collapse;
   font-size: 15px;
   width: 100%;
 }
+
+.activity-log-table
+{
+  table-layout: fixed;
+  box-shadow: 0 5px 5px 0 black;
+}
+
+.table-container
+{
+  height: 420px;
+  overflow: auto;
+}
+
+.activity-log-table thead{
+  position: sticky;
+  top: 0;
+}
+
+.activity-log-table thead .headers {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.activity-log-table tfoot th {
+  text-align: center;
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
+}
+
 
 th,
 tr {
@@ -174,41 +204,31 @@ button {
   border: none;
 }
 
-/* Apply the slide-in animation to the .ranking element */
+.slide-in {
+  animation: slide-in 0.5s forwards;
+}
 
-/* Define the slide-in animation */
+.slide-out {
+  animation: slide-out 0.5s forwards;
+}
+
 @keyframes slide-in {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
+  from {
+    transform: translateX(-100%);
   }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
+  to {
+    transform: translateX(0);
   }
 }
 
-.overall-ranking.slide-in {
-  animation: slide-in 0.5s ease-out;
-}
-
-/* Define the slide-out animation */
 @keyframes slide-out {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
+  from {
+    transform: translateX(0);
   }
-  100% {
-    transform: translateY(-100%);
-    opacity: 0;
+  to {
+    transform: translateX(-100%);
   }
 }
-
-/* Apply the slide-out animation to the .ranking element */
-.overall-ranking.slide-out {
-  animation: slide-out 0.5s ease-out;
-}
-
 
 
 

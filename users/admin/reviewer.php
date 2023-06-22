@@ -149,8 +149,8 @@ include 'connection.php';
                 {
                     "data": null,
                     "render": function(data, type, row) {
-                        return '<a href="reviewerprofile_view.php?id_number=' + row.id_number + '"><i class="fa-regular fa-eye"></i></a>' +
-                            '<a href="#" onclick="confirmDelete(\'' + row.id_number + '\')"><i class="fa-solid fa-trash"></i></a>';
+                        return '<center><a class="view" href="reviewerprofile_view.php?id_number=' + row.id_number + '"><i class="fa-regular fa-eye"></i></a>' +
+                            '<a class="remove" href="#" onclick="confirmDelete(\'' + row.id_number + '\')"><i class="fa-solid fa-trash"></i></a></center>';
                     }
                 }
             ]
