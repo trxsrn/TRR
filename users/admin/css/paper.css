@@ -202,6 +202,43 @@
   height: 5em;
   resize: none;
 }
+
+.authorprofile
+{
+  display: none;
+  background-color: rgba(0, 0, 0, 0.60);
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 99999;
+}
+
+.card
+{
+  background-color: white;
+  margin: 2.5% 25%;
+}
+
+.author_photo
+{
+  background-color: #002057;
+  border: none;
+}
+
+.author_table
+{
+  padding: 20% 20% 30% 20%;
+  border-collapse: collapse;
+}
+
+.author_details td
+{
+  padding: 10px;
+}
+
+
   
   
   

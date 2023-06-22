@@ -88,7 +88,7 @@ include 'connection.php';
     </div>
 
     <div class="content" style="margin: 25px;">
-      <table class="table table-bordered table-stripped table-hover">
+      <table class="table table-bordered table-stripped table-hover" id="papers_tbl">
         <thead>
           <tr>
             <th>ID</th>
@@ -136,7 +136,7 @@ include 'connection.php';
             <tr>
               <td><?= $row['id'] ?> </td>
               <td><a href="paper_view.php?id=<?= $row['id'] ?>"><?= $row['research_title'] ?> </a></td>
-              <td><a onclick="openprofile()"><?= $authorName ?></a</td>
+              <td><a href="#" onclick="openprofile('<?= $authorId ?>')"><?= $authorName ?></a</td>
               <td><?= $row['Co-Author'] ?> </td>
               <td><?= $reviewer_count ?>/5</td> <!-- Display number of reviewers assigned -->
               <td><?= $formattedTimestamp ?> </td>
@@ -185,14 +185,44 @@ include 'connection.php';
       </div>
     </div>
     <div class="authorprofile" id="authorprofile">
-      <div class="">
-        <
+      <div class="card">
+        <div class="author_photo">
+        </div>
+        <div class="author_table">
+
+          <table class="author_details" id="author_details">
+            <tr>
+              <td>ID NUMBER</td>
+              <td><?php $authorId ?></td>
+            </tr>
+            <tr>
+              <td>FULLNAME</td>
+              <td><?php $authorName?></td>
+            </tr>
+            <tr>
+              <td>DISCIPLINE</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>DESIGNATION</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>QUALIFICATION</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>AFFILIATION</td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   </div>
   <script>
     $(document).ready(function() {
-      $('table').DataTable();
+      $('#papers_tbl').DataTable();
     });
 
     $(document).ready(function() {
@@ -227,7 +257,7 @@ include 'connection.php';
     function closeForm() {
       document.getElementById("publish-form").style.display = "none";
     }
-    function openprofile(){
+    function openprofile(authorId){
       document.getElementById("authorprofile").style.display = "block";
     }
     function closeprofile(){
