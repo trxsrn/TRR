@@ -213,28 +213,58 @@
   right: 0%;
   bottom: 0%;
   z-index: 99999;
+  width: auto;
 }
 
 .card
 {
-  background-color: white;
+  background-color: #002057;
   margin: 2.5% 25%;
+  width: 50%;
 }
 
 .author_photo
 {
   background-color: #002057;
   border: none;
+  width: max-content;
 }
 
-.author_table
+.seal{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0 0 0 60px;
+}
+
+.logo
 {
-  padding: 20% 20% 30% 20%;
+  top: 0;   
+}
+
+.author{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: 5px solid #ffc001;
+  position: absolute;
+  z-index: 9999;
+  top: 10%;
+  left: 38%;
+
+}
+
+.author_table {
+  padding: 15% 10% 10% 10%;
   border-collapse: collapse;
+  background-color: white;
 }
 
-.author_details td
-{
+.author_details {
+  word-wrap: break-word;
+}
+
+.author_details td {
   padding: 10px;
 }
 

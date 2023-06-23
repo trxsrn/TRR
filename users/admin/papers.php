@@ -27,7 +27,7 @@ include 'connection.php';
     <div class="summary">
       <div class="count-progress" style="background: #002057; padding: 20px;">
         <div class="author_count">
-          <i class="fa-solid fa-user" style="color: white; font-size: 50px; float: left; margin: .2em;"></i>
+          <i class="fa-solid fa-book" style="color: white; font-size: 50px; float: left; margin: .2em;"></i>
           <?php
           $query = mysqli_query($conn, "SELECT * FROM papers");
           if ($total_authors = mysqli_num_rows($query)) {
@@ -136,7 +136,7 @@ include 'connection.php';
             <tr>
               <td><?= $row['id'] ?> </td>
               <td><a href="paper_view.php?id=<?= $row['id'] ?>"><?= $row['research_title'] ?> </a></td>
-              <td><a href="#" onclick="openprofile('<?= $authorId ?>')"><?= $authorName ?></a</td>
+              <td><a href="#" onclick="openProfile('<?= $authorId ?>', '<?= $authorName ?>')"><?= $authorName ?></a></td>
               <td><?= $row['Co-Author'] ?> </td>
               <td><?= $reviewer_count ?>/5</td> <!-- Display number of reviewers assigned -->
               <td><?= $formattedTimestamp ?> </td>
@@ -184,20 +184,27 @@ include 'connection.php';
         </center>
       </div>
     </div>
-    <div class="authorprofile" id="authorprofile">
+    <div class="authorprofile" id="authorprofile" onclick="closeprofile()">
       <div class="card">
         <div class="author_photo">
+          <div class="seal">
+            <center>
+            <img src="css/RTU_Seal 4(cropped).png" class="logo">
+            <img src="css/RDC logo (cropped).png" class="logo">
+          </center>
+          </div>
+          <img src="css/trixie.png" class="author">
         </div>
         <div class="author_table">
 
           <table class="author_details" id="author_details">
             <tr>
               <td>ID NUMBER</td>
-              <td><?php $authorId ?></td>
+              <td></td>
             </tr>
             <tr>
               <td>FULLNAME</td>
-              <td><?php $authorName?></td>
+              <td></td>
             </tr>
             <tr>
               <td>DISCIPLINE</td>
@@ -257,9 +264,41 @@ include 'connection.php';
     function closeForm() {
       document.getElementById("publish-form").style.display = "none";
     }
-    function openprofile(authorId){
-      document.getElementById("authorprofile").style.display = "block";
+    function openProfile(authorId, authorName) {
+  $.ajax({
+    url: 'php/card_author_details.php',
+    type: 'POST',
+    data: { authorId: authorId },
+    dataType: 'json',
+    success: function(response) {
+      if (response.error) {
+        console.log('Error:', response.error);
+      } else {
+        var fetchedAuthorId = response.id_number; // Use a different variable name to avoid conflict
+        var fullname = response.fullname;
+        var discipline = response.discipline;
+        var designation = response.designation;
+        var qualification = response.qualification;
+        var affiliation = response.affiliation;
+        
+        // Update the table cells with the author's details
+        $('#author_details td:nth-child(2)').eq(0).text(fetchedAuthorId); // Use the updated variable name here
+        $('#author_details td:nth-child(2)').eq(1).text(fullname);
+        $('#author_details td:nth-child(2)').eq(2).text(discipline);
+        $('#author_details td:nth-child(2)').eq(3).text(designation);
+        $('#author_details td:nth-child(2)').eq(4).text(qualification);
+        $('#author_details td:nth-child(2)').eq(5).text(affiliation);
+        
+        // Display the author profile
+        document.getElementById("authorprofile").style.display = "block";
+      }
+    },
+    error: function(xhr, status, error) {
+      console.log('AJAX Error:', error);
     }
+  });
+}
+
     function closeprofile(){
       document.getElementById("authorprofile").style.display = "none";
     }

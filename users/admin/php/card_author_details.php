@@ -1,39 +1,49 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 include '../connection.php';
-// Retrieve the authorId from the AJAX request
+
 $authorId = $_POST['authorId'];
 
+// Query the database to retrieve the author's details
 $query = "SELECT * FROM author_profile WHERE id_number = '$authorId'";
 $result = mysqli_query($conn, $query);
-$authorData = mysqli_fetch_assoc($result);
 
-// Check if author details were found
-if ($authorData) {
-    $authorName = $authorData['fullname'];
-    $authorDiscipline = $authorData['discipline'];
-    $authorDesignation = $authorData['designation'];
-    $authorQualification = $authorData['qualification'];
-    $authorAffiliation = $authorData['affiliation'];
+if ($result && mysqli_num_rows($result) > 0) {
+  $authorData = mysqli_fetch_assoc($result);
 
-    // Create an associative array of author details
-    $authorDetails = array(
-        'id' => $authorId,
-        'fullname' => $authorName,
-        'discipline' => $authorDiscipline,
-        'designation' => $authorDesignation,
-        'qualification' => $authorQualification,
-        'affiliation' => $authorAffiliation
-    );
+  // Retrieve the author's details
+  $authorId = $authorData['id_number'];
+  $fullname = $authorData['fullname'];
+  $discipline = $authorData['discipline'];
+  $designation = $authorData['designation'];
+  $qualification = $authorData['qualification'];
+  $affiliation = $authorData['affiliation'];
 
-    // Send the author details as a JSON response
-    header('Content-Type: application/json');
-    echo json_encode($authorDetails);
+  // Prepare the author's details as an array
+  $authorDetails = array(
+    'id_number' => $authorId,
+    'fullname' => $fullname,
+    'discipline' => $discipline,
+    'designation' => $designation,
+    'qualification' => $qualification,
+    'affiliation' => $affiliation
+  );
+
+  // Return the author's details as a JSON response
+  $response = $authorDetails;
 } else {
-    // Author details not found
-    echo json_encode(array('error' => 'Author not found.'));
+  $response = array('error' => 'Author details not found.');
 }
 
 // Close the database connection
 mysqli_close($conn);
+
+// Set the content type header to JSON
+header('Content-Type: application/json');
+
+// Encode the response as JSON and send it back
+echo json_encode($response);
 ?>
+    
