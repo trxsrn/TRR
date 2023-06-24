@@ -135,7 +135,7 @@ include 'connection.php';
             ?>
             <tr>
               <td><?= $row['id'] ?> </td>
-              <td><a href="paper_view.php?id=<?= $row['id'] ?>"><?= $row['research_title'] ?> </a></td>
+              <td><a href="paper_view.php?id=<?= $row['id'] ?>" class="papertitle"><?= $row['research_title'] ?> </a></td>
               <td><a href="#" onclick="openProfile('<?= $authorId ?>', '<?= $authorName ?>')"><?= $authorName ?></a></td>
               <td><?= $row['Co-Author'] ?> </td>
               <td><?= $reviewer_count ?>/5</td> <!-- Display number of reviewers assigned -->
