@@ -25,7 +25,6 @@ if ($result && mysqli_num_rows($result) > 0) {
     echo "No reviewer profile found for the given ID.";
 }
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

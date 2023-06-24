@@ -1,48 +1,64 @@
-<?php 
-
-include 'navbar.php';
-
-?>
-
+<?php include 'navbar.php' ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publication</title>
-    <link rel="stylesheet" href="css/publication.css">
-
-</head> 
-<body>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/publication.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title> ARCHIVE </title>
+    </head>
+    <body>
     <div class="publication-ethics">
-        <div class="publication-header">
-        <i class="fa-sharp fa-light fa-shield-check"></i>
-        <h1> Publication Ethics </h1>
-        <p>       
-            The researcher can choose to make their paper available in either The Rizalian Review Journal from RTU or any journal recognized by the Commission on Higher Education or CHED.
-            To recognize authors and maintain public trust in scientific findings and high-quality scientific writing, publication ethics exist. TRR expects everyone to follow publication ethics. The journal rejects manuscripts with plagiarism or other unethical activities. Author duties and expectations:
-        </p>
-        </div>
-        <div class="ethics">
-            <div class="card">
-            <i class="fa-sharp fa-light fa-check"></i>
-            <h3>Ethical Standard</h3>
-            <p>
-            In order to preserve the integrity of their work, it is necessary that the authors of original articles provide accurate information regarding their research and an extensive evaluation of its importance. The paper should have all of the details of the references that let others copy the parts. TRR guarantees that research published in a journal is in accordance with ethical standards as well as relevant laws. It involves evaluating informed consent, confidentiality, and other ethical factors.
-            </p>
+            <div class="short-intro">
+                <h1> PUBLICATION ETHICS </h1>
+                <br>
+                <p>       
+                    The researcher can choose to make their paper available in either The Rizalian Review Journal from RTU or any journal recognized by the Commission on Higher Education or CHED.
+                    To recognize authors and maintain public trust in scientific findings and high-quality scientific writing, publication ethics exist. TRR expects everyone to follow publication ethics. The journal rejects manuscripts with plagiarism or other unethical activities. Author duties and expectations:
+                </p>
             </div>
-            <div class="card">
-            <!-- <i class="fas-solid fa-standard-definition"></i> -->
-            <h3>Originality and plagiarism</h3>
-            <p>
-            Plagiarism refers to using or taking someone else's published or unpublished ideas, original work, or intellectual property without proper permission or attribution. This is done in a way that presents the material as new and authentic rather than acknowledging its existing source. The TRR has a strict policy against copyright infringement, plagiarism, and other publication ethics violations. The TRR is dedicated to safeguarding authors' rights and thoroughly investigates any allegations of plagiarism or misuse of published articles. Similarly, the Editorial Board is responsible for adhering to the journal's editorial standards and procedures, including assuring the publication process is equal, transparent, and timely. The submitted paper of the authors was scanned with software for detecting duplicates.
-            </p>
+            <div class="ethics_content">
+                <div class="card">
+                    <div class="card-front">
+                        <i class="fa-solid fa-scale-balanced" style="color: #ffc001; font-size: 50px; margin: 15px;"></i>
+                        <h3>Ethical Standard</h3>
+                        <p class="card-content">
+                        In order to preserve the integrity of their work, it is necessary that the authors of original articles provide accurate information regarding their research and an extensive evaluation of its importance. The paper should have all of the details of the references that let others copy the parts. TRR guarantees that research published in a journal is in accordance with ethical standards as well as relevant laws. It involves evaluating informed consent, confidentiality, and other ethical factors.
+                        </p>
+                        <center><button class="learn-more-button">LEARN MORE</button></center>
+                    </div>
+                    <div class="card-back">
+                        <p class="full-text">
+                        In order to preserve the integrity of their work, it is necessary that the authors of original articles provide accurate information regarding their research and an extensive evaluation of its importance. The paper should have all of the details of the references that let others copy the parts. TRR guarantees that research published in a journal is in accordance with ethical standards as well as relevant laws. It involves evaluating informed consent, confidentiality, and other ethical factors.
+                        </p>
+                        <center><button class="go-back-button">SHOW LESS</button></center>
+                    </div>
+                    </div>
+
+                    <div class="card">
+                    <div class="card-front">
+                        <i class="fa-solid fa-lightbulb" style="color: #ffc001; font-size: 50px; margin: 15px;"></i>
+                        <h3>Originality and plagiarism</h3>
+                        <p class="card-content">
+                        Plagiarism refers to using or taking someone else's published or unpublished ideas, original work, or intellectual property without proper permission or attribution. This is done in a way that presents the material as new and authentic rather than acknowledging its existing source. The TRR has a strict policy against copyright infringement, plagiarism, and other publication ethics violations. The TRR is dedicated to safeguarding authors' rights and thoroughly investigates any allegations of plagiarism or misuse of published articles. Similarly, the Editorial Board is responsible for adhering to the journal's editorial standards and procedures, including assuring the publication process is equal, transparent, and timely. The submitted paper of the authors was scanned with software for detecting duplicates.
+                        </p>
+                        <center><button class="learn-more-button">LEARN MORE</button></center>
+                    </div>
+                    <div class="card-back">
+                        <p class="full-text">
+                        Plagiarism refers to using or taking someone else's published or unpublished ideas, original work, or intellectual property without proper permission or attribution. This is done in a way that presents the material as new and authentic rather than acknowledging its existing source. The TRR has a strict policy against copyright infringement, plagiarism, and other publication ethics violations. The TRR is dedicated to safeguarding authors' rights and thoroughly investigates any allegations of plagiarism or misuse of published articles. Similarly, the Editorial Board is responsible for adhering to the journal's editorial standards and procedures, including assuring the publication process is equal, transparent, and timely. The submitted paper of the authors was scanned with software for detecting duplicates.
+                        </p>
+                        <center><button class="go-back-button">SHOW LESS</button></center>
+                    </div>
+                </div>
             </div>
-        </div>
+    </div>
+    <div class="responsibility-header">
         <div class="editor-responsibilities">
             <div class="editor-header">
-                <h3>EDITOR RESPONSIBILITIES</h3>
+                <h3 class="sub-headers">EDITOR RESPONSIBILITIES</h3>
                 <p>
                     The primary responsibility of an editor is to maintain TRR’s academic journal standards by ensuring the quality and validity of the research presented. The manuscript must be thoroughly reviewed to discover any shortcomings in study design, methodology, data analysis, and interpretation. It's also important to assess the research's importance, originality, and relevance.
                 </p>
@@ -60,10 +76,11 @@ include 'navbar.php';
                         <li>Promote the Journal: The editor is responsible for promoting the publication and its content to potential authors and consumers. It means going to workshops, keeping an online presence, and looking for ways to collaborate and form partnerships.</li>
                     </ul>
                 </div>
-            </div>
+        </div>
+    </div>
         <div class="reviewer-responsibilities">
             <div class="reviewer-header">
-                <h3>REVIEWER RESPONSIBILITIES</h3>
+                <h3 class="sub-headers">REVIEWER RESPONSIBILITIES</h3>
                 <p>
                     
                     The assigned reviewers' main responsibility is to guarantee that the study is high-quality and accurate based on their respective fields. To achieve this, the reviewer must thoroughly review the paper to identify any shortcomings in study design, methodology, data analysis, and interpretation of results.
@@ -86,7 +103,7 @@ include 'navbar.php';
         </div>
         <div class="publisher-responsibilities">
             <div class="publisher-header">
-                <h3>PUBLISHER RESPONSIBILITIES</h3>
+                <h3 class="sub-headers">PUBLISHER RESPONSIBILITIES</h3>
                 <p>
                     A publisher's main responsibility is to verify the manuscripts in the publication manual. This involves meticulously evaluating the article to discover issues with the study's design, methods, data analysis, and interpretation. To meet publication standards, the research must be significant, original, and relevant to the field.
                 </p>
@@ -110,7 +127,28 @@ include 'navbar.php';
             </div>
             </div>
         </div>
+    </body>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const learnMoreButtons = document.querySelectorAll(".learn-more-button");
+    const goBackButtons = document.querySelectorAll(".go-back-button");
 
-</div>
-</body>
+    learnMoreButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+        const card = this.closest(".card");
+        card.classList.add("flipped");
+        });
+    });
+
+    goBackButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+        const card = this.closest(".card");
+        card.classList.remove("flipped");
+        });
+    });
+    });
+
+        </script>
 </html>
+
+<?php include 'footer.php' ?>

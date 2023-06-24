@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/navbar.css">
-    <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -29,11 +28,11 @@
               <li><a href="archive.php"  class="links">ARCHIVE</a></li>
               <li><a href="publication.php"  class="links">PUBLICATION ETHICS <i class="fas -solid fa-caret-down"></i></a>
                 <ul>
-                    <li><a href="" class="links">SOP</a></li>
-                    <li><a href="" class="links">Author Responsibilities</a></li>
-                    <li><a href="" class="links">Reviewer Responsibilities</a></li>
-                    <li><a href="" class="links">Editor Responsibilities</a></li>
-                    <li><a href="" class="links">Publication Responsibilities</a></li>
+                    <li><a href="publication.php" class="links">SOP</a></li>
+                    <li><a href="publication.php" class="links">Author Responsibilities</a></li>
+                    <li><a href="publication.php" class="links">Reviewer Responsibilities</a></li>
+                    <li><a href="publication.php" class="links">Editor Responsibilities</a></li>
+                    <li><a href="publication.php" class="links">Publication Responsibilities</a></li>
                 </ul>
                 </li>
               <li><a href="ol_submission.php" class="links">ONLINE SUBMISSION <i class="fas -solid fa-caret-down"></i></a>
@@ -61,10 +60,6 @@
         <div class="icon-bar flex" class="links" ><span></span></div>
     </div>
 </header>
-
-
-
-
 <script>
 
 let openMenu = document.querySelector('.icon-bar');
@@ -79,10 +74,6 @@ closeMenu.addEventListener('click',function(){
     navMenu.classList.remove('nav-scale');
     bodyEl.classList.remove('overflow-none');
 });
-
-</script>
-
-<script>
 </script>
 </body>
 </html>

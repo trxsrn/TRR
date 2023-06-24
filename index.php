@@ -14,7 +14,6 @@ include 'connection.php';
     <title>HOME</title>
 </head>
 <body>
-    
 <div class="slideshow-container">
   <?php
     mysqli_select_db($conn, 'trr'); 
