@@ -7,11 +7,13 @@ function getButton($status, $id) {
     return '<a href="assign.php?id='.$id.'" class="assign-btn" >ASSIGN</a>';
   } else if ($status == "to review") {
     return '<a href="view.php?id='.$id.'" class="assign-btn">VIEW</a>';
-  } else if ($status == "under reviewing") {
-    return '<a href="#" class="assign-btn">CONTINUE REVIEWING</a>';
-  } else {
+  } else if ($status == "under review") {
     return '<a href="#" class="assign-btn">VIEW</a>';
-  } 
+  } else if  ($status == "to publish") {
+    return '<a href="#" class="assign-btn">PUBLISH</a>';
+  } else {
+    return '<a href="#" class="assign-btn">PUBLISH</a>';
+  }
 }
 
 $sql = mysqli_query($conn, "SELECT * FROM papers ");

@@ -77,7 +77,7 @@ include 'connection.php';
       <div class="count-progress">
         <p style="margin-bottom: 0;" class="text-label"> ACCEPTED</p>
         <?php
-        $query = mysqli_query($conn, "SELECT * FROM papers WHERE status = 'TO  PUBLISH'");
+        $query = mysqli_query($conn, "SELECT * FROM papers WHERE status = 'TO PUBLISH'");
         if ($total_paper_toPublish = mysqli_num_rows($query)) {
           echo '<p style="margin-bottom: 0;" class="count-number" id="toPublish-count" style="color: white;"> ' . $total_paper_toPublish  . '</p>';
         } else {
@@ -107,13 +107,15 @@ include 'connection.php';
           {
             if($status == "to assign") {
               return '<a href="assign.php?id='.$id.'" class="assign-btn" >ASSIGN</a>';
-            } else if ($status == "under reviewing") {
-              return '<a href="#" class="assign-btn">CONTINUE REVIEWING</a>';
             } else if ($status == "to review") {
+              return '<a href="view.php?id='.$id.'" class="assign-btn">VIEW</a>';
+            } else if ($status == "under review") {
               return '<a href="#" class="assign-btn">VIEW</a>';
+            } else if  ($status == "to publish") {
+              return '<a href="#" onclick="openForm()" class="assign-btn">PUBLISH</a>';
             } else {
-              return '<a href="#" class="assign-btn">VIEW</a>';
-            } 
+              return '<a href="#" class="assign-btn">PUBLISHED</a>';
+            }
           }
           $sql = mysqli_query($conn, "SELECT * FROM papers");
           while ($row = $sql->fetch_assoc()) {
@@ -180,7 +182,7 @@ include 'connection.php';
         </div>
         <center>
           <button type="button" onclick="closeForm()" class="close-btn">CANCEL</button>
-          <input type="submit" value="POST" name="post-announcement" style="background: #002057;   border-radius: 10px; margin: 2em;">
+          <input type="submit" value="PUBLISH" name="post-announcement" style="background: #002057;   border-radius: 10px; margin: 2em;">
         </center>
       </div>
     </div>
