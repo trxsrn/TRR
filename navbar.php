@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    
 </head>
 <body>
 <header class="header">
@@ -30,15 +34,15 @@
                 <ul>
                     <li><a href="publication.php" class="links">SOP</a></li>
                     <li><a href="publication.php" class="links">Author Responsibilities</a></li>
-                    <li><a href="publication.php" class="links">Reviewer Responsibilities</a></li>
-                    <li><a href="publication.php" class="links">Editor Responsibilities</a></li>
-                    <li><a href="publication.php" class="links">Publication Responsibilities</a></li>
+                    <li><a href="#B1" class="links">Reviewer Responsibilities</a></li>
+                    <li><a href="#B2" class="links">Editor Responsibilities</a></li>
+                    <li><a href="#B3" class="links">Publication Responsibilities</a></li>
                 </ul>
                 </li>
               <li><a href="ol_submission.php" class="links">ONLINE SUBMISSION <i class="fas -solid fa-caret-down"></i></a>
                 <ul>
                     <li><a href="" class="links">Reviewer Application Guidelines</a></li>
-                    <li><a href="" class="links">Author Guidelines</a></li>
+                    <li><a href="#C2" class="links">Author Guidelines</a></li>
                     <li><a href="" class="links">Submission Format</a></li>
                 </ul>
               </li>

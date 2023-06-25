@@ -35,7 +35,7 @@ body{
 .sub-headers{
     border-left: 6px solid #ffc001 ;
     padding: 10px;
-    margin: 5px;
+    margin: 20px 5px;
 }
 
 .ethics_content
@@ -45,38 +45,38 @@ body{
     margin: 20px;
 }
 
-.responsibility-header{
-    background-color: #265999 ;
+.responsibility_header{
+    background-color: rgba(255, 255, 255, 0.784) ;
+    border-top: 3px solid #ffc001;
+    padding: 50px;
 }
 
-.editor-responsibilities
+h2
 {
-    float: right;
+    color:  #265999 ;
+    border-left: 5px solid #ffc001;
+    padding: 10px 10px;
 }
 
-.reviewer-responsibilities
-{
-    float: left;
+h4{
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 10px;
+  border-bottom: 3px solid #265999;
 }
 
-.publisher-responsibilities
+p
 {
-    float: right;
+    font-size: 16px;
+    text-align: left;
+    padding: 20px 30px 20px 30px;
 }
 
-.editor-responsibilities, .reviewer-responsibilities, .publisher-responsibilities
+li
 {
-    padding: 20px;
-    width: 80%;
-    background: white;
-
-}
-
-
-
-.responsibilities
-{
-    padding: 10px;
+  font-size: 16px;
+  text-align: left;
+  padding: 20px 30px 0 30px;
 }
 
 .card {
