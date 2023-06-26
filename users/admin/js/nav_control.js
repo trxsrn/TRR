@@ -1,10 +1,5 @@
 $(document).ready(function() {
-    $(".paper__btn").click( function(){
-        $(this).addClass("--active__link");
-        $(this).children().eq(0).css("color", "#000000");
-        $(".sub__paper__btn").slideToggle();
-        $("#drp--dwn").toggleClass("rotateUp ");
-    });
+    //place a function for paperbtn
 
     $(".submission__btn").click( function(){
         $(this).addClass("--active__link");

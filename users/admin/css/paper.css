@@ -170,7 +170,7 @@
 .publish-details
 {
   background-color: white;
-  margin: 5% 30%;
+  margin: 5% 25%;
 }
 
 
@@ -271,6 +271,39 @@
 .papertitle
 {
   cursor: pointer;
+}
+
+.details
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.cover_page
+{
+  padding: 10px;
+}
+
+.coverpage
+{
+  height: 300px;
+  width: 240px;
+}
+
+.paper-details
+{
+  padding: 10px;
+}
+
+label{
+  width: 150px;
+}
+
+.close-btn
+{
+  border-radius: 10px; 
+  margin: 2em; 
+  padding: 5px 10px;
 }
 
 

@@ -63,11 +63,12 @@ if (!isset($_SESSION['username'])) {
                     <li><a class="nav__links" id="nav__links" href="website.php">WEBSITE</a></li>
                     <li><a class="nav__links" id="nav__links" href="author.php">AUTHORS</a></li>
                     <li><a class="nav__links" id="nav__links" href="reviewer.php">REVIEWERS</a></li>
-                    <li class="paper__btn "><a class="nav__links" id="nav__links" href="#">PAPERS &nbsp &nbsp &nbsp<i id="drp--dwn" class="fa-solid fa-caret-down"></i></a></li>
+                    <li><a class="nav__links" id="nav__links" href="papers.php">PAPERS</a></li>
+                    <!-- <li class="paper__btn "><a class="nav__links" id="nav__links" href="#">PAPERS &nbsp &nbsp &nbsp<i id="drp--dwn" class="fa-solid fa-caret-down"></i></a></li>
                     <div class="sub__paper__btn" style="display: none;">
                         <li style="padding-left: 1em;"><a class="nav__links" id="nav__links" href="papers.php">LISTS</a></li>   
                         <li style="padding-left: 1em;"><a class="nav__links" id="nav__links" href="account-declined.php">ADD NEW</a></li>   
-                    </div>
+                    </div> -->
                     <li class="submission__btn "><a class="nav__links" id="nav__links" href="#">ACCOUNTS &nbsp &nbsp &nbsp<i id="drp--dwn" class="fa-solid fa-caret-down"></i></a></li>
                     <div class="sub__submission__btn" style="display: none;">
                         <li style="padding-left: 1em;"><a class="nav__links" id="nav__links" href="account-list.php">LISTS</a></li>   

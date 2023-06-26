@@ -156,34 +156,34 @@ include 'connection.php';
       <form action="php/submit-details.php" method="post" enctype="multipart/form-data">
         <h1 class="new-publish-header"> PUBLISH NEW PAPER </h1>
         <div class="publish-form-body">
-          <div class="subject">
-            Title: <input type="text" name="subject" class="subject-input" value="" disabled> 
-          </div>
-          <div class="description">
-            Volume: 
-            <select>
-            </select>
-          </div>
-          <div class="attachment">
-            Attachment: <br>
-            <div class="drag-area">
-              <span class="visible">
-                <i class="fas fa-image" style="font-size: 25px;"></i><br>
-                DRAG AND DROP A PHOTO
-                <br> OR <br>
-                <span class="select" role="button">Browse</span>
-              </span>
-              <span class="on-drop">Drop images here</span>
-              <input name="image" type="file" class="file" multiple />
+          <div class="details">
+            <div class="cover_page">
+              <img src="css/coverpage/The Rizalian Review Cover Page.png" class="coverpage">
             </div>
-
-            <!-- IMAGE PREVIEW CONTAINER -->
-            <div class="container"></div>
+            <div class="paper-details">
+              <div class="subject">
+                <label>Title:</label> <input type="text" name="subject" class="subject-input" value="" disabled> 
+              </div>
+              <div class="subject">
+                <label>Author:</label> <input type="text" name="subject" class="subject-input" value="" disabled> 
+              </div>
+              <div class="subject">
+                <label>Co-Author/s:</label> <input type="text" name="subject" class="subject-input" value="" disabled> 
+              </div>
+              <div class="subject">
+                <label>Publish Date:</label> <input type="text" name="subject" class="subject-input" value="" disabled> 
+              </div>
+              <div class="subject">
+                <label>Volume:</label> <input type="text" name="subject" class="subject-input" value="" disabled> 
+              </div>
+              <div class="subject">
+                <label>ISSN:</label> <input type="text" name="subject" class="subject-input" value="" disabled> 
+              </div>
+            </div>
           </div>
-        </div>
         <center>
           <button type="button" onclick="closeForm()" class="close-btn">CANCEL</button>
-          <input type="submit" value="PUBLISH" name="post-announcement" style="background: #002057;   border-radius: 10px; margin: 2em;">
+          <input type="submit" value="PUBLISH" name="post-announcement" style="background: #002057;  margin: 2em; padding: 5px 10px; color: white;">
         </center>
       </div>
     </div>
