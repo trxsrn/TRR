@@ -157,11 +157,12 @@ include 'connection.php';
         <h1 class="new-publish-header"> PUBLISH NEW PAPER </h1>
         <div class="publish-form-body">
           <div class="subject">
-            Subject: <input type="text" name="subject" class="subject-input">
+            Title: <input type="text" name="subject" class="subject-input" value="" disabled> 
           </div>
           <div class="description">
-            Description:
-            <textarea name="publish-details" class="textarea-input"></textarea>
+            Volume: 
+            <select>
+            </select>
           </div>
           <div class="attachment">
             Attachment: <br>
