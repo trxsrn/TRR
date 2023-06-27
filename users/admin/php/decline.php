@@ -1,6 +1,11 @@
 <?php
 session_start();
-include 'connection.php';
+include '../connection.php';
+
+$username = $_SESSION['username'];
+$result = mysqli_query($conn, "SELECT * FROM trr_admin_accounts WHERE username='$username'");
+$row = mysqli_fetch_assoc($result);
+$fullName = $row['FullName'];
 
 $id = $_GET['id'];
 $user_type_query = "SELECT user_type, fullname FROM for_approval_of_account WHERE id = '$id'";
@@ -15,8 +20,8 @@ if (!$result) {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         if ($row['user_type'] == "AUTHOR") {
 
-            $insert_query = "INSERT INTO declined_accounts(fullname, birthdate, contact_number, unit, street, barangay, city, province, country, discipline, qualification, designation, affiliation, email_address, username, password, cv, intent)
-            SELECT fullname, birthdate, contact_number, unit, street, barangay, city, province, country, discipline, qualification, designation, affiliation, email_address, username, password, cv, intent
+            $insert_query = "INSERT INTO declined_accounts(user_type, fullname, birthdate, contact_number, unit, street, barangay, city, province, country, discipline, qualification, designation, affiliation, email_address, username, password, cv, intent)
+            SELECT 'AUTHOR', fullname, birthdate, contact_number, unit, street, barangay, city, province, country, discipline, qualification, designation, affiliation, email_address, username, password, cv, intent
             FROM for_approval_of_account
             WHERE id = ?";
         
@@ -29,18 +34,27 @@ if (!$result) {
                 // handle query execution errors here
                 echo "Error executing query: " . mysqli_error($conn);
             } else {
-                $delete_query = "DELETE FROM for_approval_of_account WHERE id = ?";
-                $delete_statement = mysqli_prepare($conn, $delete_query);
-                mysqli_stmt_bind_param($delete_statement, "s", $id);
-                $delete_result = mysqli_stmt_execute($delete_statement);
+                $action = $row['fullname'] . "'s account request declined by " . $fullName ;
+                $insert_log = "INSERT INTO activity_log (`action`) VALUES (?)";
+                $log_statement = mysqli_prepare($conn, $insert_log);
+                mysqli_stmt_bind_param($log_statement, "s", $action);
+                $log_result = mysqli_stmt_execute($log_statement);
+                
+                if ($log_result) {
 
-                if (!$delete_result) {
-                    // handle query execution errors here
-                    echo "Error executing query: " . mysqli_error($conn);
-                } else {
-                    // Redirect to account-approval.php after a successful insertion and deletion
-                    header("Location: account-approval.php");
-                    exit();
+                    $delete_query = "DELETE FROM for_approval_of_account WHERE id = ?";
+                    $delete_statement = mysqli_prepare($conn, $delete_query);
+                    mysqli_stmt_bind_param($delete_statement, "s", $id);
+                    $delete_result = mysqli_stmt_execute($delete_statement);
+
+                    if (!$delete_result) {
+                        // handle query execution errors here
+                        echo "Error executing query: " . mysqli_error($conn);
+                    } else {
+                        // Redirect to account-approval.php after a successful insertion and deletion
+                        header("Location: ../account-approval.php");
+                        exit();
+                    }
                 }
             }
         }

@@ -36,11 +36,8 @@ include 'connection.php';
                     <thead id="heading">
                         <tr>
                             <th>User Type</th>
-                            <th>ID</th>
                             <th>Name</th>
                             <th>Username</th>
-                            <th>Reason</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="table-data">
@@ -50,11 +47,8 @@ include 'connection.php';
                             echo '
                                 <tr>
                                     <td>AUTHOR</td>
-                                    <td>' . $row['id_number'] . '</td>
                                     <td>' . $row['fullname'] . '</td>
                                     <td>' . $row['username'] . '</td>
-                                    <td>' . $row['reason'] . '</td>
-                                    <td><a href="authorprofile_view.php?id=' . $row['id_number'] . '" class="accept"><i class="fa-regular fa-eye"></i> VIEW</a></td>
                                 </tr>';
                         }
                         ?>
