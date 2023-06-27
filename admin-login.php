@@ -15,6 +15,7 @@
       <!-- FONT AWESOME ICONS -->
       <link rel="stylesheet" href="fontawesome-library/css/all.css">
       <link rel="stylesheet" href="css/login.css">
+      <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
       <script src="js/jquery-3.6.3.min.js"></script>
    </head>
    <body>
@@ -23,22 +24,22 @@
             <div class="slide-form-area">
                <div class="slide-form">
                   <div>
-                     <img src="css/img/covers/COVER ISSUE SAMPLE.png" alt="" srcset="" class="covers" style="background-color: red;">
+                     <img src="css/img/covers/The Rizalian Review Cover Page.png" alt="" srcset="" class="covers" style="background-color: red;">
                   </div>
                   <div>
-                     <img src="css/img/covers/COVER ISSUE SAMPLE.png" alt="" srcset="" class="covers" style="background-color: green;">
+                     <img src="css/img/covers/The Rizalian Review Cover Page.png" alt="" srcset="" class="covers" style="background-color: green;">
                   </div>
                   <div>
-                     <img src="css/img/covers/COVER ISSUE SAMPLE.png" alt="" srcset="" class="covers" style="background-color: yellow;">
+                     <img src="css/img/covers/The Rizalian Review Cover Page.png" alt="" srcset="" class="covers" style="background-color: yellow;">
                   </div>
                   <div>
-                     <img src="css/img/covers/COVER ISSUE SAMPLE.png" alt="" srcset="" class="covers" style="background-color: orange;">
+                     <img src="css/img/covers/The Rizalian Review Cover Page.png" alt="" srcset="" class="covers" style="background-color: orange;">
                   </div>
                   <div>
-                     <img src="css/img/covers/COVER ISSUE SAMPLE.png" alt="" srcset="" class="covers" style="background-color: orangered;">
+                     <img src="css/img/covers/The Rizalian Review Cover Page.png" alt="" srcset="" class="covers" style="background-color: orangered;">
                   </div>
                   <div>
-                     <img src="css/img/covers/COVER ISSUE SAMPLE.png" alt="" srcset="" class="covers" style="background-color: pink;">
+                     <img src="css/img/covers/The Rizalian Review Cover Page.png" alt="" srcset="" class="covers" style="background-color: pink;">
                   </div>
                </div>
             </div>

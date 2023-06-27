@@ -149,9 +149,8 @@ include 'connection.php';
         </tbody>
       </table>
     </div>
-  </div>
-  </div>
-  <div class="publish-form" id="publish-form">
+
+    <div class="publish-form" id="publish-form">
     <div class="publish-details">
       <form action="php/submit-details.php" method="post" enctype="multipart/form-data">
         <h1 class="new-publish-header"> PUBLISH NEW PAPER </h1>
@@ -186,8 +185,11 @@ include 'connection.php';
           <input type="submit" value="PUBLISH" name="post-announcement" style="background: #002057;  margin: 2em; padding: 5px 10px; color: white;">
         </center>
       </div>
+          </form>
     </div>
-    <div class="authorprofile" id="authorprofile" onclick="closeprofile()">
+    </div>
+  
+    <div class="authorprofile" id="authorprofile"  onclick="closeprofile()">
       <div class="card">
         <div class="author_photo">
           <div class="seal">
@@ -199,7 +201,6 @@ include 'connection.php';
           <img src="css/trixie.png" class="author">
         </div>
         <div class="author_table">
-
           <table class="author_details" id="author_details">
             <tr>
               <td>ID NUMBER</td>
@@ -229,7 +230,6 @@ include 'connection.php';
         </div>
       </div>
     </div>
-  </div>
   <script>
     $(document).ready(function() {
       $('#papers_tbl').DataTable();
@@ -268,46 +268,46 @@ include 'connection.php';
       document.getElementById("publish-form").style.display = "none";
     }
     function openProfile(authorId, authorName) {
-  $.ajax({
-    url: 'php/card_author_details.php',
-    type: 'POST',
-    data: { authorId: authorId },
-    dataType: 'json',
-    success: function(response) {
-      if (response.error) {
-        console.log('Error:', response.error);
-      } else {
-        var fetchedAuthorId = response.id_number; // Use a different variable name to avoid conflict
-        var fullname = response.fullname;
-        var discipline = response.discipline;
-        var designation = response.designation;
-        var qualification = response.qualification;
-        var affiliation = response.affiliation;
-        
-        // Update the table cells with the author's details
-        $('#author_details td:nth-child(2)').eq(0).text(fetchedAuthorId); // Use the updated variable name here
-        $('#author_details td:nth-child(2)').eq(1).text(fullname);
-        $('#author_details td:nth-child(2)').eq(2).text(discipline);
-        $('#author_details td:nth-child(2)').eq(3).text(designation);
-        $('#author_details td:nth-child(2)').eq(4).text(qualification);
-        $('#author_details td:nth-child(2)').eq(5).text(affiliation);
-        
-        // Display the author profile
-        document.getElementById("authorprofile").style.display = "block";
-      }
-    },
-    error: function(xhr, status, error) {
-      console.log('AJAX Error:', error);
+      $.ajax({
+        url: 'php/card_author_details.php',
+        type: 'POST',
+        data: { authorId: authorId },
+        dataType: 'json',
+        success: function(response) {
+          if (response.error) {
+            console.log('Error:', response.error);
+          } else {
+            var fetchedAuthorId = response.id_number; // Use a different variable name to avoid conflict
+            var fullname = response.fullname;
+            var discipline = response.discipline;
+            var designation = response.designation;
+            var qualification = response.qualification;
+            var affiliation = response.affiliation;
+            
+            // Update the table cells with the author's details
+            $('#author_details td:nth-child(2)').eq(0).text(fetchedAuthorId); // Use the updated variable name here
+            $('#author_details td:nth-child(2)').eq(1).text(fullname);
+            $('#author_details td:nth-child(2)').eq(2).text(discipline);
+            $('#author_details td:nth-child(2)').eq(3).text(designation);
+            $('#author_details td:nth-child(2)').eq(4).text(qualification);
+            $('#author_details td:nth-child(2)').eq(5).text(affiliation);
+            
+            // Display the author profile
+            document.getElementById("authorprofile").style.display = "block";
+            console.log(fullname);
+          }
+        },
+        error: function(xhr, status, error) {
+          console.log('AJAX Error:', error);
+        }
+      });
     }
-  });
-}
 
     function closeprofile(){
       document.getElementById("authorprofile").style.display = "none";
     }
   </script>
-</div>
-
+  </div>
 </body>
 
 </html>

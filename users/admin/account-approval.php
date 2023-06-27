@@ -36,7 +36,8 @@ include 'connection.php';
 
 <body>
     <div class="content-body">
-            <h1>Account Approval Request </h1>
+        <h3 style="text-align:center;">Account Approval Request</h3>
+            <hr>
             <div class="content" style="margin: 25px;">
             <table class="table table-bordered table-stripped table-hover" id="table-data">
                     <thead>
@@ -68,8 +69,8 @@ include 'connection.php';
                                     <a style="color: black; text-decoration: underline;" href="Data/intent_files/<?= $row['intent'] ?>"><?= $row['intent'] ?></a>
                                 </td>
                                 <td>
-                                    <a href="accept.php?id=<?= $row['id'] ?>" onclick="confirmAdd(event, <?= $row['id'] ?>)"><i class="fa-solid fa-check"></i></a>
-                                    <a href="accept.php?id=<?= $row['id'] ?>" onclick="confirmDecline(event, <?= $row['id'] ?>)"><i class="fa-solid fa-xmark"></i></a>
+                                    <a href="php/accept.php?id=<?= $row['id'] ?>" onclick="confirmAdd(event, <?= $row['id'] ?>)"><i class="fa-solid fa-check"></i></a>
+                                    <a href="php/accept.php?id=<?= $row['id'] ?>" onclick="confirmDecline(event, <?= $row['id'] ?>)"><i class="fa-solid fa-xmark"></i></a>
                                 </td>
 
                             </tr>
@@ -107,7 +108,7 @@ include 'connection.php';
         event.preventDefault();
 
             Swal.fire({
-                title: 'Confirm Request',
+                title: 'Decline Request',
                 text: 'Are you sure you want to decline?',
                 icon: 'warning',
                 showCancelButton: true,

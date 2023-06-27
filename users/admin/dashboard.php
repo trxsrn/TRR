@@ -198,45 +198,55 @@ if (!isset($_SESSION['username'])) {
                     <div class="activity-log">
                         <div class="table-container">
                             <table class="activity-log-table">
-                            <thead class="log-header">
-                                <tr>
-                                <th colspan="3" class="log-title">ACTIVITY LOG</th>
-                                </tr>
-                                <tr>
-                                <th class="headers">USER TYPE</th>
-                                <th class="headers">ACTION</th>
-                                <th class="headers">TIMESTAMP</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                mysqli_select_db($conn, 'trr');
-                                $sql = mysqli_query($conn, "SELECT * FROM activity_log ORDER BY id DESC LIMIT 7 ");
+                                <thead class="log-header">
+                                    <tr>
+                                        <th colspan="2" class="log-title">ACTIVITY LOG</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="headers" style="width: 75%;">ACTION</th>
+                                        <th class="headers">TIMESTAMP</th>
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                    <?php
+                                    mysqli_select_db($conn, 'trr');
+                                    $sql = mysqli_query($conn, "SELECT * FROM activity_log ORDER BY id DESC LIMIT 7");
 
-                                if (mysqli_num_rows($sql) == 0) {
-                                    echo "<tr><td colspan='3'>No activity found.</td></tr>";
-                                } else {
-                                    while ($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) {
-                                    $timestamp = $row['timestamp'];
-                                    $formattedTimestamp = date('F j, Y', strtotime($timestamp));
-                                    echo "<tr>
-                                            <td>" . $row['user_type'] . "</td>
-                                            <td>" . $row['action'] . "</td>
-                                            <td>" . $formattedTimestamp . "</td>
-                                            </tr>";
+                                    if (mysqli_num_rows($sql) > 0) {
+                                        $rowCount = 0;
+                                        while ($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) {
+                                            $timestamp = $row['timestamp'];
+                                            $formattedTimestamp = date('F j, Y', strtotime($timestamp));
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $row['action']; ?></td>
+                                                <td><?php echo $formattedTimestamp; ?></td>
+                                            </tr>
+                                            <?php
+                                            $rowCount++;
+                                        }
+                                        ?>
+                                        <?php if ($rowCount > 7) { ?>
+                                            <tfoot>
+                                                <tr>
+                                                    <th colspan="2" class="activity-footer"><center>See More</center></th>
+                                                </tr>
+                                            </tfoot>
+                                        <?php } ?>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <tr>
+                                            <td colspan="2"><center>No activity logs found.</center></td>
+                                        </tr>
+                                        <?php
                                     }
-                                }
 
-                                mysqli_free_result($sql);
-                                ?>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                <th colspan="3" class="activity-footer">See More</th>
-                                </tr>
-                            </tfoot>
+                                    mysqli_free_result($sql);
+                                    ?>
+                                </tbody>
+
                             </table>
-                        </div>
                         </div>
                     </div>
                 </div>

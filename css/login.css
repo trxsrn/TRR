@@ -3,8 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'Poppins', sans-serif; */
-    font-family: 'Century Gothic', 'FontAwesome';
+    font-family: 'Inter', 'FontAwesome';
   }
   
   .container{
@@ -27,7 +26,7 @@
   .slide-form-area{
     position: relative;
     width: 27em;
-    height:30em ;
+    height:35em ;
     background-color: green;
     margin-right: 5em;
     border-radius: 10px;
