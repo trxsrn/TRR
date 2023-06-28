@@ -9,11 +9,16 @@
 </head>
 <body>
 <nav>
+    <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
     <div class="logo">
       <a href="#"><img src="css/img/rtuxrdc1.png" class="rtuheader_logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="#">HOME </a></li>
+      <li><a href="#">HOME</a></li>
       <li><a href="#">CURRENT</a></li>
       <li><a href="#">ARCHIVE</a></li>
       <li class="dropdown">
@@ -42,42 +47,35 @@
         </ul>
       </li>
       <li><a href="#">ABOUT</a></li>
-      
       <li><a href="#" class="signinbtn">SIGN IN</a></li>
     </ul>
-    <div class="burger">
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <div class="line3"></div>
-    </div>
   </nav>
 
   <script>
     const navSlide = () => {
-  const burger = document.querySelector('.burger');
-  const nav = document.querySelector('.nav-links');
-  const navLinks = document.querySelectorAll('.nav-links li');
+      const burger = document.querySelector('.burger');
+      const nav = document.querySelector('.nav-links');
+      const navLinks = document.querySelectorAll('.nav-links li');
 
-  burger.addEventListener('click', () => {
-    // Toggle Nav
-    nav.classList.toggle('nav-active');
+      burger.addEventListener('click', () => {
+        // Toggle Nav
+        nav.classList.toggle('nav-active');
 
-    // Animate Links
-    navLinks.forEach((link, index) => {
-      if (link.style.animation) {
-        link.style.animation = '';
-      } else {
-        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-      }
-    });
+        // Animate Links
+        navLinks.forEach((link, index) => {
+          if (link.style.animation) {
+            link.style.animation = '';
+          } else {
+            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+          }
+        });
 
-    // Burger Animation
-    burger.classList.toggle('toggle');
-  });
-};
+        // Burger Animation
+        burger.classList.toggle('toggle');
+      });
+    };
 
-navSlide();
-
+    navSlide();
   </script>
 </body>
 </html>
