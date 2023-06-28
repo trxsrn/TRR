@@ -16,7 +16,7 @@
     <div class="line3"></div>
   </div>
   <div class="logo">
-    <a href="#"><img src="css/img/rtuxrdc1.png" class="rtuheader_logo"></a>
+    <a href="index.php"><img src="css/img/rtuxrdc1.png" class="rtuheader_logo"></a>
   </div>
   <ul class="nav-links">
     <li><a href="index.php">HOME</a></li>
@@ -26,16 +26,16 @@
       <ul class="dropdown-content" id="publicationEthicsDropdown">
         <li><a href="#">SOP</a></li>
         <li><a href="#">Author Responsibilities</a></li>
-        <li><a href="#">Reviewer Responsibilities</a></li>
-        <li><a href="#">Editor Responsibilities</a></li>
-        <li><a href="#">Publication Responsibilities</a></li>
+        <li><a href="#B1">Reviewer Responsibilities</a></li>
+        <li><a href="#B2">Editor Responsibilities</a></li>
+        <li><a href="#B3">Publication Responsibilities</a></li>
       </ul>
     </li>
     <li class="dropdown">
       <a href="ol_submission.php" id="onlineSubmissionLink">ONLINE SUBMISSION &#9662;</a>
       <ul class="dropdown-content" id="onlineSubmissionDropdown">
         <li><a href="#">Reviewer Application Guidelines</a></li>
-        <li><a href="#">Author Guidelines</a></li>
+        <li><a href="C2">Author Guidelines</a></li>
         <li><a href="#">Submission Format</a></li>
       </ul>
     </li>
