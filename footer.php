@@ -43,11 +43,11 @@
                                         $gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=" . urlencode($recipient) . "&su=" . urlencode($subject);
 
                                         // Generate the HTML link
-                                        $linkHtml = '<p><strong><a href="' . $gmailComposeUrl . '"><i class="fa-solid fa-envelope"></i>&nbsp Email:</strong> rdc@rtu.edu.ph</a></p>';
+                                        $linkHtml = '<p><strong><a href="' . $gmailComposeUrl . '" style="color: white; text-decoration: none;" ><i class="fa-solid fa-envelope"></i>&nbsp Email:</strong> rdc@rtu.edu.ph</a></p>';
 
                                         echo $linkHtml;
                                     ?>
-                                    <p><strong><a href="https://www.rtu.edu.ph/" target="_blank"><i class="fa-solid fa-link"></i>&nbsp Link:</strong> rtu.edu.ph</a></p>
+                                    <p><strong><a href="https://www.rtu.edu.ph/" target="_blank" style="color: white; text-decoration: none;"><i class="fa-solid fa-link"></i>&nbsp Link:</strong> rtu.edu.ph</a></p>
                                 </div>
                             </div>
                         </div>

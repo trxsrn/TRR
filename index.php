@@ -1,6 +1,6 @@
 <?php 
 
-include 'navbar.php';
+include 'navigation.php';
 include 'connection.php';
 
 ?>
@@ -90,7 +90,7 @@ include 'connection.php';
                 <div class="current-issue">
                     <h1 class="current-title"> CURRENT </h1>
                     <h2 class="current-sub"> VOLUME NO. # ISSUE NO. </h2>
-                    <h1>1</h1>
+                    <h1 class="current-issue-count"">1</h1>
                     <a href="current.php" class="current-link">LEARN MORE</a>
                 </div>
         </div>
@@ -123,16 +123,15 @@ include 'connection.php';
             <h2 id="A4">FOCUS AND SCOPE</h2>
             <p>The Rizalian Review is a scholarly publication dedicated to the advancement of education 
                 and new approaches to teaching. To further develop TTR's research goals, the following 
-                research agenda must be practiced:
-                <li style="padding-left: 20px;">RTU's reputation as a research institution needs to be established.</li>
-                <li style="padding-left: 20px;">Improve the connection between classroom instruction, academic inquiry, and creative output.</li>
-                <li style="padding-left: 20px;">Make both professors and students more productive in their research.</li>
-                <li style="padding-left: 20px;">Encourage a lively culture of research and an environment for research.</li>
-                <li style="padding-left: 20px;">Obtain research sponsorships</li>
-                <li style="padding-left: 20px;">Pursue RTU-government-business-industry synergistic partnerships.</li>
-
-                
-                <br>The main aim of research at RTU is to enhance knowledge and improve its educational programs, leading to a more enriching learning environment and supporting the economic growth of both the local community and the nation as a whole. To expand its research efforts, the Research and Development Center encourages collaboration between different departments to generate fresh perspectives, concepts, and approaches, ultimately leading to new ways of thinking.
+                research agenda must be practiced:</p>
+                <li style="padding-left: 20px;" class="goal">RTU's reputation as a research institution needs to be established.</li>
+                <li style="padding-left: 20px;" class="goal">Improve the connection between classroom instruction, academic inquiry, and creative output.</li>
+                <li style="padding-left: 20px;" class="goal">Make both professors and students more productive in their research.</li>
+                <li style="padding-left: 20px;" class="goal">Encourage a lively culture of research and an environment for research.</li>
+                <li style="padding-left: 20px;" class="goal">Obtain research sponsorships</li>
+                <li style="padding-left: 20px;" class="goal">Pursue RTU-government-business-industry synergistic partnerships.</li>
+              
+                <p>The main aim of research at RTU is to enhance knowledge and improve its educational programs, leading to a more enriching learning environment and supporting the economic growth of both the local community and the nation as a whole. To expand its research efforts, the Research and Development Center encourages collaboration between different departments to generate fresh perspectives, concepts, and approaches, ultimately leading to new ways of thinking.
             </p>
             <h2 id="A5"> CORE VALUES OF RESEARCH </h2>
             <p><li style="padding-left: 20px;"><a onclick="document.getElementById('excellence-desc').style.display='block'" style="text-decoration: underline">Excellence</a>
@@ -202,10 +201,10 @@ include 'connection.php';
             </p>
     </div>
     <div class="events-column">
-        <h1>Recent Events </h1>
-        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid03c92eymp5gyL6xcURLXbx2nEScFPG6aZMs3cZ4jtwxDd5AhX8r4dPzsawEA388mql%26id%3D100063883637726&show_text=true&width=500" width="400" height="300 " style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0kZZv3D1j3ptiE1KxrwczXAnn67zN8f4dRX4W8SMKjfa6g3F3Y7qXUrUSwk8ZTcUSl%26id%3D100063883637726&show_text=false&width=500" width="400" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0FAFbYYpvZJV1zySZZpFVDpzpiHhAuCzxiThvtY51EQTek1LNCqeB4Jmk9e1wpXpZl%26id%3D100063883637726&show_text=false&width=500" width="400" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        <h3 class="recent-events">Recent Events </h3>
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid03c92eymp5gyL6xcURLXbx2nEScFPG6aZMs3cZ4jtwxDd5AhX8r4dPzsawEA388mql%26id%3D100063883637726&show_text=true&width=500" width="325" height="225 " style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0kZZv3D1j3ptiE1KxrwczXAnn67zN8f4dRX4W8SMKjfa6g3F3Y7qXUrUSwk8ZTcUSl%26id%3D100063883637726&show_text=false&width=500" width="325" height="225" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0FAFbYYpvZJV1zySZZpFVDpzpiHhAuCzxiThvtY51EQTek1LNCqeB4Jmk9e1wpXpZl%26id%3D100063883637726&show_text=false&width=500" width="325" height="225" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
     </div>
 </body>
 </html>

@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
   <link rel="stylesheet" type="text/css" href="css/navigation.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
@@ -24,11 +23,11 @@
     <li class="dropdown">
       <a href="publication.php" id="publicationEthicsLink">PUBLICATION ETHICS &#9662;</a>
       <ul class="dropdown-content" id="publicationEthicsDropdown">
-        <li><a href="#">SOP</a></li>
-        <li><a href="#">Author Responsibilities</a></li>
-        <li><a href="#B1">Reviewer Responsibilities</a></li>
-        <li><a href="#B2">Editor Responsibilities</a></li>
-        <li><a href="#B3">Publication Responsibilities</a></li>
+        <li><a href="publication.php">SOP</a></li>
+        <li><a href="publication.php">Author Responsibilities</a></li>
+        <li><a href="publication.php">Reviewer Responsibilities</a></li>
+        <li><a href="publication.php">Editor Responsibilities</a></li>
+        <li><a href="publication.php">Publication Responsibilities</a></li>
       </ul>
     </li>
     <li class="dropdown">

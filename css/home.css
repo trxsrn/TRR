@@ -1,3 +1,9 @@
+*
+{
+  margin: 0;
+  padding: 0;
+}
+
 body
 {
     background-image: url('img/backgrounds/rtu-gb.png'); 
@@ -66,6 +72,11 @@ img {vertical-align: middle;}
   animation-duration: 1.5s;
 }
 
+.content
+{
+  border-top: 5px solid #ffc001;
+}
+
 .current
 {
   height: auto;
@@ -86,7 +97,8 @@ img {vertical-align: middle;}
 .current-title
 {
   background-color: #ffc001 ;
-  color: black;
+  color: white;
+  padding: 10px;
 }
 
 .current-sub
@@ -110,10 +122,10 @@ img {vertical-align: middle;}
   background-color: #ffc001;
   padding: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  text-decoration: none;
 }
 
-
-h1
+.current-issue-count
 {
     color:#ffc001;
     padding: 20px;
@@ -131,9 +143,7 @@ h1
 
 .values
 {
-
-
-  width:  50%;
+  width:  60%;
   padding: 50px;
   float: left;
 }
@@ -147,7 +157,7 @@ h2
 
 p
 {
-    font-size: 14px;
+    font-size: 16px;
     text-align: left;
     padding: 20px 30px 20px 30px;
 }
@@ -166,6 +176,11 @@ p
   float: right;
 }
 
+.events-column h3
+{
+  margin: 5px;
+}
+
 .events-column img
 {
   padding: 0 0 0 20px;
@@ -181,47 +196,102 @@ p
 
 @media (max-width: 400px) {
 
+  .content{
+    padding: 0;
+  }
+
+  .current-issue
+  {
+    margin: 10px;
+    float: right;
+    width: 60%; 
+    text-align: center;
+  }
+
+  .current-title, .current-sub
+  {
+    font-size: 12px;
+    padding: 5px 0;
+  }
+
+  .current-issue-count
+  {
+    font-size: 12px;
+    color:#ffc001;
+    padding: 10px;
+  }
+
   .current-issue
   {
     width: 50%; 
   }
 
-  .cover-page
+  .current-link
   {
-    margin: 10%;
-    height: 200px;
-    width: 150px;
-  }
-
-}
-
-
-@media (max-width: 800px) {
-
-  .current-issue
-  {
-    width: 50%; 
+    margin: 0;
+    font-size: 12px;
+    padding: 5px 5px;
+    color: white
   }
 
   .cover-page
   {
-    margin: 10px 0 0 5%;
-    height: 350px;
-    width: 250px;
+    margin: 10px 0 0 0;
+    height: 170px;
+    width: 115px;
+  }
+
+  .values
+  {
+
+    width: 100%;
+    padding: 10px;
+  }
+
+  h2
+  {
+    font-size: 16px;
+    margin: 5px;
+  }
+
+  p
+  {
+    font-size: 14px;
+  }
+
+  .goal{
+    margin: 0 0 0 10px;
+    font-size: 14px;
   }
 
   .events-column
   {
     float: none;
     border-left: none;
-    border-top: 5px solid #ffc001; 
     width: 100%;
   }
 
-  .events-column h1
+  .recent-events
+  {
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  .events-column h3
   {
     float: none;
     width: 100%;
+    border-bottom: 5px solid #ffc001;
+    padding: 5px;
+    margin: 5px;
   }
+
+  iframe
+  {
+    height: 250px;
+    width: auto;
+  }
+
 }
+
 
