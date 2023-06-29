@@ -20,6 +20,7 @@
   <ul class="nav-links">
     <li><a href="index.php">HOME</a></li>
     <li><a href="current.php">CURRENT</a></li>
+    <li><a href="archive.php">ARCHIVE</a></li>
     <li class="dropdown">
       <a href="publication.php" id="publicationEthicsLink">PUBLICATION ETHICS &#9662;</a>
       <ul class="dropdown-content" id="publicationEthicsDropdown">
@@ -33,23 +34,23 @@
     <li class="dropdown">
       <a href="ol_submission.php" id="onlineSubmissionLink">ONLINE SUBMISSION &#9662;</a>
       <ul class="dropdown-content" id="onlineSubmissionDropdown">
-        <li><a href="#">Reviewer Application Guidelines</a></li>
-        <li><a href="C2">Author Guidelines</a></li>
-        <li><a href="#">Submission Format</a></li>
+        <li><a href="ol_submission.php">Reviewer Application Guidelines</a></li>
+        <li><a href="ol_submission.php">Author Guidelines</a></li>
+        <li><a href="ol_submission.php">Submission Format</a></li>
       </ul>
     </li>
     <li><a href="announcements.php">ANNOUNCEMENTS</a></li>
     <li class="dropdown">
-      <a href="#" id="downloadLink">DOWNLOADS &#9662;</a>
+      <a href="downloads.php" id="downloadLink">DOWNLOADS &#9662;</a>
       <ul class="dropdown-content" id="downloadDropdown">
-        <li><a href="#">Forum and Colloquium</a></li>
-        <li><a href="#">REC Form</a></li>
-        <!-- <li><a href="#">Author Application Form</a></li>  -->
-        <!-- <li><a href="#">Reviewer Application Form</a></li>  -->
-        <li><a href="#">Copyright Agreement</a></li>
+        <li><a href="downloads.php">Forum and Colloquium</a></li>
+        <li><a href="downloads.php">REC Form</a></li>
+        <!-- <li><a href="downloads.php">Author Application Form</a></li>  -->
+        <!-- <li><a href="downloads.php">Reviewer Application Form</a></li>  -->
+        <li><a href="downloads.php">Copyright Agreement</a></li>
       </ul>
     </li>
-    <li><a href="#">ABOUT</a></li>
+    <li><a href="about.php">ABOUT</a></li>
     <li class="signinbtn"><a href="login.php">SIGN IN</a></li>
   </ul>
 </nav>

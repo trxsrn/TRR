@@ -29,7 +29,7 @@ nav {
 }
 
 .nav-links li {
-  margin-right: 15px;
+  margin-right: 20px;
 }
 
 .nav-links li a {
@@ -118,7 +118,7 @@ nav {
     transform: translateY(-180%);
     transition: transform 0.5s ease-in;
     border-bottom: 3px solid #f2bb1c;
-    z-index: 2;
+    z-index: 99999999;
   }
 
   .signinbtn

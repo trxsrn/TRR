@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/footer.css">
-    <!-- <link rel="stylesheet" href="https://kit.fontawesome.com/0a5defdf8d.css" crossorigin="anonymous"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
      <!-- FONT AWESOME ICONS -->
      <script src="https://kit.fontawesome.com/bde1b71c86.js" crossorigin="anonymous"></script>
 

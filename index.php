@@ -86,11 +86,11 @@ include 'connection.php';
 </script>
 
         <div class="current">
-            <img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page">
+            <img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page">
                 <div class="current-issue">
                     <h1 class="current-title"> CURRENT </h1>
                     <h2 class="current-sub"> VOLUME NO. # ISSUE NO. </h2>
-                    <h1 class="current-issue-count"">1</h1>
+                    <h1 class="current-issue-count">1</h1>
                     <a href="current.php" class="current-link">LEARN MORE</a>
                 </div>
         </div>
