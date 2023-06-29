@@ -15,14 +15,13 @@ body
 .content
 {
   background-color: white;
-  padding: 20px 0 0 0;
+  padding: 25px;
 }
 
 h5
 {
   color: #336090;
   font-size: 30px;
-  padding: 0 0 0 30px;
 }
 
 .cover-page
@@ -40,13 +39,34 @@ h5
 input[type="search"]    
 {
     margin: 20px;
-    background-color: #265999;
     width: 75%;
-    border-radius: 25px;
     border: none;
     padding: 15px;
+    border-bottom: 3px solid #265999;
 }
   
   input[type="search"]::placeholder {
     color: #bbb;
+  }
+
+  @media screen and (max-width: 768px) {
+    h5{
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .cover-page
+    {
+      height: 350px;
+      width: 250px;
+      margin: 30px;
+    }
+
+    input[type="search"]    
+    {
+    margin: 10px;
+    border-bottom: 2px solid #265999;
+    width: 75%;
+    padding: 5px;
+    }
   }

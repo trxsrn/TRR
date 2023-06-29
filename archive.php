@@ -1,4 +1,4 @@
-<?php include 'navbar.php' ?>
+<?php include 'navigation.php' ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,83 +10,70 @@
     </head>
     <body>
     <div class="content">
-        <br>
-        <h5> ARCHIVE</h5> 
+    <h5> ARCHIVE</h5> 
             <center>
-                <div class="volumes">
+            <div class="volumes">
                 <div class="covers">
-                    <a href="volume-view.php"><img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page"></a>
-                    <h6>Research Title </h6>
-                    <h6>Author </h6>
+                    <a href="volume-view.php"><img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page"></a>
+                    <h6>Volume No. Issue No. </h6>
                     <h6>ISSN </h6>
                 </div>
                 <div class="covers">
-                    <img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page">
-                    <h6>Research Title </h6>
-                    <h6>Author </h6>
+                    <img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page">
+                    <h6>Volume No. Issue No. </h6>
                     <h6>ISSN </h6>
                 </div>
                 <div class="covers">
-                    <img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page">
-                    <h6>Research Title </h6>
-                    <h6>Author </h6>
+                    <img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page">
+                    <h6>Volume No. Issue No. </h6>
                     <h6>ISSN </h6>
                 </div>
                 <div class="covers">
-                    <img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page">
-                    <h6>Research Title </h6>
-                    <h6>Author </h6>
+                    <img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page">
+                    <h6>Volume No. Issue No. </h6>
                     <h6>ISSN </h6>
                 </div>
                 <div class="covers">
-                    <img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page">
-                    <h6>Research Title </h6>
-                    <h6>Author </h6>
+                    <img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page">
+                    <h6>Volume No. Issue No. </h6>
                     <h6>ISSN </h6>
                 </div>
                 <div class="covers">
-                    <img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page">
-                    <h6>Research Title </h6>
-                    <h6>Author </h6>
+                    <img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page">
+                    <h6>Volume No. Issue No. </h6>
                     <h6>ISSN </h6>
                 </div>
                 <div class="covers">
-                    <img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page">
-                    <h6>Research Title </h6>
-                    <h6>Author </h6>
+                    <img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page">
+                    <h6>Volume No. Issue No. </h6>
                     <h6>ISSN </h6>
                 </div>
                 <div class="covers">
-                    <img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page">
-                    <h6>Research Title </h6>
-                    <h6>Author </h6>
+                    <img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page">
+                    <h6>Volume No. Issue No. </h6>
                     <h6>ISSN </h6>
                 </div>
                 <div class="covers">
-                    <img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page">
-                    <h6>Research Title </h6>
-                    <h6>Author </h6>
+                    <img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page">
+                    <h6>Volume No. Issue No. </h6>
                     <h6>ISSN </h6>
                 </div>
                 <div class="covers">
-                    <img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page">
-                    <h6>Research Title </h6>
-                    <h6>Author </h6>
+                    <img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page">
+                    <h6>Volume No. Issue No. </h6>
                     <h6>ISSN </h6>
                 </div>
                 <div class="covers">
-                    <img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page">
-                    <h6>Research Title </h6>
-                    <h6>Author </h6>
+                    <img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page">
+                    <h6>Volume No. Issue No. </h6>
                     <h6>ISSN </h6>
                 </div>
                 <div class="covers">
-                    <img src="css/img/covers/COVER ISSUE SAMPLE.png" class="cover-page">
-                    <h6>Research Title </h6>
-                    <h6>Author </h6>
+                    <img src="css/img/covers/The Rizalian Review Cover Page.png" class="cover-page">
+                    <h6>Volume No. Issue No. </h6>
                     <h6>ISSN </h6>
                 </div>
-                </div>
+            </div>
             </center>
 </div>
    

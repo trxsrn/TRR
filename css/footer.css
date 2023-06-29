@@ -182,6 +182,7 @@ footer p{
 
     .footer-description p{
         margin-top: 0;
+        font-size: 12px;
     }
     .footer-contacts{
         padding:0;
@@ -191,6 +192,7 @@ footer p{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
+        font-size: 12px;
     }
 
     .form-frame{
@@ -231,6 +233,7 @@ footer p{
 
     footer div p{
         padding: .75em;
+        font-family: 10px;
     }
     .logo-1,.logo-2{
         width: 50px;
