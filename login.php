@@ -1,8 +1,7 @@
 <?php
    session_start();
    include 'connection.php';
-   include 'navbar.php';
-   if(isset($_SESSION['id'])) header("location:users/reviewer/dashboard.php");
+   include 'navigation.php';
 ?>
 <!DOCTYPE html>
 <!-- Created By CodingNepal -->
@@ -16,6 +15,7 @@
       <!-- FONT AWESOME ICONS -->
       <link rel="stylesheet" href="fontawesome-library/css/all.css">
       <link rel="stylesheet" href="css/login.css">
+      <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">   
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
 
@@ -52,9 +52,11 @@
             <div class="wrapper" >
                <div class="title-text">
                   <div class="title login" >
-                  <i class="fa-duotone fa-pen-nib"></i>&nbspAuthor</div>
+                     <i class="fa-duotone fa-pen-nib"></i>&nbspAuthor
+                  </div>
                   <div class="title signup" >
-                  <i class="fa-solid fa-book-open-reader"></i>&nbspReviewer</div>
+                     <i class="fa-solid fa-book-open-reader"></i>&nbspReviewer
+                  </div>
                </div>
                <div class="form-container">
                   <div class="slide-controls">
@@ -85,7 +87,7 @@
                      </form>
                      <form action="#" class="signup" id="LoginReviewer">
                         <div class="field">
-                              <input type="text" name="Reviewer_username" placeholder="&#xf007 Username" required>
+                           <input type="text" name="Reviewer_username" placeholder="&#xf007 Username" required>
                         </div>
                         <div class="field">
                            <input type="password" name ="Reviewer_password" placeholder="&#xf023 Password" required>
@@ -113,77 +115,92 @@
          const loginForm = document.querySelector("form.login");
          const loginBtn = document.querySelector("label.login");
          const signupBtn = document.querySelector("label.signup");
-         const signupLink = document.querySelector("form .signup-link a");
-         signupBtn.onclick = (()=>{
-           loginForm.style.marginLeft = "-50%";
-           loginText.style.marginLeft = "-50%";
-         });
-         loginBtn.onclick = (()=>{
-           loginForm.style.marginLeft = "0%";
-           loginText.style.marginLeft = "0%";
-         });
-         signupLink.onclick = (()=>{
-           signupBtn.click();
-           return false;
-         });
+         const signupLink = document.querySelector("form.signup-link a");
+      
+         signupBtn.onclick = () => {
+            loginForm.style.marginLeft = "-50%";
+            loginText.style.marginLeft = "-50%";
+         };
+      
+         loginBtn.onclick = () => {
+            loginForm.style.marginLeft = "0%";
+            loginText.style.marginLeft = "0%";
+         };
+      
+         signupLink.onclick = () => {
+            // Redirect to the registration page based on the active form
+            const activeForm = document.querySelector("input[name='slide']:checked").id;
+            if (activeForm === "login") {
+               window.location.href = "register_author.php";
+            } else if (activeForm === "signup") {
+               window.location.href = "register_reviewer.php";
+            }
+            return false;
+         };
+      
+         $("#LoginReviewer").submit((e) => {
+         e.preventDefault();
+         var form = $(this);
+         var url = form.attr('action');
 
-         $("#LoginReviewer").submit( (e) => {
-            e.preventDefault();
-            var form = $("#LoginReviewer").serialize();
-            
-            $.ajax({
-               url : "ajax.php",
-               method: 'post',
-               data: form,
-               success: function(res) {
-                  alert(res);
-                  $("#LoginReviewer")[0].reset();
-                  
-               }
-            })
-         })
-
-
-         $("#LoginAuthor").submit( (e) => {
-            e.preventDefault();
-            
-            var form_login = $("#LoginAuthor").serialize();
-            $.ajax({
-               url : "login-verification.php",
-               method: 'post',
-               data: form_login,
-               success: function(res) {
-                  var data = $.parseJSON(res);
-                  if (data.status == 'success') {
-                     const Toast = Swal.mixin({
-                     toast: true,
-                     position: 'top-end',
-                     showConfirmButton: false,
-                     timer: 2000,
-                     timerProgressBar: true,
-                     didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                     }
-                     })
-                     Toast.fire({
+         $.ajax({
+            type: "POST",
+            url: "login-verification.php", // Update the URL to point to login_verification.php
+            data: form.serialize(),
+            success: function (data) {
+               if (data.status === "success") {
+                  Swal.fire({
                      icon: 'success',
-                     title: 'Signed in successfully'
-                     }).then(function () {
-                        window.location = 'users/reviewer/dashboard.php';   
-                        });
-                     
-                  }else{
-                     Swal.fire({
+                     title: 'Login Successful',
+                     text: 'Redirecting...',
+                     showConfirmButton: false,
+                     timer: 2000
+                  }).then(() => {
+                     window.location.href = "users/reviewer/dashboard.php";
+                  });
+               } else {
+                  Swal.fire({
                      icon: 'error',
-                     title: 'Invalid Input!',
-                     text: 'Username or password is incorrect',
-                     });
-                  }
+                     title: 'Invalid Username or Password',
+                     text: 'Please try again',
+                  });
                }
-            })
-         })
+            }
+         });
+      });
+
+      $("#LoginAuthor").submit((e) => {
+         e.preventDefault();
+         var form = $(this);
+         var url = form.attr('action');
+
+         $.ajax({
+            type: "POST",
+            url: "login-verification.php", // Update the URL to point to login_verification.php
+            data: form.serialize(),
+            success: function (data) {
+               if (data.status === "success") {
+                  Swal.fire({
+                     icon: 'success',
+                     title: 'Login Successful',
+                     text: 'Redirecting...',
+                     showConfirmButton: false,
+                     timer: 2000
+                  }).then(() => {
+                     window.location.href = "users/author/dashboard.php";
+                  });
+               } else {
+                  Swal.fire({
+                     icon: 'error',
+                     title: 'Invalid Username or Password',
+                     text: 'Please try again',
+                  });
+               }
+            }
+         });
+      });
+
       </script>
+      
    </body>
 </html>
-<?php include 'footer.php'; ?>
