@@ -73,7 +73,7 @@ h4{
     padding: 20px 30px 20px 30px;
 }
 
-li
+.responsibility
 {
   font-size: 16px;
   text-align: left;
@@ -150,4 +150,42 @@ li
   
   .card.flipped h3 {
     font-size: 14px;
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .publication-ethics
+    {
+      padding: 5px;
+    }
+    .short-intro h1
+    {
+      font-size: 30px;
+    }
+
+    .short-intro p
+    {
+      font-size: 16px;
+      text-align: left;
+    }
+
+    .ethics_content
+    {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .card
+    {
+      margin: 5px;
+    }
+
+    .card-content p{
+      font-size: 12px;
+    }
+
+    .responsibility_header
+    {
+      padding: 4px;
+    }
   }
