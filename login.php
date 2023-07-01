@@ -67,12 +67,13 @@
                      <div class="slider-tab"></div>
                   </div>
                   <div class="form-inner">
-                     <form action="#" class="login" id="LoginAuthor">
+                     <form action="#" class="login" id="loginForm">
+                        <input type="hidden" name="user_type" value="author"> <!-- Added user_type field -->
                         <div class="field">
-                           <input type="text" name="Author_username" placeholder="&#xf007 Username" required>
+                           <input type="text" name="username" placeholder="&#xf007 Username" required>
                         </div>
                         <div class="field">
-                           <input type="password" name ="Author_password" placeholder="&#xf023 Password" required>
+                           <input type="password" name="password" placeholder="&#xf023 Password" required>
                         </div>
                         <div class="pass-link">
                            <a href="#">Forgot password?</a>
@@ -85,12 +86,13 @@
                            Create Author Account? <a href="register_author.php">Signup now</a>
                         </div>
                      </form>
-                     <form action="#" class="signup" id="LoginReviewer">
+                     <form action="#" class="signup" id="signupForm">
+                        <input type="hidden" name="user_type" value="reviewer"> <!-- Added user_type field -->
                         <div class="field">
-                           <input type="text" name="Reviewer_username" placeholder="&#xf007 Username" required>
+                           <input type="text" name="username" placeholder="&#xf007 Username" required>
                         </div>
                         <div class="field">
-                           <input type="password" name ="Reviewer_password" placeholder="&#xf023 Password" required>
+                           <input type="password" name="password" placeholder="&#xf023 Password" required>
                         </div>
                         <div class="pass-link">
                            <a href="#">Forgot password?</a>
@@ -105,6 +107,7 @@
                      </form>
                   </div>
                </div>
+
             </div>
          </div>
       </div>
@@ -138,67 +141,50 @@
             return false;
          };
       
-         $("#LoginReviewer").submit((e) => {
-         e.preventDefault();
+   $(document).ready(function() {
+      $("#loginForm").submit(function(e) {
+         e.preventDefault(); // Prevent default form submission
+      
          var form = $(this);
-         var url = form.attr('action');
+         var url = form.attr("action");
+         var formData = form.serialize(); // Serialize form data
 
+         // Make AJAX request
          $.ajax({
             type: "POST",
-            url: "login-verification.php", // Update the URL to point to login_verification.php
-            data: form.serialize(),
-            success: function (data) {
-               if (data.status === "success") {
-                  Swal.fire({
-                     icon: 'success',
-                     title: 'Login Successful',
-                     text: 'Redirecting...',
-                     showConfirmButton: false,
-                     timer: 2000
-                  }).then(() => {
-                     window.location.href = "users/reviewer/dashboard.php";
-                  });
-               } else {
-                  Swal.fire({
-                     icon: 'error',
-                     title: 'Invalid Username or Password',
-                     text: 'Please try again',
-                  });
-               }
-            }
-         });
-      });
-
-      $("#LoginAuthor").submit((e) => {
-         e.preventDefault();
-         var form = $(this);
-         var url = form.attr('action');
-
-         $.ajax({
-            type: "POST",
-            url: "login-verification.php", // Update the URL to point to login_verification.php
-            data: form.serialize(),
-            success: function (data) {
-               if (data.status === "success") {
-                  Swal.fire({
-                     icon: 'success',
-                     title: 'Login Successful',
-                     text: 'Redirecting...',
-                     showConfirmButton: false,
-                     timer: 2000
-                  }).then(() => {
+            url: url,
+            data: formData,
+            success: function(response) {
+               // Handle the response here
+               if (response.status === "success") {
+                  // If login is successful, redirect to the appropriate dashboard page
+                  if (response.user_type === "author") {
                      window.location.href = "users/author/dashboard.php";
-                  });
+                  } else if (response.user_type === "reviewer") {
+                     window.location.href = "users/reviewer/dashboard.php";
+                  }
                } else {
+                  // If login fails, display an error message
                   Swal.fire({
-                     icon: 'error',
-                     title: 'Invalid Username or Password',
-                     text: 'Please try again',
+                     icon: "error",
+                     title: "Invalid Input!",
+                     text: "Username or password is incorrect",
                   });
                }
+            },
+            error: function() {
+               // Handle the error here
+               Swal.fire({
+                  icon: "error",
+                  title: "Error!",
+                  text: "An error occurred during login. Please try again.",
+               });
             }
          });
       });
+   });
+
+
 
       </script>
       

@@ -1,9 +1,7 @@
 <?php 
 
-include 'navbar.php';
+include 'navigation.php';
 include 'connection.php';
-
-
 
 ?>
 
@@ -21,12 +19,10 @@ include 'connection.php';
             });
         });
         </script>
-
-
     </head>
     <body>
         <div class="card">
-            <div class="headerh1"> <h1> ANNOUNCEMENT </h1></div>
+            <div class="header"> <h1> ANNOUNCEMENT </h1></div>
             <?php
             $sql = mysqli_select_db($conn, 'trr');
             $query = mysqli_query($conn, "SELECT * FROM announcements ORDER BY id DESC LIMIT 1");
@@ -54,12 +50,12 @@ include 'connection.php';
 
 
         </div>
-        <!-- <div class="past-announce">
+        <div class="past-announce">
             <h2 class="sub-title"> Past Announcements </h3>
                 <div class="placeholder">
                 
                 </div>
-        </div> -->
+        </div>
     </body>
 </html>
 <?php include 'footer.php' ?>
