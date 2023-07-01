@@ -6,37 +6,65 @@ body {
     background-attachment: fixed;
 }
 
-.headerh1
+.topic
+{
+    margin: 5% 10%;
+    background-color: #004add;
+    padding: 30px;
+    min-height: 350px;
+}
+
+.topic h1
 {
     border-bottom: 10px solid #ffc001;
     bottom: 2em;
     width: 100%;
     text-align: center;
     color: white;
-    font-size: x-large;
+    font-size: x30px;
 }
 
 .card {
-    margin: 5% 10%;
-    background-color: #004add;
-    padding: 20px;
-    min-height: 350px;
+  
     display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .card img {
-    max-width: 100%;
-    height: auto;
+    min-width: 300px;
+    min-height: 300px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.card p {
+.announce_details
+{
+    width: auto;
+    padding: 20px;
+}
+
+.subject-heading
+{
+    font-size: 30px;
+    color: #ffc001;
+    margin: 10px 0 20px 0;
+    font-weight: bold;
+}
+
+.announcement-body
+{
+
+    text-align: left;
     color: white;
-    text-align: center;
-    font-size: 16px;
+}
+
+.timestamp-date
+{
+    text-align: right;
+    padding: 20px 0 0 0;
+    color: white;
+}
+
+.card  {
     margin-bottom: 10px;
 }
 
@@ -49,4 +77,43 @@ body {
     object-fit: contain;
     z-index: 9999;
     background: rgba(0, 0, 0, 0.5);
+}
+
+.past-announce 
+{
+    background-color: rgba(255, 255, 255, 0.811);
+    border-top: 5px solid #ffc001;
+    padding: 20px;
+}
+
+.past-announcement
+{
+    display: flex;
+    margin: 10px;
+}
+
+.past-announcement img
+{
+    max-height: 550px;
+    max-width: 550px;
+    min-height: auto;
+    min-width: none;
+}
+
+.past-subject-heading
+{
+    color: #004add;
+    padding: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.past-timestamp-date
+{
+    padding: 10px 0 0 0;
+    font-weight: bold;
+}
+
+@media (max-width: 400px) {
+
+
 }
