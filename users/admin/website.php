@@ -87,42 +87,40 @@ include 'connection.php';
                     <tr>
                         <th>SUBJECT</th>
                         <th>DESCRIPTION</th>
-                        <th>ATTACHMENT</th>
                         <th>Date Posted</th>
+                        <th>Action</th>
                     </tr>
                     <tbody>
-                                    <?php
-                                    mysqli_select_db($conn,'trr');
-                                    $sql = mysqli_query($conn, "SELECT * FROM announcements ORDER BY posted_timestamp DESC ");
-                                    if (! $sql)
-                                    {
-                                        echo "<p> No available announcement. </p>";
-                                    }
-                                    while ($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) //displays the list of the employees fetched from the database
-                                    {
-                                        $timestamp = $row['posted_timestamp'];
-                                        $formattedTimestamp = date('F j, Y', strtotime($timestamp));
-                                        if ($row == 0)
-                                        {
-                                            echo "<p> No available announcement. </p>";
-                                        }
-                                        else
-                                        {
-                                            //additional - call for pop up windows that shows full announcement
-                                            echo "<tr><td>" . $row['subject']. "</a></td>
-                                            <td>" . $row['announcement'] . "</td>
-                                            <td>" . $row['attachment'] . "</td>
-                                            <td>"  . $formattedTimestamp . "</td>";
-                                            echo '</tr>';	
-                                        }	  		
-                                    }
+                        <?php
+                        mysqli_select_db($conn, 'trr');
+                        $sql = mysqli_query($conn, "SELECT * FROM announcements ORDER BY posted_timestamp DESC ");
+                        if (!$sql) {
+                            echo "<p> No available announcement. </p>";
+                        }
+                        while ($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) {
+                            $timestamp = $row['posted_timestamp'];
+                            $formattedTimestamp = date('F j, Y', strtotime($timestamp));
+                            if ($row == 0) {
+                                echo "<p> No available announcement. </p>";
+                            } else {
+                                //additional - call for pop up windows that shows full announcement
+                                $limitedDescription = substr($row['announcement'], 0, 200); // Change '100' to the desired character limit
+                                $description = strlen($row['announcement']) > 200 ? $limitedDescription . '...' : $limitedDescription;
+                                echo "<tr><td>" . $row['subject'] . "</a></td>
+                                    <td>" . $description . "</td>
+                                    <td>" . $formattedTimestamp . "</td>
+                                    <td>" . $formattedTimestamp . "</td>";
+                                echo '</tr>';
+                            }
+                        }
 
-                                    mysqli_free_result($sql);
-                                    echo "</table>";
-                                    
-                                    ?>
+                        mysqli_free_result($sql);
+                        echo "</table>";
+                        ?>
                     </tbody>
                 </table>
+
+
             </div>
             <div class="announcement-form" id="announcement-form">
                 <div class="announcement-details">
