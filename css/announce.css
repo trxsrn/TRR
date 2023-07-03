@@ -21,8 +21,9 @@ body {
     width: 100%;
     text-align: center;
     color: white;
-    font-size: x30px;
+    font-size: 30px;
 }
+
 
 .card {
   
@@ -70,11 +71,11 @@ body {
 
 .enlarged-image {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    top: 10%;
+    left: 35%;
+    width: 30%;
+    height: 30%;
+    object-fit: cover;
     z-index: 9999;
     background: rgba(0, 0, 0, 0.5);
 }
@@ -115,5 +116,106 @@ body {
 
 @media (max-width: 400px) {
 
+    .topic 
+    {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
+    .topic h1
+    {
+        font-size: 16px;
+        border-bottom: 5px solid #ffc001;
+    }
+
+    .announce_details
+    {
+    width: auto;
+    padding: 5px;
+    }
+
+    .card
+    {
+        display: block;
+    }
+
+    .card img
+    {
+        min-height: 100px;
+        min-width: 100px;
+    }
+    
+    .subject-heading
+    {
+        font-size: 16px;
+    }
+
+    .announcement-body
+    {
+        font-size: 14px;
+    }
+
+    .timestamp-date
+    {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .past-subject-heading, .past-announcement, .past-timestamp-date
+    {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .topic 
+    {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .topic h1
+    {
+        font-size: 16px;
+        border-bottom: 5px solid #ffc001;
+    }
+
+    .announce_details
+    {
+    width: auto;
+    padding: 5px;
+    }
+
+    .card
+    {
+        display: block;
+    }
+
+    .card img
+    {
+        min-height: 100px;
+        min-width: 100px;
+    }
+    
+    .subject-heading
+    {
+        font-size: 16px;
+    }
+
+    .announcement-body
+    {
+        font-size: 14px;
+    }
+
+    .timestamp-date
+    {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .past-subject-heading, .past-announcement, .past-timestamp-date
+    {
+        font-size: 12px;
+    }
 }
