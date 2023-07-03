@@ -82,7 +82,7 @@ img {vertical-align: middle;}
   height: auto;
   padding: 20px;
   background-color: #265a99a3;
-
+  display: flex;
 }
 
 .cover-page
@@ -99,6 +99,7 @@ img {vertical-align: middle;}
   background-color: #ffc001 ;
   color: white;
   padding: 10px;
+  margin: 10px;
 }
 
 .current-sub
@@ -294,4 +295,28 @@ p
 
 }
 
+@media (max-width: 768px) {
 
+  .cover-page
+  {
+    height: 300px;
+    width: 200px;
+  }
+
+  .current-title
+  {
+    font-size: 16px;
+    margin: 10px;
+  }
+
+  .current-sub
+  {
+    font-size: 16px;
+  }
+
+  .current-link
+  {
+    font-size: 16px;
+  }
+
+}
