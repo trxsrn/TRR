@@ -470,10 +470,12 @@ include 'navigation.php' ?>
 					<div class="input_wrap">
 						<label for="company">Email</label>
 						<input type="email" name="email" class="input" id="eemail" required>
+						<div id="emailValidation"></div>
 					</div>
 					<div class="input_wrap">
 						<label for="experience">Username</label>
 						<input type="text" name="username" class="input" id="username" required>
+						<div id="usernameValidation"></div>
 					</div>
 					<div class="input_wrap">
 						<label for="password">Password</label>
@@ -551,6 +553,45 @@ include 'navigation.php' ?>
 <script src="js/password_validation.js"></script>
 <script src="js/select.js"></script>
 <script src="js/displayValue.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Check username availability
+    $('#username').on('keyup', function() {
+        var username = $(this).val();
+        $.ajax({
+            type: 'POST',
+            url: 'php/check_username.php',
+            data: {username: username},
+            success: function(response) {
+                if (response === 'taken') {
+                    $('#usernameValidation').html('<p class="error">Username already exists.</p>');
+                } else {
+                    $('#usernameValidation').html('');
+                }
+            }
+        });
+    });
+    
+    // Check email availability
+    $('#eemail').on('keyup', function() {
+        var email = $(this).val();
+        $.ajax({
+            type: 'POST',
+            url: 'php/check_email.php',
+            data: {email: email},
+            success: function(response) {
+                if (response === 'taken') {
+                    $('#emailValidation').html('<p class="error">Email is already registered.</p>');
+                } else {
+                    $('#emailValidation').html('');
+                }
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>
 
