@@ -12,6 +12,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- JS JQUERY -->
       <script src="js/jquery-3.6.3.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <!-- FONT AWESOME ICONS -->
       <link rel="stylesheet" href="fontawesome-library/css/all.css">
       <link rel="stylesheet" href="css/login.css">
@@ -67,7 +68,7 @@
                      <div class="slider-tab"></div>
                   </div>
                   <div class="form-inner">
-                     <form action="#" class="login" id="loginForm">
+                     <form action="login-verification.php" class="login" id="loginForm">
                         <input type="hidden" name="user_type" value="author"> <!-- Added user_type field -->
                         <div class="field">
                            <input type="text" name="username" placeholder="&#xf007 Username" required>
@@ -86,7 +87,7 @@
                            Create Author Account? <a href="register_author.php">Signup now</a>
                         </div>
                      </form>
-                     <form action="#" class="signup" id="signupForm">
+                     <form action="login-verification.php" class="signup" id="signupForm">
                         <input type="hidden" name="user_type" value="reviewer"> <!-- Added user_type field -->
                         <div class="field">
                            <input type="text" name="username" placeholder="&#xf007 Username" required>
@@ -112,7 +113,6 @@
          </div>
       </div>
       
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script>
          const loginText = document.querySelector(".title-text .login");
          const loginForm = document.querySelector("form.login");
@@ -141,51 +141,6 @@
             return false;
          };
       
-   $(document).ready(function() {
-      $("#loginForm").submit(function(e) {
-         e.preventDefault(); // Prevent default form submission
-      
-         var form = $(this);
-         var url = form.attr("action");
-         var formData = form.serialize(); // Serialize form data
-
-         // Make AJAX request
-         $.ajax({
-            type: "POST",
-            url: url,
-            data: formData,
-            success: function(response) {
-               // Handle the response here
-               if (response.status === "success") {
-                  // If login is successful, redirect to the appropriate dashboard page
-                  if (response.user_type === "author") {
-                     window.location.href = "users/author/dashboard.php";
-                  } else if (response.user_type === "reviewer") {
-                     window.location.href = "users/reviewer/dashboard.php";
-                  }
-               } else {
-                  // If login fails, display an error message
-                  Swal.fire({
-                     icon: "error",
-                     title: "Invalid Input!",
-                     text: "Username or password is incorrect",
-                  });
-               }
-            },
-            error: function() {
-               // Handle the error here
-               Swal.fire({
-                  icon: "error",
-                  title: "Error!",
-                  text: "An error occurred during login. Please try again.",
-               });
-            }
-         });
-      });
-   });
-
-
-
       </script>
       
    </body>
