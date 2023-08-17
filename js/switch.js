@@ -23,4 +23,3 @@ signupLink.onclick = () => {
   }
   return false;
 };
-
